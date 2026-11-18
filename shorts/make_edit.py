@@ -16,6 +16,11 @@ Job keys (segment times are seconds of the SOURCE, text times are seconds of the
   fg_h, fg_y         footage height and its top edge in the 1080x1920 frame, default 1240 and 340
   title, title_sub   plaque on the top edge of the footage, *word* gets the accent colour
   texts              [{"text": "WAIT FOR IT...", "start": 0, "end": 2.5, "y": 1440, "size": 72}]
+  captions           word by word captions from a words file (source times, as moments.py or
+                     faster-whisper give them): {"words": "f1.words.json", "y": 1300,
+                     "fixes": {"free": "freak"}, "drop": [[3.6, 4.25]], "bleep": [[18.1, 18.5]]};
+                     drop removes misheard words, bleep mutes the audio with a beep and masks the word
+  delogo             [x, y, w, h] in source pixels: paint over a stream overlay (chat, facecam)
   grade              a little more contrast, colour and sharpness, default true
 """
 import argparse
@@ -24,7 +29,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from make_short import H, W, probe, render_title, sh  # noqa: E402
+from make_short import H, W, build_ass, probe, render_title, sh  # noqa: E402
 
 SR = 48000
 
@@ -88,17 +93,22 @@ def build(job_path):
     segs = job["segments"]
     n = len(segs)
 
+    dl = job.get("delogo")
+    delogo = f"delogo=x={dl[0]}:y={dl[1]}:w={dl[2]}:h={dl[3]}," if dl else ""
     seg_inputs, vparts, aparts, booms, whooshes, t = [], [], [], [], [], 0.0
+    segmap = []
     for i, s in enumerate(segs):
         a, b = float(s["start"]), float(s["end"])
         sp, z = float(s.get("speed", 1.0)), float(s.get("zoom", 1.0))
+        segmap.append((a, b, sp, t))
         seg_inputs += ["-ss", f"{a:.3f}", "-t", f"{b - a:.3f}", "-i", src]
         cw, ch, cx, cy = crop_box(sw, sh_, fg_h, s.get("x", 0.5), s.get("y", 0.5), z)
         xexpr = str(cx)
         if s.get("x_end") is not None:  # smooth pan to follow a subject that drifts sideways
             cx2 = crop_box(sw, sh_, fg_h, s["x_end"], s.get("y", 0.5), z)[2]
             xexpr = f"'{cx}+({cx2}-{cx})*(0.5-0.5*cos(PI*min(t/{b - a:.3f},1)))'"
-        v = f"[{i}:v]setpts=PTS-STARTPTS,crop={cw}:{ch}:{xexpr}:{cy},scale={W}:{fg_h}:flags=lanczos,setsar=1"
+        v = (f"[{i}:v]setpts=PTS-STARTPTS,{delogo}crop={cw}:{ch}:{xexpr}:{cy},"
+             f"scale={W}:{fg_h}:flags=lanczos,setsar=1")
         if sp != 1:
             v += f",setpts=PTS/{sp}"
         vparts.append(v + f",fps={fps}[v{i}]")
@@ -115,10 +125,30 @@ def build(job_path):
         t += (b - a) / sp
     dur = round(t, 3)
 
-    # pass 1: audio with sound effects, then measure loudness
+    def to_out(ts, te):
+        """Map a source time range onto the output timeline, one piece per segment it touches."""
+        for a, b, sp, t0 in segmap:
+            lo, hi = max(ts, a), min(te, b)
+            if lo < hi:
+                yield t0 + (lo - a) / sp, t0 + (hi - a) / sp
+
+    cap = job.get("captions") or {}
+    bleeps = [r for b0, b1 in cap.get("bleep", []) for r in to_out(b0, b1)]
+
+    # pass 1: audio with sound effects and bleeps, then measure loudness
     boom_wav, whoosh_wav = make_sfx(out.parent)
-    ag = aparts + ["".join(f"[a{i}]" for i in range(n)) + f"concat=n={n}:v=0:a=1[amain]"]
+    ag = aparts + ["".join(f"[a{i}]" for i in range(n)) + f"concat=n={n}:v=0:a=1[amain0]"]
+    if bleeps:
+        en = "+".join(f"between(t,{o0:.3f},{o1:.3f})" for o0, o1 in bleeps)
+        ag.append(f"[amain0]volume=volume=0:enable='{en}'[amain]")
+    else:
+        ag.append("[amain0]anull[amain]")
     mix = ["[amain]"]
+    for k, (o0, o1) in enumerate(bleeps):
+        ms = int(o0 * 1000)
+        ag.append(f"sine=f=1000:r={SR}:d={o1 - o0:.3f},volume=0.25,aformat=channel_layouts=stereo,"
+                  f"adelay={ms}|{ms}[bp{k}]")
+        mix.append(f"[bp{k}]")
     for k, (wav_idx, times, tag) in enumerate([(n, booms, "b"), (n + 1, whooshes, "w")]):
         if times:
             ag.append(f"[{wav_idx}:a]asplit={len(times)}" + "".join(f"[{tag}{j}s]" for j in range(len(times))))
@@ -156,6 +186,21 @@ def build(job_path):
         build_texts(job["texts"], ass)
         vg.append(f"[{last}]ass={ass}:fontsdir=/usr/share/fonts[c3]")
         last = "c3"
+    if cap:
+        words = []
+        for w in json.loads(Path(cap["words"]).read_text()):
+            if any(d0 <= w["s"] < d1 for d0, d1 in cap.get("drop", [])):
+                continue
+            for a, b, sp, t0 in segmap:
+                if a <= w["s"] < b:
+                    masked = any(b0 <= w["s"] < b1 for b0, b1 in cap.get("bleep", []))
+                    words.append({"w": "****" if masked else w["w"], "s": t0 + (w["s"] - a) / sp,
+                                  "e": t0 + (min(w["e"], b) - a) / sp})
+                    break
+        ass = Path(str(work) + ".captions.ass")
+        build_ass(words, ass, int(cap.get("y", fg_y + fg_h - 140)), cap.get("fixes", {}))
+        vg.append(f"[{last}]ass={ass}:fontsdir=/usr/share/fonts[c4]")
+        last = "c4"
     vg.append(f"[{n}:a]{loud}[afin]")
     sh(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", *seg_inputs, *extra,
         "-filter_complex", ";".join(vg), "-map", f"[{last}]", "-map", "[afin]", "-t", dur, "-r", fps,

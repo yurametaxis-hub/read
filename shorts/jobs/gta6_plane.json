@@ -1,0 +1,69 @@
+{
+ "source": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/4ef0c96b-___.mkv",
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/batch4/out/gta6_plane.mp4",
+ "fg_h": 960,
+ "fg_y": 480,
+ "title": "First time flying a plane in *GTA 6* 😭✈️",
+ "segments": [
+  {
+   "start": 97.0,
+   "end": 103.0,
+   "x": 0.55,
+   "y": 0.444,
+   "zoom": 1.125,
+   "speed": 1.5
+  },
+  {
+   "start": 112.5,
+   "end": 119.5,
+   "x": 0.55,
+   "y": 0.444,
+   "zoom": 1.125,
+   "whoosh": true
+  },
+  {
+   "start": 119.5,
+   "end": 140.9,
+   "x": 0.55,
+   "y": 0.444,
+   "zoom": 1.125
+  }
+ ],
+ "texts": [
+  {
+   "text": "ENGINE DAMAGE?",
+   "start": 6.26,
+   "end": 7.5,
+   "y": 1310,
+   "size": 70
+  },
+  {
+   "text": "THE PLANE RUDDER?",
+   "start": 12.38,
+   "end": 13.8,
+   "y": 1310,
+   "size": 70
+  },
+  {
+   "text": "LIKE THIS?",
+   "start": 25.28,
+   "end": 26.3,
+   "y": 1310,
+   "size": 76
+  },
+  {
+   "text": "OH MY GOD!",
+   "start": 26.8,
+   "end": 28.2,
+   "y": 1310,
+   "size": 76
+  },
+  {
+   "text": "WE NEED SOME\\NALTITUDE, SON!",
+   "start": 28.66,
+   "end": 31.3,
+   "y": 1290,
+   "size": 70
+  }
+ ]
+}
