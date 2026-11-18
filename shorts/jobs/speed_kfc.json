@@ -1,0 +1,11 @@
+{
+  "source": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/bae0e63f-videoplayback.mp4",
+  "start": 114.3,
+  "end": 146.8,
+  "top": [0, 105, 270, 240],
+  "bottom": [255, 20, 300, 267],
+  "title": "Speed found *KFC* in GTA 6 🍗😭",
+  "fixes": {"Lucien": "Lucia"},
+  "punch": [[115.0, 116.6], [132.8, 134.6], [138.2, 139.8]],
+  "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/speed/out/speed_kfc.mp4"
+}
