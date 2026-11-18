@@ -1,0 +1,14 @@
+{
+  "source": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/5462d642-w.mkv",
+  "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/release/out/gta6_gps.mp4",
+  "title": "GTA 6 GPS said *turn left* 💀",
+  "segments": [
+    {"start": 13.4, "end": 17.0, "x": 0.45},
+    {"start": 32.6, "end": 33.9, "x": 0.103, "y": 0.79, "zoom": 2.37, "whoosh": true},
+    {"start": 33.9, "end": 36.7, "x": 0.5, "whoosh": true},
+    {"start": 36.7, "end": 37.3, "x": 0.45, "speed": 0.5, "zoom": 1.1, "boom": 36.85},
+    {"start": 37.3, "end": 40.3, "x": 0.5},
+    {"start": 44.6, "end": 47.3, "x": 0.5}
+  ],
+  "texts": [{"text": "RECALCULATING...", "start": 11.9, "end": 14.6, "size": 70}]
+}
