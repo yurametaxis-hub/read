@@ -1,0 +1,7 @@
+{"out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/covers/out/cover_concept_montage.png",
+ "panels": [{"src": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/0493fa70-GTA_6_Gameplay_-_Lucia_And_Jason_Free_Roam___Concept_Gameplay.mkv", "t": 49.4, "crop": [375, 0, 531, 708], "dest": [0, 240, 540, 720]},
+            {"src": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/0493fa70-GTA_6_Gameplay_-_Lucia_And_Jason_Free_Roam___Concept_Gameplay.mkv", "t": 18.6, "crop": [635, 0, 531, 708], "dest": [540, 240, 540, 720]},
+            {"src": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/0493fa70-GTA_6_Gameplay_-_Lucia_And_Jason_Free_Roam___Concept_Gameplay.mkv", "t": 10.5, "crop": [374, 0, 531, 708], "dest": [0, 960, 540, 720]},
+            {"src": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/0493fa70-GTA_6_Gameplay_-_Lucia_And_Jason_Free_Roam___Concept_Gameplay.mkv", "t": 71.15, "crop": [575, 0, 531, 708], "dest": [540, 960, 540, 720]}],
+ "text": [{"html": "FANS MADE|GTA 6 😭", "y": 960, "size": 150}],
+ "tag": "GTA 6 FAN CONCEPT"}
