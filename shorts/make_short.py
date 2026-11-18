@@ -139,9 +139,15 @@ def build_ass(words, path, y, fixes):
     subs.save(str(path))
 
 
-def render_title(text, out, accent):
-    esc = re.sub(r"\*(.+?)\*", r"<b>\1</b>", html.escape(text))
-    sh(["node", HERE / "render_title.js", out, json.dumps({"html": esc, "accent": accent})])
+def render_title(text, out, accent, sub=None, size=None):
+    # keep emoji on the same line as the word before them
+    text = re.sub(r" (?=[\U0001F300-\U0001FAFF☀-➿])", " ", text)
+    opts = {"html": re.sub(r"\*(.+?)\*", r"<b>\1</b>", html.escape(text)), "accent": accent}
+    if sub:
+        opts["sub"] = html.escape(sub)
+    if size:
+        opts["size"] = size
+    sh(["node", HERE / "render_title.js", out, json.dumps(opts)])
 
 
 def loudnorm_filter(src, start, dur):

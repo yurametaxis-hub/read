@@ -1,0 +1,13 @@
+{
+  "source": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/0493fa70-GTA_6_Gameplay_-_Lucia_And_Jason_Free_Roam___Concept_Gameplay.mkv",
+  "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/concept/out/concept_fight.mp4",
+  "title": "Jason did *NOT* hold back 💀",
+  "title_sub": "GTA 6 fan concept",
+  "segments": [
+    {"start": 55.3, "end": 60.9, "x": 0.5},
+    {"start": 65.0, "end": 70.8, "x": 0.5, "whoosh": true},
+    {"start": 70.8, "end": 71.8, "x": 0.48, "speed": 0.5, "zoom": 1.15, "boom": 71.1},
+    {"start": 71.8, "end": 74.6, "x": 0.58}
+  ],
+  "texts": [{"text": "WAIT FOR IT...", "start": 0.3, "end": 2.8}]
+}

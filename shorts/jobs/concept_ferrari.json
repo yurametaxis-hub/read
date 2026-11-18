@@ -1,0 +1,35 @@
+{
+  "source": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/0493fa70-GTA_6_Gameplay_-_Lucia_And_Jason_Free_Roam___Concept_Gameplay.mkv",
+  "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/concept/out/concept_ferrari.mp4",
+  "title": "Vice City at night hits *different* 🌃",
+  "title_sub": "GTA 6 fan concept",
+  "segments": [
+    {
+      "start": 35.2,
+      "end": 37.6,
+      "x": 0.5
+    },
+    {
+      "start": 37.6,
+      "end": 39.6,
+      "x": 0.5,
+      "x_end": 0.24
+    },
+    {
+      "start": 39.6,
+      "end": 41.4,
+      "x": 0.24,
+      "x_end": 0.45
+    },
+    {
+      "start": 43.0,
+      "end": 44.9,
+      "x": 0.5
+    },
+    {
+      "start": 46.4,
+      "end": 52.8,
+      "x": 0.5
+    }
+  ]
+}

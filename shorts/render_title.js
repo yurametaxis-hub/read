@@ -15,10 +15,12 @@ const { chromium } = require('playwright');
       background: ${o.bg || '#ffffff'}; color: ${o.color || '#000000'};
       font-family: '${o.font || 'Montserrat'}', 'Noto Color Emoji', sans-serif;
       font-weight: ${o.weight || 800}; font-size: ${o.size || 50}px; line-height: 1.18;
-      text-align: center; box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
+      text-align: center; text-wrap: balance; box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
     }
     #p b { color: ${o.accent || '#e0262f'}; font-weight: inherit; }
-  </style><div id="wrap"><div id="p">${o.html}</div></div>`;
+    #p .sub { display: block; margin-top: 4px; font-size: .5em; font-weight: 700; color: #6b6b6b;
+              letter-spacing: .04em; text-transform: uppercase; }
+  </style><div id="wrap"><div id="p">${o.html}${o.sub ? `<span class="sub">${o.sub}</span>` : ''}</div></div>`;
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1080, height: 800 } });
   await page.setContent(page_html);

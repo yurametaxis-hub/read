@@ -28,6 +28,20 @@ Chromium і Playwright для плашки є в базовому образі.
    або прямо у файлі `OUT.words.json`, після чого збірку треба запустити ще раз.
 7. Віддати файл користувачу і написати опис і хештеги, як нижче.
 
+## Відео без камери стрімера: геймплей, трейлери, фанатські концепти
+
+`make_edit.py` робить інший макет. Кадр обрізається по вертикалі до 1080x1240 і стоїть посередині,
+зверху і знизу розмита копія, плашка лежить на верхньому краї кадру. Сегменти йдуть у заданому порядку,
+кожному можна задати центр кадру `x`, плавну панораму `x_end`, зум, сповільнення `speed` і глухий удар
+`boom` на секунді влучання, а `whoosh` дає шелест на склейці. Короткі написи на кшталт WAIT FOR IT
+задаються в `texts`. Приклади: `jobs/concept_*.json`, зроблені з фанатського концепту GTA 6.
+
+Порядок роботи той самий: подивитися кадри (контактні аркуші з рамкою 48 відсотків ширини показують,
+що потрапить у вертикальний кадр), записати сегменти, зібрати, перевірити кадри.
+
+Концепти й фанатські ролики підписуються як fan concept у плашці і в описі. Видавати їх за справжній
+геймплей не варто: після релізу це одразу видно, і в коментарях, і в скаргах.
+
 ## Що враховано в оформленні
 
 Плашка тримається в межах 900 px по ширині, субтитри за замовчуванням стоять на висоті
@@ -55,4 +69,18 @@ Description: IShowSpeed spots KFC in the GTA 6 trailer, then decides one of the 
 #ishowspeed #gta6 #gta6trailer #speed #shorts
 Tags: ishowspeed, speed, gta 6, gta vi, gta 6 trailer, ishowspeed gta 6, speed reacts, gta 6 reaction, kfc, keanu reeves
 Pinned comment: Would you play GTA 6 just to eat at KFC? 🍗
+```
+
+Приклад для фанатського концепту (`concept_montage`):
+
+```
+TikTok
+Fans couldn't wait for GTA 6 so they made their own 😭 #gta6 #gtavi #gta6concept #gaming #rockstargames
+
+YouTube Shorts
+Title: Fans couldn't wait for GTA 6 so they made their own 😭 #gta6 #shorts
+Description: Fan made GTA 6 concept, not official gameplay. Bike trail, Lucia with a python, Vice City at night and a park fight.
+#gta6 #gtavi #gta6concept #gaming #shorts
+Tags: gta 6, gta vi, gta 6 concept, gta 6 fan made, gta 6 gameplay concept, lucia, jason, vice city
+Pinned comment: Will the real GTA 6 look better than this? 👀
 ```

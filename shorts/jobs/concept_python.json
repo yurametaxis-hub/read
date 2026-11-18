@@ -1,0 +1,12 @@
+{
+  "source": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/0493fa70-GTA_6_Gameplay_-_Lucia_And_Jason_Free_Roam___Concept_Gameplay.mkv",
+  "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/concept/out/concept_python.mp4",
+  "title": "Lucia's new pet is a *python* 🐍",
+  "title_sub": "GTA 6 fan concept",
+  "segments": [
+    {"start": 17.0, "end": 21.3, "x": 0.47},
+    {"start": 21.8, "end": 24.9, "x": 0.45, "whoosh": true},
+    {"start": 31.3, "end": 34.6, "x": 0.55, "whoosh": true}
+  ],
+  "texts": [{"text": "WOULD YOU HOLD IT?", "start": 7.4, "end": 10.7, "size": 64}]
+}

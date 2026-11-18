@@ -1,0 +1,50 @@
+{
+  "source": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/0493fa70-GTA_6_Gameplay_-_Lucia_And_Jason_Free_Roam___Concept_Gameplay.mkv",
+  "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/concept/out/concept_montage.mp4",
+  "title": "Fans couldn't wait for GTA 6 so they made their *own* 😭",
+  "segments": [
+    {
+      "start": 46.4,
+      "end": 48.8,
+      "x": 0.5
+    },
+    {
+      "start": 17.2,
+      "end": 19.6,
+      "x": 0.47,
+      "whoosh": true
+    },
+    {
+      "start": 9.4,
+      "end": 11.8,
+      "x": 0.47,
+      "whoosh": true
+    },
+    {
+      "start": 37.6,
+      "end": 39.6,
+      "x": 0.5,
+      "x_end": 0.24,
+      "whoosh": true
+    },
+    {
+      "start": 69.4,
+      "end": 70.8,
+      "x": 0.5,
+      "whoosh": true
+    },
+    {
+      "start": 70.8,
+      "end": 71.8,
+      "x": 0.48,
+      "speed": 0.5,
+      "zoom": 1.15,
+      "boom": 71.1
+    },
+    {
+      "start": 71.8,
+      "end": 73.6,
+      "x": 0.58
+    }
+  ]
+}
