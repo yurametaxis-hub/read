@@ -1,5 +1,5 @@
 {
- "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/longform/out/gta5_better_than_gta6.mp4",
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/longform/out/gta5_better_than_gta6_v2.mp4",
  "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/longform/work",
  "voice": "am_fenrir",
  "speed": 0.95,
@@ -7,25 +7,219 @@
  "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
  "sources": {
   "c1": {
-   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/c4d04f28-1.mkv"
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/c4d04f28-1.mkv",
+   "scenes": [
+    [
+     0,
+     6.0,
+     "split"
+    ]
+   ]
   },
   "c2": {
-   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/647f8765-2.mkv"
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/647f8765-2.mkv",
+   "scenes": [
+    [
+     0,
+     24.0,
+     "split"
+    ]
+   ]
   },
   "c3": {
-   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/cb4668c6-3.mkv"
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/cb4668c6-3.mkv",
+   "scenes": [
+    [
+     0,
+     12.0,
+     "split"
+    ]
+   ]
   },
   "c4": {
-   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/65f2afac-4.mkv"
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/65f2afac-4.mkv",
+   "scenes": [
+    [
+     0,
+     6.6,
+     "split"
+    ],
+    [
+     7.7,
+     20.25,
+     "GTA 5"
+    ],
+    [
+     20.35,
+     33.9,
+     "GTA 6"
+    ]
+   ]
   },
   "c5": {
-   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/4bf24d0e-5.mkv"
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/4bf24d0e-5.mkv",
+   "scenes": [
+    [
+     0,
+     20.7,
+     "GTA 5"
+    ],
+    [
+     20.85,
+     41.4,
+     "GTA 6"
+    ]
+   ]
+  },
+  "c7": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/d1349b1f-7.mkv",
+   "scenes": [
+    [
+     0,
+     4.5,
+     "split"
+    ],
+    [
+     5.7,
+     16.25,
+     "GTA 5"
+    ],
+    [
+     16.35,
+     30.2,
+     "GTA 6"
+    ],
+    [
+     31.3,
+     44.55,
+     "GTA 5"
+    ],
+    [
+     44.65,
+     54.6,
+     "GTA 6"
+    ],
+    [
+     55.8,
+     58.3,
+     "GTA 5"
+    ]
+   ]
+  },
+  "c8": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/e935d9ef-8.mkv",
+   "scenes": [
+    [
+     0,
+     19.75,
+     "GTA 5"
+    ],
+    [
+     19.85,
+     42.0,
+     "GTA 6"
+    ],
+    [
+     43.2,
+     46.9,
+     "GTA 5"
+    ]
+   ]
+  },
+  "c9": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/bb1f6490-9.mkv",
+   "scenes": [
+    [
+     0,
+     14.85,
+     "GTA 5"
+    ],
+    [
+     14.95,
+     34.3,
+     "GTA 6"
+    ],
+    [
+     35.5,
+     65.1,
+     "GTA 5"
+    ]
+   ]
+  },
+  "c10": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/f6ce6b2c-10.mkv",
+   "scenes": [
+    [
+     0,
+     4.35,
+     "GTA 5"
+    ],
+    [
+     4.45,
+     21.8,
+     "GTA 6"
+    ],
+    [
+     23.0,
+     39.75,
+     "GTA 5"
+    ],
+    [
+     39.85,
+     49.2,
+     "GTA 6"
+    ],
+    [
+     50.4,
+     61.55,
+     "GTA 5"
+    ],
+    [
+     61.65,
+     63.6,
+     "GTA 6"
+    ]
+   ]
+  },
+  "c11": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/9e6094d9-11.mkv",
+   "scenes": [
+    [
+     0,
+     11.1,
+     "GTA 6"
+    ],
+    [
+     12.3,
+     41.85,
+     "GTA 5"
+    ],
+    [
+     41.95,
+     71.9,
+     "GTA 6"
+    ]
+   ]
   },
   "A": {
-   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/a20a5ca3-GTA_6_Open_World_Police_Chase_Gameplay___Chaos_in_the_Leonida_Keys___INSANE_Police_Chase_on_PS5_Pro.mkv"
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/a20a5ca3-GTA_6_Open_World_Police_Chase_Gameplay___Chaos_in_the_Leonida_Keys___INSANE_Police_Chase_on_PS5_Pro.mkv",
+   "scenes": [
+    [
+     0,
+     41.35,
+     "GTA 6"
+    ]
+   ]
   },
   "B": {
-   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/5462d642-w.mkv"
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/5462d642-w.mkv",
+   "scenes": [
+    [
+     0,
+     52.75,
+     "GTA 6"
+    ]
+   ]
   },
   "F1": {
    "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/1537e350-__.mkv",
@@ -34,6 +228,13 @@
     0,
     512,
     288
+   ],
+   "scenes": [
+    [
+     0,
+     49.5,
+     "GTA 6"
+    ]
    ]
   },
   "F3": {
@@ -43,6 +244,13 @@
     0,
     512,
     288
+   ],
+   "scenes": [
+    [
+     0,
+     71.5,
+     null
+    ]
    ]
   },
   "F4": {
@@ -52,6 +260,13 @@
     0,
     512,
     288
+   ],
+   "scenes": [
+    [
+     0,
+     143.0,
+     "GTA 6"
+    ]
    ]
   }
  },
@@ -77,8 +292,8 @@
      "text": "Thirteen years after GTA 5, two delays later, after trailers that broke YouTube records, my whole feed is people calling it the best game ever made.",
      "shots": [
       {
-       "src": "c2",
-       "t": 1.0,
+       "src": "c4",
+       "t": 0.3,
        "label": "split"
       },
       {
@@ -98,7 +313,7 @@
      "shots": [
       {
        "src": "c5",
-       "t_end": 16.0,
+       "t": 12.01,
        "label": "GTA 5"
       }
      ]
@@ -129,13 +344,13 @@
      "text": "But looking better and being better are two different things, and in this video I'll show you exactly where they split.",
      "shots": [
       {
-       "src": "c4",
-       "t": 0.3,
+       "src": "c2",
+       "t": 9.5,
        "label": "split"
       },
       {
-       "src": "c2",
-       "t": 10.0,
+       "src": "c3",
+       "t": 8.5,
        "label": "split"
       }
      ]
@@ -144,9 +359,9 @@
      "text": "Quick ground rules before the comments explode.",
      "shots": [
       {
-       "src": "c2",
-       "t": 15.0,
-       "label": "split"
+       "src": "c10",
+       "t": 58.85,
+       "label": "GTA 5"
       }
      ]
     },
@@ -164,8 +379,8 @@
      "text": "I'm saying that if you asked me which one I'd rather play for the next thousand hours, my answer might surprise you.",
      "shots": [
       {
-       "src": "c5",
-       "t": 9.0,
+       "src": "c9",
+       "t": 57.3,
        "label": "GTA 5"
       }
      ]
@@ -179,7 +394,7 @@
      "shots": [
       {
        "src": "c1",
-       "t": 1.0,
+       "t": 0.8,
        "label": "split"
       }
      ]
@@ -189,7 +404,7 @@
      "shots": []
     },
     {
-     "text": "On the left, GTA 5's Vespucci Beach: a handful of people, a couple of umbrellas, and a lot of empty sand.",
+     "text": "On the left, GTA 5: a handful of people, a couple of umbrellas, and a lot of empty sand.",
      "shots": [
       {
        "src": "c2",
@@ -216,7 +431,8 @@
         180,
         640,
         360
-       ]
+       ],
+       "repeat": true
       }
      ]
     },
@@ -225,8 +441,54 @@
      "shots": [
       {
        "src": "c2",
-       "t": 13.0,
+       "t": 15.0,
        "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "The water is on another level too.",
+     "shots": [
+      {
+       "src": "c7",
+       "t": 0.2,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "Drive into the harbor in GTA 6, and the car floats for a moment, with waves rolling off it, before it sinks into the murky water.",
+     "shots": [
+      {
+       "src": "c9",
+       "t": 18.5,
+       "label": "GTA 6",
+       "w": 2
+      },
+      {
+       "src": "c9",
+       "t": 27.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "Go diving, and the water is so clear it barely looks like a game.",
+     "shots": [
+      {
+       "src": "c11",
+       "t": 46.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "And yes, there are sharks.",
+     "shots": [
+      {
+       "src": "c11",
+       "t": 70.27,
+       "label": "GTA 6"
       }
      ]
     },
@@ -241,22 +503,41 @@
      ]
     },
     {
+     "text": "Hit a wall in a GTA 5 taxi and you get a little dent.",
+     "shots": [
+      {
+       "src": "c8",
+       "t": 3.0,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "Do it in GTA 6 and the whole front end folds up.",
+     "shots": [
+      {
+       "src": "c8",
+       "t": 27.6,
+       "label": "GTA 6"
+      },
+      {
+       "src": "c8",
+       "t": 37.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
      "text": "In GTA 6 every bullet leaves its own hole, the glass cracks right where you hit it, and the metal dents where it should.",
      "shots": [
       {
-       "src": "c3",
-       "t": 5.5,
-       "label": "GTA 6",
-       "crop": [
-        640,
-        180,
-        640,
-        360
-       ]
+       "src": "c4",
+       "t": 21.0,
+       "label": "GTA 6"
       },
       {
        "src": "c4",
-       "t": 24.0,
+       "t": 24.5,
        "label": "GTA 6"
       }
      ]
@@ -265,14 +546,28 @@
      "text": "If you care about detail, GTA 6 wins basically every side by side comparison, and it isn't close.",
      "shots": [
       {
-       "src": "c4",
-       "t": 1.0,
-       "label": "split"
+       "pair": [
+        [
+         "c10",
+         27.0
+        ],
+        [
+         "c10",
+         40.5
+        ]
+       ]
       },
       {
-       "src": "c2",
-       "t": 17.0,
-       "label": "split"
+       "pair": [
+        [
+         "c9",
+         50.0
+        ],
+        [
+         "c10",
+         9.0
+        ]
+       ]
       }
      ]
     },
@@ -281,7 +576,7 @@
      "shots": [
       {
        "src": "c2",
-       "t": 19.0,
+       "t": 20.5,
        "label": "GTA 5",
        "crop": [
         0,
@@ -312,8 +607,9 @@
      "shots": [
       {
        "src": "c5",
-       "t_end": 16.6,
-       "label": "GTA 5"
+       "t": 6.92,
+       "label": "GTA 5",
+       "repeat": true
       }
      ]
     },
@@ -329,7 +625,8 @@
        "t": 16.0,
        "label": "GTA 5",
        "speed": 0.4,
-       "boom": 0.5
+       "boom": 0.5,
+       "repeat": true
       }
      ]
     },
@@ -373,8 +670,8 @@
      "text": "The magic of GTA 5 was cause and effect at maximum volume: you do something stupid, and the game answers with something even more stupid.",
      "shots": [
       {
-       "src": "c5",
-       "t": 1.0,
+       "src": "c7",
+       "t": 6.0,
        "label": "GTA 5"
       }
      ]
@@ -383,8 +680,8 @@
      "text": "Cars flip, cops pile up, and everything explodes.",
      "shots": [
       {
-       "src": "c5",
-       "t": 15.6,
+       "src": "c8",
+       "t": 43.4,
        "label": "GTA 5"
       }
      ]
@@ -393,29 +690,28 @@
      "text": "Think about what you actually remember from GTA 5.",
      "shots": [
       {
-       "src": "c4",
-       "t": 9.5,
+       "src": "c7",
+       "t": 33.0,
        "label": "GTA 5"
       }
      ]
     },
     {
      "text": "It's usually not a mission, it's an accident.",
-     "shots": [
-      {
-       "src": "c5",
-       "t": 16.2,
-       "label": "GTA 5"
-      }
-     ]
+     "shots": []
     },
     {
      "text": "A getaway that turned into a pileup, a cop car flying off a ramp, a rampage that started because somebody bumped into you.",
      "shots": [
       {
-       "src": "c4",
-       "t": 2.5,
-       "label": "split"
+       "src": "c7",
+       "t": 39.5,
+       "label": "GTA 5"
+      },
+      {
+       "src": "c10",
+       "t": 0.26,
+       "label": "GTA 5"
       }
      ]
     },
@@ -423,15 +719,9 @@
      "text": "Nobody remembers how realistic a puddle looked.",
      "shots": [
       {
-       "src": "c3",
-       "t": 9.5,
-       "label": "GTA 6",
-       "crop": [
-        640,
-        180,
-        640,
-        360
-       ]
+       "src": "c11",
+       "t": 42.2,
+       "label": "GTA 6"
       }
      ]
     },
@@ -439,9 +729,9 @@
      "text": "The more realistic a game gets, the more it pushes back on that.",
      "shots": [
       {
-       "src": "c3",
-       "t": 6.5,
-       "label": "split"
+       "src": "c10",
+       "t": 5.5,
+       "label": "GTA 6"
       }
      ]
     },
@@ -469,8 +759,8 @@
      "text": "And characters that feel like real people make it a lot harder to run them over for fun.",
      "shots": [
       {
-       "src": "F1",
-       "t": 21.0,
+       "src": "c11",
+       "t": 2.0,
        "label": "GTA 6"
       }
      ]
@@ -489,8 +779,8 @@
      "text": "It's worse for the thing most of us actually did in GTA 5 for years, which was mess around.",
      "shots": [
       {
-       "src": "c4",
-       "t": 12.0,
+       "src": "c10",
+       "t": 51.0,
        "label": "GTA 5"
       }
      ]
@@ -514,15 +804,9 @@
      "text": "Okay, not only Trevor.",
      "shots": [
       {
-       "src": "c2",
-       "t": 7.0,
-       "label": "GTA 5",
-       "crop": [
-        0,
-        180,
-        640,
-        360
-       ]
+       "src": "c7",
+       "t": 56.0,
+       "label": "GTA 5"
       }
      ]
     },
@@ -552,8 +836,8 @@
      "text": "Franklin, the kid trying to get out of the hood.",
      "shots": [
       {
-       "src": "c4",
-       "t": 10.5,
+       "src": "c10",
+       "t": 58.0,
        "label": "GTA 5"
       }
      ]
@@ -573,9 +857,14 @@
      "text": "Switching between them was one of the best ideas Rockstar ever had.",
      "shots": [
       {
-       "src": "c2",
-       "t": 5.5,
-       "label": "split"
+       "src": "c9",
+       "t": 2.0,
+       "label": "GTA 5"
+      },
+      {
+       "src": "c10",
+       "t": 30.5,
+       "label": "GTA 5"
       }
      ]
     },
@@ -583,15 +872,9 @@
      "text": "You'd jump to Trevor and find him waking up on a beach in his underwear, or in the middle of a fight nobody explained.",
      "shots": [
       {
-       "src": "c2",
-       "t": 11.0,
-       "label": "GTA 5",
-       "crop": [
-        0,
-        180,
-        640,
-        360
-       ]
+       "src": "c9",
+       "t": 38.0,
+       "label": "GTA 5"
       }
      ]
     },
@@ -599,15 +882,9 @@
      "text": "And then GTA Online let you build your own character on top of all that, and a lot of people lived in that city for more than a decade.",
      "shots": [
       {
-       "src": "c2",
-       "t": 9.0,
-       "label": "GTA 5",
-       "crop": [
-        0,
-        180,
-        640,
-        360
-       ]
+       "src": "c8",
+       "t": 10.5,
+       "label": "GTA 5"
       }
      ]
     },
@@ -615,8 +892,8 @@
      "text": "GTA 6 goes with two leads, Lucia and Jason, a couple on the run.",
      "shots": [
       {
-       "src": "B",
-       "t": 13.4,
+       "src": "F3",
+       "t": 9.0,
        "label": "GTA 6"
       }
      ]
@@ -625,13 +902,13 @@
      "text": "That's a great setup for a story, a modern Bonnie and Clyde, and judging by the opening scene, the writing is sharp.",
      "shots": [
       {
-       "src": "B",
-       "t": 2.0,
+       "src": "F3",
+       "t": 37.5,
        "label": "GTA 6"
       },
       {
        "src": "F3",
-       "t": 5.0,
+       "t": 41.3,
        "label": "GTA 6"
       }
      ]
@@ -640,9 +917,9 @@
      "text": "But three completely different lives crashing into each other is a bigger toy box than one relationship, no matter how good that relationship is.",
      "shots": [
       {
-       "src": "c1",
-       "t": 2.0,
-       "label": "split"
+       "src": "c10",
+       "t": 12.5,
+       "label": "GTA 6"
       },
       {
        "src": "A",
@@ -701,20 +978,53 @@
      "text": "Heists, businesses, hundreds of cars, whole new places like Cayo Perico.",
      "shots": [
       {
-       "src": "c4",
-       "t": 13.0,
+       "src": "c10",
+       "t": 34.0,
        "label": "GTA 5"
       },
       {
-       "src": "c2",
-       "t": 15.0,
+       "src": "c7",
+       "t": 1.0,
        "label": "GTA 5",
        "crop": [
         0,
         180,
         640,
         360
-       ]
+       ],
+       "repeat": true
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 even gave players Director Mode and the Rockstar Editor, basically a free movie studio.",
+     "shots": [
+      {
+       "src": "c11",
+       "t": 16.0,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "Some of the GTA 5 footage in this very video was recorded in Director Mode.",
+     "shots": [
+      {
+       "src": "c8",
+       "t": 7.2,
+       "label": "GTA 5"
+      },
+      {
+       "src": "c8",
+       "t": 7.2,
+       "label": "GTA 5",
+       "crop": [
+        860,
+        0,
+        416,
+        234
+       ],
+       "repeat": true
       }
      ]
     },
@@ -722,19 +1032,19 @@
      "text": "And then there's everything Rockstar didn't make: the mods, and the roleplay servers that turned GTA 5 into a completely different game for millions of people and kept it near the top of Twitch years after release.",
      "shots": [
       {
-       "src": "c5",
-       "t": 4.0,
+       "src": "c9",
+       "t": 45.1,
        "label": "GTA 5"
       },
       {
-       "src": "c4",
-       "t": 2.0,
-       "label": "split"
+       "src": "c9",
+       "t": 50.0,
+       "label": "GTA 5"
       },
       {
-       "src": "c2",
-       "t": 20.0,
-       "label": "split"
+       "src": "c5",
+       "t": 4.0,
+       "label": "GTA 5"
       }
      ]
     },
@@ -750,11 +1060,21 @@
      ]
     },
     {
+     "text": "And GTA 6 is console only for now, so the modding scene that kept GTA 5 alive hasn't even started.",
+     "shots": [
+      {
+       "src": "B",
+       "t": 0.5,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
      "text": "And all of it still runs on PCs that are close to ten years old.",
      "shots": [
       {
        "src": "c4",
-       "t": 16.0,
+       "t": 15.95,
        "label": "GTA 5"
       }
      ]
@@ -763,8 +1083,8 @@
      "text": "Day one GTA 6 has to compete with all of that at once.",
      "shots": [
       {
-       "src": "B",
-       "t": 4.5,
+       "src": "c11",
+       "t": 45.05,
        "label": "GTA 6"
       }
      ]
@@ -783,8 +1103,8 @@
      "text": "But nobody picks a game on a fairness scale. If I have one free weekend, I'm going with the game that has more stuff to do.",
      "shots": [
       {
-       "src": "c5",
-       "t": 3.0,
+       "src": "c11",
+       "t": 29.5,
        "label": "GTA 5"
       }
      ]
@@ -793,9 +1113,9 @@
      "text": "Honestly, any launch game would look small next to thirteen years of everything.",
      "shots": [
       {
-       "src": "c2",
-       "t": 3.5,
-       "label": "split"
+       "src": "c9",
+       "t": 8.5,
+       "label": "GTA 5"
       }
      ]
     }
@@ -818,26 +1138,14 @@
      "text": "Every console generation, some game gets crowned the most realistic thing ever made, and a few years later that same footage looks normal, and then it looks old.",
      "shots": [
       {
-       "src": "c3",
-       "t": 7.5,
-       "label": "GTA 6",
-       "crop": [
-        640,
-        180,
-        640,
-        360
-       ]
+       "src": "c11",
+       "t": 50.5,
+       "label": "GTA 6"
       },
       {
-       "src": "c3",
-       "t": 7.5,
-       "label": "GTA 5",
-       "crop": [
-        0,
-        180,
-        640,
-        360
-       ]
+       "src": "c9",
+       "t": 4.0,
+       "label": "GTA 5"
       }
      ]
     },
@@ -846,7 +1154,7 @@
      "shots": [
       {
        "src": "c2",
-       "t": 21.0,
+       "t": 22.16,
        "label": "split"
       }
      ]
@@ -865,8 +1173,8 @@
      "text": "What doesn't age is how a game feels.",
      "shots": [
       {
-       "src": "c5",
-       "t": 16.3,
+       "src": "c10",
+       "t": 56.5,
        "label": "GTA 5"
       }
      ]
@@ -875,13 +1183,13 @@
      "text": "GTA 5's driving, its chaos, its jokes about Los Angeles.",
      "shots": [
       {
-       "src": "c4",
-       "t": 8.5,
+       "src": "c7",
+       "t": 5.8,
        "label": "GTA 5"
       },
       {
-       "src": "c5",
-       "t": 2.5,
+       "src": "c7",
+       "t": 41.0,
        "label": "GTA 5"
       }
      ]
@@ -890,15 +1198,9 @@
      "text": "People still boot it up in 2026 and have a great time.",
      "shots": [
       {
-       "src": "c2",
-       "t": 4.0,
-       "label": "GTA 5",
-       "crop": [
-        0,
-        180,
-        640,
-        360
-       ]
+       "src": "c11",
+       "t": 23.0,
+       "label": "GTA 5"
       }
      ]
     },
@@ -922,7 +1224,7 @@
      "shots": [
       {
        "src": "c1",
-       "t": 3.0,
+       "t": 0.24,
        "label": "split"
       }
      ]
@@ -947,7 +1249,7 @@
      "shots": [
       {
        "src": "c5",
-       "t": 6.0,
+       "t": 9.0,
        "label": "GTA 5"
       }
      ]
@@ -967,7 +1269,7 @@
      "shots": [
       {
        "src": "B",
-       "t": 26.0,
+       "t": 27.5,
        "label": "GTA 6"
       }
      ]
@@ -976,9 +1278,9 @@
      "text": "GTA 5 is one of the very few games that dodged that, and it did it before TikTok even existed.",
      "shots": [
       {
-       "src": "c1",
-       "t": 4.0,
-       "label": "split"
+       "src": "c7",
+       "t": 7.8,
+       "label": "GTA 5"
       }
      ]
     },
@@ -987,6 +1289,26 @@
      "shots": [
       {
        "grid": [
+        [
+         "c7",
+         20.0
+        ],
+        [
+         "c8",
+         30.0
+        ],
+        [
+         "c9",
+         21.0
+        ],
+        [
+         "c10",
+         8.0
+        ],
+        [
+         "c11",
+         50.0
+        ],
         [
          "A",
          0.5
@@ -1000,28 +1322,8 @@
          5.0
         ],
         [
-         "A",
-         19.0
-        ],
-        [
-         "B",
-         36.5
-        ],
-        [
-         "F4",
-         120.0
-        ],
-        [
-         "A",
-         29.0
-        ],
-        [
-         "B",
-         4.0
-        ],
-        [
-         "F1",
-         8.0
+         "c11",
+         66.0
         ]
        ]
       }
@@ -1057,7 +1359,8 @@
         40,
         440,
         248
-       ]
+       ],
+       "repeat": true
       }
      ]
     },
@@ -1066,7 +1369,7 @@
      "shots": [
       {
        "src": "B",
-       "t": 34.5,
+       "t": 44.0,
        "label": "GTA 6"
       }
      ]
@@ -1075,9 +1378,9 @@
      "text": "GTA 5 never had to compete with thirteen years of people imagining it.",
      "shots": [
       {
-       "src": "c1",
-       "t": 0.6,
-       "label": "split"
+       "src": "c7",
+       "t": 31.3,
+       "label": "GTA 5"
       }
      ]
     }
@@ -1110,8 +1413,8 @@
      "text": "GTA 5 on day one didn't have online heists either.",
      "shots": [
       {
-       "src": "c4",
-       "t": 14.5,
+       "src": "c9",
+       "t": 35.6,
        "label": "GTA 5"
       }
      ]
@@ -1124,8 +1427,8 @@
      "text": "Rockstar will support this game for a decade, and if GTA Online taught us anything, the GTA 6 we're playing in 2030 will be way bigger than what's out today.",
      "shots": [
       {
-       "src": "B",
-       "t": 22.0,
+       "src": "c11",
+       "t": 55.05,
        "label": "GTA 6"
       },
       {
@@ -1139,8 +1442,8 @@
      "text": "It can also still get really stupid.",
      "shots": [
       {
-       "src": "B",
-       "t": 13.4,
+       "src": "c7",
+       "t": 19.9,
        "label": "GTA 6"
       }
      ]
@@ -1171,8 +1474,8 @@
      "text": "So the chaos isn't gone, it just takes a bit more effort.",
      "shots": [
       {
-       "src": "B",
-       "t": 38.5,
+       "src": "c7",
+       "t": 24.6,
        "label": "GTA 6"
       }
      ]
@@ -1196,9 +1499,9 @@
      "text": "So maybe in five years this video ages like milk.",
      "shots": [
       {
-       "src": "c3",
-       "t": 8.5,
-       "label": "split"
+       "src": "c7",
+       "t": 44.7,
+       "label": "GTA 6"
       }
      ]
     },
@@ -1214,9 +1517,15 @@
      "text": "But today, if you ask me which game I'd rather lose a whole weekend in, it's still GTA 5.",
      "shots": [
       {
-       "src": "c5",
-       "t_end": 16.7,
+       "src": "c10",
+       "t": 33.0,
        "label": "GTA 5"
+      },
+      {
+       "src": "c8",
+       "t": 43.45,
+       "label": "GTA 5",
+       "repeat": true
       }
      ]
     },
@@ -1224,9 +1533,9 @@
      "text": "GTA 6 is the more impressive game.",
      "shots": [
       {
-       "src": "c2",
-       "t": 8.0,
-       "label": "split"
+       "src": "c11",
+       "t": 52.5,
+       "label": "GTA 6"
       }
      ]
     },
@@ -1237,7 +1546,8 @@
        "src": "c5",
        "t": 16.0,
        "label": "GTA 5",
-       "speed": 0.5
+       "speed": 0.5,
+       "repeat": true
       }
      ]
     },

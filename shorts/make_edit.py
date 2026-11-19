@@ -41,11 +41,11 @@ def make_sfx(work):
         # plus a short noise crack for the attack
         drop, body, crack = (work / f"boom_{p}.wav" for p in ("drop", "body", "crack"))
         sh(["sox", "-n", "-r", SR, "-c", "2", drop, "synth", "1.3", "sine", "150/35",
-            "fade", "q", "0.003", "1.3", "1.1", "overdrive", "10", "lowpass", "1500", "gain", "-3"])
+            "fade", "q", "0.003", "1.3", "1.1", "overdrive", "10", "gain", "-4", "lowpass", "1500"])
         sh(["sox", "-n", "-r", SR, "-c", "2", body, "synth", "0.3", "sine", "340/120",
             "fade", "q", "0.002", "0.3", "0.27", "overdrive", "8", "gain", "-4"])
         sh(["sox", "-n", "-r", SR, "-c", "2", crack, "synth", "0.15", "brownnoise",
-            "fade", "q", "0.001", "0.15", "0.14", "lowpass", "3500", "gain", "4"])
+            "fade", "q", "0.001", "0.15", "0.14", "lowpass", "3500", "gain", "-1"])
         sh(["sox", "-m", drop, body, crack, boom, "gain", "-n", "-3"])
     if not whoosh.exists():  # short swell of filtered noise
         sh(["sox", "-n", "-r", SR, "-c", "2", whoosh, "synth", "0.55", "pinknoise",

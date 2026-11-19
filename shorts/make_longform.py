@@ -16,6 +16,9 @@ Shots share their sentence's time by weight "w"; a sentence with "shots": [] ext
   {"src": "c5", "t": 16, "speed": 0.4, "boom": 0.5}       slow motion, impact sound 0.5 s into the shot
   {"card": "REASON #1", "title": "REALISM KILLED|THE CHAOS", "bg": "c5", "t": 22}
   {"grid": [["A", 0.5], ["B", 14], ...]}                  3x3 wall of nine clips
+  {"pair": [["c8", 5.0], ["c8", 27.6]]}                    own split screen, GTA 5 left and GTA 6 right
+Sources may list "scenes": [[start, end, "GTA 5" | "GTA 6" | "split"], ...]; shots are kept inside one
+scene (no running into a transition or into the other game) and a mismatched label is reported.
 Labels: "GTA 5", "GTA 6", or "split" for side by side footage with GTA 5 on the left.
 """
 import argparse
@@ -36,6 +39,7 @@ sys.path.insert(0, str(HERE))
 from make_edit import make_sfx  # noqa: E402
 
 W, H, FPS, SR = 1920, 1080, 30, 48000
+VERSION = 2  # bump to re-render every cached shot
 FONT_XB = "/usr/share/fonts/opentype/montserrat/Montserrat-ExtraBold.otf"
 TAG = {"GTA 5": "0x27AE60", "GTA 6": "0xFF2E88"}
 ENC = ["-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv420p", "-r", str(FPS)]
@@ -136,17 +140,44 @@ def card_png(kicker, title, out):
     run(["node", HERE / "brand" / "render_html.js", f, out, W, H])
 
 
+def check_shot(sh, need, sources):
+    """Keep a clip shot inside one scene of its source, so a GTA 5 label never runs into GTA 6 footage
+    or into a transition wipe. Returns the corrected start time and a warning or None."""
+    src = sources[sh["src"]]
+    t = sh["t_end"] - need if "t_end" in sh else sh.get("t", 0.0)
+    scenes = src.get("scenes") or [[0.0, src["dur"], None]]
+    t = max(0.0, min(t, src["dur"] - 0.05))
+    sc = next((s for s in scenes if s[0] - 0.05 <= t < s[1]), None)
+    if sc is None:
+        sc = min(scenes, key=lambda s: min(abs(t - s[0]), abs(t - s[1])))
+        t = sc[0]
+    warn = None
+    if t + need > sc[1]:
+        t2 = sc[1] - need
+        if t2 >= sc[0]:
+            t = t2
+        else:
+            t = sc[0]
+            warn = f"{sh['src']}@{sh.get('t', sh.get('t_end'))}: needs {need:.1f}s, scene {sc[0]}-{sc[1]} is shorter"
+    want = sc[2]
+    crop = sh.get("crop")
+    if want == "split" and crop:
+        want = "GTA 5" if crop[0] < 320 else "GTA 6"
+    if want and sh.get("label") and want != sh["label"]:
+        warn = (warn or "") + f" | {sh['src']}@{t:.1f} labelled {sh['label']} but scene is {want}"
+    return t, warn
+
+
 def render_shot(i, sh, nframes, sources, sdir):
     dur = nframes / FPS
-    vout, aout = sdir / f"{i:04d}.mp4", sdir / f"{i:04d}.wav"
-    sig = hashlib.sha1(json.dumps([sh, nframes]).encode()).hexdigest()[:12]
-    stamp = sdir / f"{i:04d}.{sig}"
-    if stamp.exists() and vout.exists() and aout.exists():
+    sig = hashlib.sha1(json.dumps([sh, nframes, VERSION]).encode()).hexdigest()[:14]
+    vout, aout = sdir / f"{sig}.mp4", sdir / f"{sig}.wav"
+    if vout.exists() and aout.exists():
         return vout, aout
     head = ["ffmpeg", "-v", "error", "-y"]
     if "card" in sh:
         src = sources[sh["bg"]]
-        png = sdir / f"{i:04d}.card.png"
+        png = sdir / f"{sig}.card.png"
         card_png(sh["card"], sh["title"], png)
         bg = ",".join(fit(src.get("crop")) + [f"fps={FPS}", "tpad=stop_mode=clone:stop_duration=30",
                                               "boxblur=24:2", "eq=brightness=-0.22:saturation=0.75"])
@@ -154,6 +185,24 @@ def render_shot(i, sh, nframes, sources, sdir):
                     "-filter_complex", f"[0:v]{bg}[bg];[1:v]format=rgba,fade=in:st=0:d=0.3:alpha=1[t];"
                     "[bg][t]overlay=0:0", "-frames:v", nframes, "-an", *ENC, vout])
         silence(dur, aout)
+    elif "pair" in sh:
+        # home-made split screen: GTA 5 moment on the left, GTA 6 moment on the right
+        ins, fl, auds = [], [], []
+        for k, ((key, _), t) in enumerate(zip(sh["pair"], sh["_pt"])):
+            src = sources[key]
+            ins += ["-ss", f"{t:.3f}", "-t", f"{dur + 1:.3f}", "-i", src["path"]]
+            crop = src.get("crop")
+            pre = f"crop={crop[2]}:{crop[3]}:{crop[0]}:{crop[1]}," if crop else ""
+            fl.append(f"[{k}:v]{pre}scale=958:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=958:1080,"
+                      f"setsar=1,fps={FPS},tpad=stop_mode=clone:stop_duration=30[p{k}]")
+            a = sdir / f"{sig}.{k}.wav"
+            clip_audio(src["path"], t, dur, dur, 1.0, a)
+            auds.append(sf.read(a, dtype="float32", always_2d=True)[0])
+        fl.append(f"color=black:s=4x1080:r={FPS}[div];[p0][div][p1]hstack=3,eq=contrast=1.04:saturation=1.1,"
+                  "unsharp=5:5:0.4:5:5:0," + ",".join(labels("split")))
+        run(head + ins + ["-filter_complex", ";".join(fl), "-frames:v", nframes, "-an", *ENC, vout])
+        n = min(len(x) for x in auds)
+        sf.write(aout, 0.6 * (auds[0][:n] + auds[1][:n]), SR)
     elif "grid" in sh:
         ins, fl = [], []
         for k, (key, t) in enumerate(sh["grid"]):
@@ -171,8 +220,7 @@ def render_shot(i, sh, nframes, sources, sdir):
         src = sources[sh["src"]]
         sp = float(sh.get("speed", 1.0))
         need = dur * sp
-        t = sh["t_end"] - need if "t_end" in sh else sh.get("t", 0.0)
-        t = max(0.0, min(t, src["dur"] - need - 0.05))
+        t = sh["_t"]
         vf = fit(sh.get("crop") or src.get("crop"))
         if sp != 1:
             vf.append(f"setpts=PTS/{sp}")
@@ -181,10 +229,6 @@ def render_shot(i, sh, nframes, sources, sdir):
         run(head + ["-ss", f"{t:.3f}", "-t", f"{need + 1:.3f}", "-i", src["path"], "-vf", ",".join(vf),
                     "-frames:v", nframes, "-an", *ENC, vout])
         clip_audio(src["path"], t, need, dur, sp, aout)
-    for old in sdir.glob(f"{i:04d}.*"):
-        if old.suffix not in (".mp4", ".wav", ".png", ".html") and old != stamp:
-            old.unlink()
-    stamp.touch()
     return vout, aout
 
 
@@ -287,6 +331,36 @@ def build(job_path):
             t += d
     frames = [round(x["end"] * FPS) - round(x["start"] * FPS) for x in tl]
 
+    warnings = []
+    for x, n in zip(tl, frames):
+        sh = x["shot"]
+        if "src" in sh:
+            sh["_t"], w = check_shot(sh, n / FPS * float(sh.get("speed", 1.0)), sources)
+            if w:
+                warnings.append(f"{int(x['start'] // 60)}:{x['start'] % 60:04.1f} {w}")
+        if "pair" in sh:
+            sh["_pt"] = []
+            for (key, t), lab in zip(sh["pair"], ("GTA 5", "GTA 6")):
+                pt, w = check_shot({"src": key, "t": t, "label": lab}, n / FPS, sources)
+                sh["_pt"].append(pt)
+                if w:
+                    warnings.append(f"{int(x['start'] // 60)}:{x['start'] % 60:04.1f} pair {w}")
+    used = {}
+    for x, n in zip(tl, frames):  # the same moment of footage shown twice is a repeat the viewer notices
+        sh = x["shot"]
+        parts = [(sh["src"], sh["_t"], float(sh.get("speed", 1.0)))] if "src" in sh else []
+        parts += [(k, t, 1.0) for (k, _), t in zip(sh.get("pair", []), sh.get("_pt", []))]
+        for key, t, sp in parts:
+            a, b = t, t + n / FPS * sp
+            for a2, b2, at in used.get(key, []):
+                if min(b, b2) - max(a, a2) > 1.0 and not sh.get("repeat") and x["start"] - at < 150:
+                    warnings.append(f"{int(x['start'] // 60)}:{x['start'] % 60:04.1f} repeats {key} "
+                                    f"{max(a, a2):.1f}-{min(b, b2):.1f} first used at {int(at // 60)}:{at % 60:04.1f}")
+            used.setdefault(key, []).append((a, b, x["start"]))
+    print("\n".join(["shot warnings:"] + warnings) if warnings else "shots ok")
+    if job.get("check_only"):
+        return
+
     sdir = work / "shots"
     sdir.mkdir(exist_ok=True)
     with ThreadPoolExecutor(3) as ex:
@@ -324,7 +398,7 @@ def build(job_path):
     out.parent.mkdir(parents=True, exist_ok=True)
     run(["ffmpeg", "-v", "error", "-y", "-i", work / "broll.mp4", "-i", work / "mix.wav",
          "-filter_complex", f"[0:v]ass={work / 'captions.ass'}:fontsdir=/usr/share/fonts[v];[1:a]{loud}[a]",
-         "-map", "[v]", "-map", "[a]", "-t", total, "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+         "-map", "[v]", "-map", "[a]", "-t", total, "-c:v", "libx264", "-preset", "fast", "-crf", "21",
          "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", out])
     chapters = [(x["start"], x["shot"]) for x in tl if "card" in x["shot"]]
     (work / "chapters.txt").write_text("".join(f"{int(s // 60)}:{int(s % 60):02d} {sh['card']} {sh['title'].replace('|', ' ')}\n" for s, sh in chapters))

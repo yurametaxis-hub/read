@@ -6,6 +6,7 @@ const { chromium } = require('playwright');
   const p = await browser.newPage({ viewport: { width: +w, height: +h } });
   await p.goto('file://' + page);
   await p.evaluate(() => document.fonts.ready);
-  await p.screenshot({ path: out, clip: { x: 0, y: 0, width: +w, height: +h } });
+  // omitBackground keeps transparent pages transparent (cards drawn over footage)
+  await p.screenshot({ path: out, clip: { x: 0, y: 0, width: +w, height: +h }, omitBackground: true });
   await browser.close();
 })();
