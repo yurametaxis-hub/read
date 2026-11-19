@@ -1,0 +1,1277 @@
+{
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/longform/out/gta5_better_than_gta6.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/longform/work",
+ "voice": "am_fenrir",
+ "speed": 0.95,
+ "tts_model": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/kokoro-v1.0.onnx",
+ "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
+ "sources": {
+  "c1": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/c4d04f28-1.mkv"
+  },
+  "c2": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/647f8765-2.mkv"
+  },
+  "c3": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/cb4668c6-3.mkv"
+  },
+  "c4": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/65f2afac-4.mkv"
+  },
+  "c5": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/4bf24d0e-5.mkv"
+  },
+  "A": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/a20a5ca3-GTA_6_Open_World_Police_Chase_Gameplay___Chaos_in_the_Leonida_Keys___INSANE_Police_Chase_on_PS5_Pro.mkv"
+  },
+  "B": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/5462d642-w.mkv"
+  },
+  "F1": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/1537e350-__.mkv",
+   "crop": [
+    128,
+    0,
+    512,
+    288
+   ]
+  },
+  "F3": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/12bd0782-__.mkv",
+   "crop": [
+    128,
+    0,
+    512,
+    288
+   ]
+  },
+  "F4": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/4ef0c96b-___.mkv",
+   "crop": [
+    128,
+    0,
+    512,
+    288
+   ]
+  }
+ },
+ "paragraphs": [
+  {
+   "sentences": [
+    {
+     "text": "GTA 6 is finally out.",
+     "shots": [
+      {
+       "src": "F3",
+       "t": 0.2,
+       "crop": [
+        140,
+        40,
+        440,
+        248
+       ]
+      }
+     ]
+    },
+    {
+     "text": "Thirteen years after GTA 5, two delays later, after trailers that broke YouTube records, my whole feed is people calling it the best game ever made.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 1.0,
+       "label": "split"
+      },
+      {
+       "src": "A",
+       "t": 28.8,
+       "label": "GTA 6"
+      },
+      {
+       "src": "B",
+       "t": 13.6,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "So here's the opinion that's going to get me roasted in the comments.",
+     "shots": [
+      {
+       "src": "c5",
+       "t_end": 16.0,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 is the better game.",
+     "shots": [
+      {
+       "card": "UNPOPULAR OPINION",
+       "title": "GTA 5 > GTA 6",
+       "bg": "c5",
+       "t": 16.1,
+       "boom": 0.05
+      }
+     ]
+    },
+    {
+     "text": "GTA 6 is the better looking game, I'm not arguing with that.",
+     "shots": [
+      {
+       "src": "c3",
+       "t": 3.5,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "But looking better and being better are two different things, and in this video I'll show you exactly where they split.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 0.3,
+       "label": "split"
+      },
+      {
+       "src": "c2",
+       "t": 10.0,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "Quick ground rules before the comments explode.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 15.0,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "I'm not saying GTA 6 is bad. Honestly, it's probably a masterpiece.",
+     "shots": [
+      {
+       "src": "F4",
+       "t": 136.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "I'm saying that if you asked me which one I'd rather play for the next thousand hours, my answer might surprise you.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 9.0,
+       "label": "GTA 5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "Let's get the obvious part out of the way first.",
+     "shots": [
+      {
+       "src": "c1",
+       "t": 1.0,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "Look at this beach.",
+     "shots": []
+    },
+    {
+     "text": "On the left, GTA 5's Vespucci Beach: a handful of people, a couple of umbrellas, and a lot of empty sand.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 2.0,
+       "label": "GTA 5",
+       "crop": [
+        0,
+        180,
+        640,
+        360
+       ]
+      }
+     ]
+    },
+    {
+     "text": "On the right, GTA 6: crowds, towels, kites, people actually doing things.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 2.0,
+       "label": "GTA 6",
+       "crop": [
+        640,
+        180,
+        640,
+        360
+       ]
+      }
+     ]
+    },
+    {
+     "text": "Same idea, thirteen years apart, and honestly, the difference is ridiculous.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 13.0,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "Same story with damage.",
+     "shots": [
+      {
+       "src": "c3",
+       "t": 0.3,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "In GTA 6 every bullet leaves its own hole, the glass cracks right where you hit it, and the metal dents where it should.",
+     "shots": [
+      {
+       "src": "c3",
+       "t": 5.5,
+       "label": "GTA 6",
+       "crop": [
+        640,
+        180,
+        640,
+        360
+       ]
+      },
+      {
+       "src": "c4",
+       "t": 24.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "If you care about detail, GTA 6 wins basically every side by side comparison, and it isn't close.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 1.0,
+       "label": "split"
+      },
+      {
+       "src": "c2",
+       "t": 17.0,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "But I never played GTA 5 for the sand.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 19.0,
+       "label": "GTA 5",
+       "crop": [
+        0,
+        180,
+        640,
+        360
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "Reason number one: realism quietly killed the chaos.",
+     "shots": [
+      {
+       "card": "REASON #1",
+       "title": "REALISM KILLED|THE CHAOS",
+       "bg": "c5",
+       "t": 22
+      }
+     ]
+    },
+    {
+     "text": "Watch this.",
+     "shots": [
+      {
+       "src": "c5",
+       "t_end": 16.6,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "GTA 5. Franklin unloads into a parked car, and a few seconds later it catches fire and goes up in a massive fireball.",
+     "shots": []
+    },
+    {
+     "text": "Completely unrealistic. Absolutely glorious.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 16.0,
+       "label": "GTA 5",
+       "speed": 0.4,
+       "boom": 0.5
+      }
+     ]
+    },
+    {
+     "text": "Now GTA 6.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 21.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "Same experiment: a full magazine into an SUV on the beach.",
+     "shots": []
+    },
+    {
+     "text": "It takes the hits, it smokes, it looks real.",
+     "shots": []
+    },
+    {
+     "text": "And then you're just standing there, waiting for something to happen.",
+     "shots": []
+    },
+    {
+     "text": "GTA was never a simulator.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 8.0,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "It was a cartoon of America with a rocket launcher.",
+     "shots": []
+    },
+    {
+     "text": "The magic of GTA 5 was cause and effect at maximum volume: you do something stupid, and the game answers with something even more stupid.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 1.0,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "Cars flip, cops pile up, and everything explodes.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 15.6,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "Think about what you actually remember from GTA 5.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 9.5,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "It's usually not a mission, it's an accident.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 16.2,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "A getaway that turned into a pileup, a cop car flying off a ramp, a rampage that started because somebody bumped into you.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 2.5,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "Nobody remembers how realistic a puddle looked.",
+     "shots": [
+      {
+       "src": "c3",
+       "t": 9.5,
+       "label": "GTA 6",
+       "crop": [
+        640,
+        180,
+        640,
+        360
+       ]
+      }
+     ]
+    },
+    {
+     "text": "The more realistic a game gets, the more it pushes back on that.",
+     "shots": [
+      {
+       "src": "c3",
+       "t": 6.5,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "Realistic damage means fewer fireballs.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 33.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "Smarter police means shorter rampages.",
+     "shots": [
+      {
+       "src": "A",
+       "t": 0.2,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "And characters that feel like real people make it a lot harder to run them over for fun.",
+     "shots": [
+      {
+       "src": "F1",
+       "t": 21.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "All of that is amazing for a story.",
+     "shots": [
+      {
+       "src": "F3",
+       "t": 7.2,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "It's worse for the thing most of us actually did in GTA 5 for years, which was mess around.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 12.0,
+       "label": "GTA 5"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "Reason number two: GTA 5 had Trevor.",
+     "shots": [
+      {
+       "card": "REASON #2",
+       "title": "GTA 5|HAD TREVOR",
+       "bg": "c2",
+       "t": 3
+      }
+     ]
+    },
+    {
+     "text": "Okay, not only Trevor.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 7.0,
+       "label": "GTA 5",
+       "crop": [
+        0,
+        180,
+        640,
+        360
+       ]
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 gave you three protagonists you could switch between at almost any moment.",
+     "shots": [
+      {
+       "card": "3 PROTAGONISTS",
+       "title": "MICHAEL|FRANKLIN|TREVOR",
+       "bg": "c4",
+       "t": 9
+      }
+     ]
+    },
+    {
+     "text": "Michael, the retired bank robber in the middle of a midlife crisis.",
+     "shots": [
+      {
+       "card": "MICHAEL",
+       "title": "RETIRED|BANK ROBBER",
+       "bg": "c5",
+       "t": 2
+      }
+     ]
+    },
+    {
+     "text": "Franklin, the kid trying to get out of the hood.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 10.5,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "And Trevor, who is just... Trevor.",
+     "shots": [
+      {
+       "card": "TREVOR",
+       "title": "JUST|TREVOR",
+       "bg": "c5",
+       "t": 16.6
+      }
+     ]
+    },
+    {
+     "text": "Switching between them was one of the best ideas Rockstar ever had.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 5.5,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "You'd jump to Trevor and find him waking up on a beach in his underwear, or in the middle of a fight nobody explained.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 11.0,
+       "label": "GTA 5",
+       "crop": [
+        0,
+        180,
+        640,
+        360
+       ]
+      }
+     ]
+    },
+    {
+     "text": "And then GTA Online let you build your own character on top of all that, and a lot of people lived in that city for more than a decade.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 9.0,
+       "label": "GTA 5",
+       "crop": [
+        0,
+        180,
+        640,
+        360
+       ]
+      }
+     ]
+    },
+    {
+     "text": "GTA 6 goes with two leads, Lucia and Jason, a couple on the run.",
+     "shots": [
+      {
+       "src": "B",
+       "t": 13.4,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "That's a great setup for a story, a modern Bonnie and Clyde, and judging by the opening scene, the writing is sharp.",
+     "shots": [
+      {
+       "src": "B",
+       "t": 2.0,
+       "label": "GTA 6"
+      },
+      {
+       "src": "F3",
+       "t": 5.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "But three completely different lives crashing into each other is a bigger toy box than one relationship, no matter how good that relationship is.",
+     "shots": [
+      {
+       "src": "c1",
+       "t": 2.0,
+       "label": "split"
+      },
+      {
+       "src": "A",
+       "t": 18.9,
+       "label": "GTA 6"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "Reason number three, and this one is just math.",
+     "shots": [
+      {
+       "card": "REASON #3",
+       "title": "13 YEARS|OF CONTENT",
+       "bg": "c4",
+       "t": 10
+      }
+     ]
+    },
+    {
+     "text": "GTA 6 launched with whatever Rockstar managed to finish for day one.",
+     "shots": [
+      {
+       "src": "A",
+       "t": 3.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 has had thirteen years.",
+     "shots": [
+      {
+       "card": "SEPT 2013 TO NOV 2026",
+       "title": "13 YEARS",
+       "bg": "c5",
+       "t": 4
+      }
+     ]
+    },
+    {
+     "text": "Thirteen years of GTA Online updates.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 0.5,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "Heists, businesses, hundreds of cars, whole new places like Cayo Perico.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 13.0,
+       "label": "GTA 5"
+      },
+      {
+       "src": "c2",
+       "t": 15.0,
+       "label": "GTA 5",
+       "crop": [
+        0,
+        180,
+        640,
+        360
+       ]
+      }
+     ]
+    },
+    {
+     "text": "And then there's everything Rockstar didn't make: the mods, and the roleplay servers that turned GTA 5 into a completely different game for millions of people and kept it near the top of Twitch years after release.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 4.0,
+       "label": "GTA 5"
+      },
+      {
+       "src": "c4",
+       "t": 2.0,
+       "label": "split"
+      },
+      {
+       "src": "c2",
+       "t": 20.0,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "Rockstar liked that so much, they bought the team behind FiveM in 2023.",
+     "shots": [
+      {
+       "card": "2023",
+       "title": "ROCKSTAR BUYS|THE FIVEM TEAM",
+       "bg": "c2",
+       "t": 8
+      }
+     ]
+    },
+    {
+     "text": "And all of it still runs on PCs that are close to ten years old.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 16.0,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "Day one GTA 6 has to compete with all of that at once.",
+     "shots": [
+      {
+       "src": "B",
+       "t": 4.5,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "That's not really GTA 6's fault.",
+     "shots": [
+      {
+       "src": "A",
+       "t": 12.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "But nobody picks a game on a fairness scale. If I have one free weekend, I'm going with the game that has more stuff to do.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 3.0,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "Honestly, any launch game would look small next to thirteen years of everything.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 3.5,
+       "label": "split"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "Reason number four might age badly itself, but here it is: realism has an expiration date.",
+     "shots": [
+      {
+       "card": "REASON #4",
+       "title": "REALISM HAS AN|EXPIRATION DATE",
+       "bg": "c3",
+       "t": 8
+      }
+     ]
+    },
+    {
+     "text": "Every console generation, some game gets crowned the most realistic thing ever made, and a few years later that same footage looks normal, and then it looks old.",
+     "shots": [
+      {
+       "src": "c3",
+       "t": 7.5,
+       "label": "GTA 6",
+       "crop": [
+        640,
+        180,
+        640,
+        360
+       ]
+      },
+      {
+       "src": "c3",
+       "t": 7.5,
+       "label": "GTA 5",
+       "crop": [
+        0,
+        180,
+        640,
+        360
+       ]
+      }
+     ]
+    },
+    {
+     "text": "Graphics are a moving target.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 21.0,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "Whatever blows your mind today is the minimum next generation.",
+     "shots": [
+      {
+       "src": "F4",
+       "t": 118.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "What doesn't age is how a game feels.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 16.3,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "GTA 5's driving, its chaos, its jokes about Los Angeles.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 8.5,
+       "label": "GTA 5"
+      },
+      {
+       "src": "c5",
+       "t": 2.5,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "People still boot it up in 2026 and have a great time.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 4.0,
+       "label": "GTA 5",
+       "crop": [
+        0,
+        180,
+        640,
+        360
+       ]
+      }
+     ]
+    },
+    {
+     "text": "That's the real test, and GTA 6 can't take it yet, because nobody knows how it'll feel once the shine wears off.",
+     "shots": [
+      {
+       "src": "F4",
+       "t": 128.0,
+       "label": "GTA 6"
+      },
+      {
+       "src": "B",
+       "t": 24.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 has already passed it, every single year since 2013.",
+     "shots": [
+      {
+       "src": "c1",
+       "t": 3.0,
+       "label": "split"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "Reason number five is bigger than GTA: games stop being relevant a lot faster than they used to.",
+     "shots": [
+      {
+       "card": "REASON #5",
+       "title": "THE HYPE|BURNS FASTER",
+       "bg": "A",
+       "t": 30
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 grew up in a world where one game could stay the main topic for years.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 6.0,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "Think about how many huge games we all played for a month and then completely forgot.",
+     "shots": [
+      {
+       "src": "A",
+       "t": 24.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "On launch day they were everywhere, and two weeks later the conversation had moved on.",
+     "shots": [
+      {
+       "src": "B",
+       "t": 26.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 is one of the very few games that dodged that, and it did it before TikTok even existed.",
+     "shots": [
+      {
+       "src": "c1",
+       "t": 4.0,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "GTA 6 launches into a feed that moves on every week.",
+     "shots": [
+      {
+       "grid": [
+        [
+         "A",
+         0.5
+        ],
+        [
+         "B",
+         14.0
+        ],
+        [
+         "F3",
+         5.0
+        ],
+        [
+         "A",
+         19.0
+        ],
+        [
+         "B",
+         36.5
+        ],
+        [
+         "F4",
+         120.0
+        ],
+        [
+         "A",
+         29.0
+        ],
+        [
+         "B",
+         4.0
+        ],
+        [
+         "F1",
+         8.0
+        ]
+       ]
+      }
+     ]
+    },
+    {
+     "text": "Today it's the only thing anyone is posting.",
+     "shots": []
+    },
+    {
+     "text": "In a month, people will have seen every big moment in clips without ever playing it, and the algorithm will be pushing the next thing.",
+     "shots": [
+      {
+       "src": "A",
+       "t": 33.5,
+       "label": "GTA 6"
+      },
+      {
+       "src": "B",
+       "t": 15.5,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "The hype for GTA 6 is arguably the biggest any game has ever had.",
+     "shots": [
+      {
+       "src": "F3",
+       "t": 0.2,
+       "crop": [
+        140,
+        40,
+        440,
+        248
+       ]
+      }
+     ]
+    },
+    {
+     "text": "But hype that big burns fast, and the higher it goes, the harder it is to live up to.",
+     "shots": [
+      {
+       "src": "B",
+       "t": 34.5,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 never had to compete with thirteen years of people imagining it.",
+     "shots": [
+      {
+       "src": "c1",
+       "t": 0.6,
+       "label": "split"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "To be fair, let me argue against myself for a second.",
+     "shots": [
+      {
+       "card": "TO BE FAIR",
+       "title": "LET ME ARGUE|AGAINST MYSELF",
+       "bg": "B",
+       "t": 5
+      }
+     ]
+    },
+    {
+     "text": "GTA 6 is on day one.",
+     "shots": [
+      {
+       "src": "A",
+       "t": 9.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 on day one didn't have online heists either.",
+     "shots": [
+      {
+       "src": "c4",
+       "t": 14.5,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "Those came a year and a half later.",
+     "shots": []
+    },
+    {
+     "text": "Rockstar will support this game for a decade, and if GTA Online taught us anything, the GTA 6 we're playing in 2030 will be way bigger than what's out today.",
+     "shots": [
+      {
+       "src": "B",
+       "t": 22.0,
+       "label": "GTA 6"
+      },
+      {
+       "src": "F4",
+       "t": 134.0,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "It can also still get really stupid.",
+     "shots": [
+      {
+       "src": "B",
+       "t": 13.4,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "Here's a police chase that ends with the GPS saying turn left, straight into the jungle.",
+     "shots": [
+      {
+       "src": "B",
+       "t": 32.6,
+       "label": "GTA 6",
+       "crop": [
+        0,
+        450,
+        480,
+        270
+       ]
+      },
+      {
+       "src": "B",
+       "t": 34.0,
+       "label": "GTA 6",
+       "w": 2
+      }
+     ]
+    },
+    {
+     "text": "So the chaos isn't gone, it just takes a bit more effort.",
+     "shots": [
+      {
+       "src": "B",
+       "t": 38.5,
+       "label": "GTA 6"
+      }
+     ]
+    },
+    {
+     "text": "And Red Dead Redemption 2 already proved Rockstar's realism can age well.",
+     "shots": [
+      {
+       "card": "RED DEAD REDEMPTION 2",
+       "title": "OUT SINCE|2018",
+       "bg": "F4",
+       "t": 136
+      }
+     ]
+    },
+    {
+     "text": "It came out in 2018 and it still looks better than most games released this year.",
+     "shots": []
+    },
+    {
+     "text": "So maybe in five years this video ages like milk.",
+     "shots": [
+      {
+       "src": "c3",
+       "t": 8.5,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "I'm okay with that.",
+     "shots": []
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "But today, if you ask me which game I'd rather lose a whole weekend in, it's still GTA 5.",
+     "shots": [
+      {
+       "src": "c5",
+       "t_end": 16.7,
+       "label": "GTA 5"
+      }
+     ]
+    },
+    {
+     "text": "GTA 6 is the more impressive game.",
+     "shots": [
+      {
+       "src": "c2",
+       "t": 8.0,
+       "label": "split"
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 is the more fun one.",
+     "shots": [
+      {
+       "src": "c5",
+       "t": 16.0,
+       "label": "GTA 5",
+       "speed": 0.5
+      }
+     ]
+    },
+    {
+     "text": "So tell me in the comments: am I crazy, or does GTA 5 still hit harder?",
+     "shots": [
+      {
+       "card": "YOUR TURN",
+       "title": "GTA 5 OR|GTA 6?",
+       "bg": "c2",
+       "t": 12
+      }
+     ]
+    },
+    {
+     "text": "And tell me which of my five reasons is the weakest, because I know one of them is.",
+     "shots": []
+    },
+    {
+     "text": "And if you want the best GTA 6 moments as they happen, subscribe.",
+     "shots": [
+      {
+       "card": "NEW CLIPS EVERY DAY",
+       "title": "SUBSCRIBE",
+       "bg": "B",
+       "t": 8
+      }
+     ]
+    },
+    {
+     "text": "I'll see you in Leonida.",
+     "shots": []
+    }
+   ]
+  }
+ ]
+}

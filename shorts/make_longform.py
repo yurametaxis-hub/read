@@ -1,0 +1,337 @@
+#!/usr/bin/env python3
+"""Long-form 16:9 video essay: AI narration (Kokoro), b-roll synced to every sentence, section cards,
+GTA 5 and GTA 6 labels, burned captions, game audio ducked under the voice and a soft synth pad.
+
+    python3 shorts/make_longform.py shorts/jobs/longform_gta5_better.json
+
+Job keys:
+  out, work                 output mp4 and a work folder (TTS and shots are cached there)
+  voice, speed              Kokoro voice (am_fenrir, am_michael, af_heart, ...) and speaking rate
+  tts_model, tts_voices     kokoro-v1.0.onnx and voices-v1.0.bin
+  sources                   {"c5": {"path": "...", "crop": [x, y, w, h]}}; crop trims stream overlays
+  paragraphs                [{"sentences": [{"text": "...", "shots": [...]}, ...]}, ...]
+Shots share their sentence's time by weight "w"; a sentence with "shots": [] extends the previous shot.
+  {"src": "c5", "t": 8.0, "label": "GTA 5"}               clip from t ("t_end" instead: the shot ends there)
+  {"src": "c2", "t": 2, "crop": [0, 180, 640, 360]}       zoom into a region of the source
+  {"src": "c5", "t": 16, "speed": 0.4, "boom": 0.5}       slow motion, impact sound 0.5 s into the shot
+  {"card": "REASON #1", "title": "REALISM KILLED|THE CHAOS", "bg": "c5", "t": 22}
+  {"grid": [["A", 0.5], ["B", 14], ...]}                  3x3 wall of nine clips
+Labels: "GTA 5", "GTA 6", or "split" for side by side footage with GTA 5 on the left.
+"""
+import argparse
+import hashlib
+import html
+import json
+import re
+import subprocess
+import sys
+from concurrent.futures import ThreadPoolExecutor
+from pathlib import Path
+
+import numpy as np
+import soundfile as sf
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from make_edit import make_sfx  # noqa: E402
+
+W, H, FPS, SR = 1920, 1080, 30, 48000
+FONT_XB = "/usr/share/fonts/opentype/montserrat/Montserrat-ExtraBold.otf"
+TAG = {"GTA 5": "0x27AE60", "GTA 6": "0xFF2E88"}
+ENC = ["-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv420p", "-r", str(FPS)]
+
+
+def run(cmd):
+    r = subprocess.run([str(c) for c in cmd], capture_output=True, text=True)
+    if r.returncode:
+        sys.exit(f"failed: {' '.join(map(str, cmd))[:300]}\n{r.stderr[-1500:]}")
+    return r.stdout + r.stderr
+
+
+def duration(path):
+    return float(run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path]).strip())
+
+
+# ---------------------------------------------------------------- narration
+
+def speakable(text):
+    text = re.sub(r"\bGTA 5\b", "GTA Five", text)
+    text = re.sub(r"\bGTA 6\b", "GTA Six", text)
+    return text.replace("FiveM", "Five M")
+
+
+def narrate(job, work, sents):
+    from kokoro_onnx import Kokoro
+    tdir = work / "tts"
+    tdir.mkdir(parents=True, exist_ok=True)
+    kokoro = None
+    pieces, t = [], 0.4
+    for s in sents:
+        key = hashlib.sha1(f"{job['voice']}|{job['speed']}|{s['text']}".encode()).hexdigest()[:16]
+        f = tdir / f"{key}.wav"
+        if not f.exists():
+            kokoro = kokoro or Kokoro(job["tts_model"], job["tts_voices"])
+            audio, sr = kokoro.create(speakable(s["text"]), voice=job["voice"], speed=job["speed"], lang="en-us")
+            loud = np.flatnonzero(np.abs(audio) > 0.02 * np.abs(audio).max())
+            audio = audio[max(loud[0] - int(0.03 * sr), 0): loud[-1] + int(0.08 * sr)]
+            sf.write(f, audio, sr)
+        audio, sr = sf.read(f)
+        s["t0"], s["t1"] = t, t + len(audio) / sr
+        pieces.append((t, audio))
+        t = s["t1"] + (0.7 if s["last_in_par"] else 0.28)
+    total = t + 1.6
+    out = np.zeros(int(total * sr) + 1, dtype=np.float32)
+    for t0, a in pieces:
+        i = int(t0 * sr)
+        out[i:i + len(a)] += a
+    out /= max(np.abs(out).max(), 1e-6) / 0.9
+    sf.write(work / "narration.wav", out, sr)
+    return total
+
+
+# ---------------------------------------------------------------- shots
+
+def labels(label):
+    def tag(text, x):
+        return (f"drawtext=fontfile={FONT_XB}:text='{text}':fontsize=44:fontcolor=white:box=1:"
+                f"boxcolor={TAG[text]}@0.95:boxborderw=16:x={x}:y=44")
+    if label == "split":
+        return [tag("GTA 5", 52), tag("GTA 6", W // 2 + 52)]
+    return [tag(label, 52)] if label in TAG else []
+
+
+def fit(crop):
+    pre = [f"crop={crop[2]}:{crop[3]}:{crop[0]}:{crop[1]}"] if crop else []
+    return pre + [f"scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos", f"crop={W}:{H}", "setsar=1"]
+
+
+def clip_audio(path, t, need, dur, speed, out):
+    af = f"aresample={SR}"
+    if speed < 1:
+        af += f",asetrate={int(SR * speed)},aresample={SR}"
+    run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t:.3f}", "-t", f"{need + 0.5:.3f}", "-i", path, "-vn",
+         "-af", af + f",apad,atrim=0:{dur:.4f}", "-ac", "2", "-ar", SR, out])
+
+
+def silence(dur, out):
+    sf.write(out, np.zeros((int(round(dur * SR)), 2), dtype=np.float32), SR)
+
+
+def card_png(kicker, title, out):
+    t = "<br>".join(html.escape(x) for x in title.split("|"))
+    page = f'''<!doctype html><meta charset="utf-8"><style>
+      html, body {{ margin: 0; width: {W}px; height: {H}px; background: transparent; }}
+      .box {{ position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center;
+              justify-content: center; text-align: center; font-family: 'Montserrat'; font-style: italic; }}
+      .k {{ font-weight: 900; font-size: 60px; letter-spacing: 8px; color: #ff2e88; margin-bottom: 18px;
+            text-shadow: 0 4px 18px rgba(0,0,0,.6); }}
+      .t {{ position: relative; font-weight: 900; font-size: 132px; line-height: 1.02; }}
+      .t span {{ display: block; }}
+      .back {{ position: absolute; inset: 0; color: transparent; -webkit-text-stroke: 26px #0d0221; }}
+      .front {{ position: relative; color: #fff; }}
+    </style><div class="box"><div class="k">{html.escape(kicker)}</div>
+    <div class="t"><span class="back">{t}</span><span class="front">{t}</span></div></div>'''
+    f = Path(str(out) + ".html")
+    f.write_text(page)
+    run(["node", HERE / "brand" / "render_html.js", f, out, W, H])
+
+
+def render_shot(i, sh, nframes, sources, sdir):
+    dur = nframes / FPS
+    vout, aout = sdir / f"{i:04d}.mp4", sdir / f"{i:04d}.wav"
+    sig = hashlib.sha1(json.dumps([sh, nframes]).encode()).hexdigest()[:12]
+    stamp = sdir / f"{i:04d}.{sig}"
+    if stamp.exists() and vout.exists() and aout.exists():
+        return vout, aout
+    head = ["ffmpeg", "-v", "error", "-y"]
+    if "card" in sh:
+        src = sources[sh["bg"]]
+        png = sdir / f"{i:04d}.card.png"
+        card_png(sh["card"], sh["title"], png)
+        bg = ",".join(fit(src.get("crop")) + [f"fps={FPS}", "tpad=stop_mode=clone:stop_duration=30",
+                                              "boxblur=24:2", "eq=brightness=-0.22:saturation=0.75"])
+        run(head + ["-ss", sh.get("t", 0), "-t", dur + 1, "-i", src["path"], "-loop", "1", "-i", png,
+                    "-filter_complex", f"[0:v]{bg}[bg];[1:v]format=rgba,fade=in:st=0:d=0.3:alpha=1[t];"
+                    "[bg][t]overlay=0:0", "-frames:v", nframes, "-an", *ENC, vout])
+        silence(dur, aout)
+    elif "grid" in sh:
+        ins, fl = [], []
+        for k, (key, t) in enumerate(sh["grid"]):
+            src = sources[key]
+            ins += ["-ss", t, "-t", dur + 1, "-i", src["path"]]
+            crop = src.get("crop")
+            pre = f"crop={crop[2]}:{crop[3]}:{crop[0]}:{crop[1]}," if crop else ""
+            fl.append(f"[{k}:v]{pre}scale=632:352:force_original_aspect_ratio=increase,crop=632:352,setsar=1,"
+                      f"fps={FPS},tpad=stop_mode=clone:stop_duration=30,pad=640:360:4:4:black[g{k}]")
+        layout = "|".join(f"{x * 640}_{y * 360}" for y in range(3) for x in range(3))
+        fl.append("".join(f"[g{k}]" for k in range(9)) + f"xstack=inputs=9:layout={layout}," + ",".join(labels("GTA 6")))
+        run(head + ins + ["-filter_complex", ";".join(fl), "-frames:v", nframes, "-an", *ENC, vout])
+        silence(dur, aout)
+    else:
+        src = sources[sh["src"]]
+        sp = float(sh.get("speed", 1.0))
+        need = dur * sp
+        t = sh["t_end"] - need if "t_end" in sh else sh.get("t", 0.0)
+        t = max(0.0, min(t, src["dur"] - need - 0.05))
+        vf = fit(sh.get("crop") or src.get("crop"))
+        if sp != 1:
+            vf.append(f"setpts=PTS/{sp}")
+        vf += [f"fps={FPS}", "tpad=stop_mode=clone:stop_duration=30",
+               "eq=contrast=1.04:saturation=1.1", "unsharp=5:5:0.4:5:5:0"] + labels(sh.get("label"))
+        run(head + ["-ss", f"{t:.3f}", "-t", f"{need + 1:.3f}", "-i", src["path"], "-vf", ",".join(vf),
+                    "-frames:v", nframes, "-an", *ENC, vout])
+        clip_audio(src["path"], t, need, dur, sp, aout)
+    for old in sdir.glob(f"{i:04d}.*"):
+        if old.suffix not in (".mp4", ".wav", ".png", ".html") and old != stamp:
+            old.unlink()
+    stamp.touch()
+    return vout, aout
+
+
+# ---------------------------------------------------------------- captions, music, mix
+
+def captions(sents, path, max_chars=44):
+    import pysubs2
+    subs = pysubs2.SSAFile()
+    subs.info.update({"PlayResX": str(W), "PlayResY": str(H), "WrapStyle": "0", "ScaledBorderAndShadow": "yes"})
+    subs.styles["Cap"] = pysubs2.SSAStyle(
+        fontname="Montserrat ExtraBold", fontsize=54, primarycolor=pysubs2.Color(255, 255, 255),
+        outlinecolor=pysubs2.Color(0, 0, 0), backcolor=pysubs2.Color(0, 0, 0, 120), outline=4, shadow=2,
+        alignment=pysubs2.Alignment.BOTTOM_CENTER, marginv=60, marginl=160, marginr=160)
+    for s in sents:
+        words, chunks, cur = s["text"].split(), [], []
+        for w in words:
+            if cur and (len(" ".join(cur + [w])) > max_chars or re.search(r"[.!?:;,]$", cur[-1]) and len(" ".join(cur)) > 18):
+                chunks.append(" ".join(cur))
+                cur = []
+            cur.append(w)
+        chunks.append(" ".join(cur))
+        total = sum(len(c) for c in chunks)
+        t = s["t0"]
+        for c in chunks:
+            d = (s["t1"] - s["t0"]) * len(c) / total
+            subs.append(pysubs2.SSAEvent(start=int(t * 1000), end=int((t + d) * 1000), style="Cap", text=c))
+            t += d
+    subs.save(str(path))
+
+
+def synth_pad(total, path):
+    """Slow synthwave pad, Am F C G, four seconds per chord, detuned saws through a low-pass."""
+    from scipy.signal import butter, lfilter
+    n = int(total * SR)
+    t = np.arange(int(4.8 * SR)) / SR
+    midi = {"A2": 45, "C3": 48, "E3": 52, "F2": 41, "G2": 43, "A3": 57, "B3": 59, "C4": 60, "D4": 62, "E4": 64, "G4": 67}
+    chords = [("A2", "E3", "A3", "C4", "E4"), ("F2", "C3", "A3", "C4", "E4"),
+              ("C3", "G2", "E4", "G4", "C4"), ("G2", "D4", "B3", "D4", "G4")]
+    env = np.minimum(1, np.minimum(t / 0.8, (t[-1] - t) / 0.8)).clip(0)
+    out = np.zeros((n + len(t), 2))
+    b, a = butter(2, 900 / (SR / 2))
+    for k in range(int(np.ceil(total / 4)) + 1):
+        notes = chords[k % 4]
+        seg = np.zeros((len(t), 2))
+        for note in notes:
+            f0 = 440 * 2 ** ((midi[note] - 69) / 12)
+            for ch, det in ((0, -0.07), (1, 0.07)):
+                for d in (det, -det / 2):
+                    f = f0 * 2 ** (d / 12)
+                    seg[:, ch] += 2 * ((t * f + 0.13 * ch) % 1) - 1
+        seg = lfilter(b, a, seg, axis=0) * env[:, None]
+        i = int(k * 4 * SR)
+        out[i:i + len(t)] += seg[: len(out) - i]
+    out = out[:n]
+    delay = int(0.31 * SR)
+    out[delay:] += 0.35 * out[:-delay][:, ::-1]
+    out /= np.abs(out).max() / 0.25
+    sf.write(path, out.astype(np.float32), SR)
+
+
+def sfx_track(total, events, work, path):
+    boom, whoosh = make_sfx(work)
+    tr = np.zeros((int(total * SR) + SR, 2), dtype=np.float32)
+    for kind, t in events:
+        a, _ = sf.read(boom if kind == "boom" else whoosh)
+        i = max(int(t * SR), 0)
+        tr[i:i + len(a)] += a[: len(tr) - i] * (0.9 if kind == "boom" else 1.0)
+    sf.write(path, tr[: int(total * SR)], SR)
+
+
+# ---------------------------------------------------------------- main
+
+def build(job_path):
+    job = json.loads(Path(job_path).read_text())
+    work = Path(job["work"])
+    work.mkdir(parents=True, exist_ok=True)
+    sources = job["sources"]
+    for s in sources.values():
+        s["dur"] = duration(s["path"])
+    sents = []
+    for p in job["paragraphs"]:
+        for k, s in enumerate(p["sentences"]):
+            s["last_in_par"] = k == len(p["sentences"]) - 1
+            sents.append(s)
+    total = narrate(job, work, sents)
+    print(f"narration {total:.1f}s, {sum(len(s['text'].split()) for s in sents)} words")
+
+    tl = []
+    for i, s in enumerate(sents):
+        a = 0.0 if i == 0 else s["t0"]
+        b = sents[i + 1]["t0"] if i + 1 < len(sents) else total
+        if not s.get("shots"):
+            tl[-1]["end"] = b
+            continue
+        ws = [sh.get("w", 1) for sh in s["shots"]]
+        t = a
+        for sh, w in zip(s["shots"], ws):
+            d = (b - a) * w / sum(ws)
+            tl.append({"shot": sh, "start": t, "end": t + d})
+            t += d
+    frames = [round(x["end"] * FPS) - round(x["start"] * FPS) for x in tl]
+
+    sdir = work / "shots"
+    sdir.mkdir(exist_ok=True)
+    with ThreadPoolExecutor(3) as ex:
+        res = list(ex.map(lambda a: render_shot(*a), [(i, x["shot"], n, sources, sdir) for i, (x, n) in enumerate(zip(tl, frames))]))
+    (work / "list.txt").write_text("".join(f"file '{v}'\n" for v, _ in res))
+    run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", work / "list.txt", "-c", "copy", work / "broll.mp4"])
+    def exact(a, n):  # every shot's audio cut or padded to its frame count, so nothing drifts
+        x = sf.read(a, dtype="float32", always_2d=True)[0][: n * SR // FPS]
+        return np.pad(x, ((0, n * SR // FPS - len(x)), (0, 0)))
+    game = np.concatenate([exact(a, n) for (_, a), n in zip(res, frames)])
+    sf.write(work / "game.wav", game, SR)
+
+    events = []
+    for x in tl:
+        sh = x["shot"]
+        if "card" in sh:
+            events.append(("whoosh", x["start"] - 0.25))
+        if "boom" in sh:
+            events.append(("boom", x["start"] + sh["boom"]))
+    sfx_track(total, events, work, work / "sfx.wav")
+    synth_pad(total, work / "pad.wav")
+    captions(sents, work / "captions.ass")
+
+    mix = ("[1:a]aresample=48000,aformat=channel_layouts=stereo,loudnorm=I=-16:TP=-2:LRA=7,asplit=3[n1][n2][n3];"
+           "[2:a]loudnorm=I=-22:TP=-3,volume=0.7[g0];[g0][n2]sidechaincompress=threshold=0.015:ratio=12:attack=10:release=400[gd];"
+           "[3:a]volume=0.45[m0];[m0][n3]sidechaincompress=threshold=0.015:ratio=4:attack=40:release=800[md];"
+           "[n1][gd][md][4:a]amix=inputs=4:normalize=0[mix]")
+    run(["ffmpeg", "-v", "error", "-y", "-i", work / "broll.mp4", "-i", work / "narration.wav", "-i", work / "game.wav",
+         "-i", work / "pad.wav", "-i", work / "sfx.wav", "-filter_complex", mix, "-map", "[mix]", "-t", total, work / "mix.wav"])
+    meas = run(["ffmpeg", "-hide_banner", "-i", work / "mix.wav", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"])
+    m = json.loads(meas[meas.rindex("{"): meas.rindex("}") + 1])
+    loud = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}"
+            f":measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true,aresample=48000")
+    out = Path(job["out"])
+    out.parent.mkdir(parents=True, exist_ok=True)
+    run(["ffmpeg", "-v", "error", "-y", "-i", work / "broll.mp4", "-i", work / "mix.wav",
+         "-filter_complex", f"[0:v]ass={work / 'captions.ass'}:fontsdir=/usr/share/fonts[v];[1:a]{loud}[a]",
+         "-map", "[v]", "-map", "[a]", "-t", total, "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+         "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", out])
+    chapters = [(x["start"], x["shot"]) for x in tl if "card" in x["shot"]]
+    (work / "chapters.txt").write_text("".join(f"{int(s // 60)}:{int(s % 60):02d} {sh['card']} {sh['title'].replace('|', ' ')}\n" for s, sh in chapters))
+    print(out, f"{total:.1f}s")
+
+
+if __name__ == "__main__":
+    ap = argparse.ArgumentParser()
+    ap.add_argument("job")
+    build(ap.parse_args().job)
