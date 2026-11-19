@@ -389,16 +389,25 @@ def build(job_path):
     synth_pad(total, work / "pad.wav")
     captions(sents, work / "captions.ass")
 
-    mix = ("[1:a]aresample=48000,aformat=channel_layouts=stereo,loudnorm=I=-16:TP=-2:LRA=7,asplit=3[n1][n2][n3];"
-           "[2:a]loudnorm=I=-22:TP=-3,volume=0.7[g0];[g0][n2]sidechaincompress=threshold=0.015:ratio=12:attack=10:release=400[gd];"
-           "[3:a]volume=0.45[m0];[m0][n3]sidechaincompress=threshold=0.015:ratio=4:attack=40:release=800[md];"
-           "[n1][gd][md][4:a]amix=inputs=4:normalize=0[mix]")
+    # Static gains measured up front: dynamic loudnorm keeps a 3 s lookahead and dropped the last
+    # word of the narration, and a sidechain ends as soon as its key input ends, so everything is padded.
+    def gain_to(path, target):
+        meas = run(["ffmpeg", "-hide_banner", "-i", path, "-af", "loudnorm=print_format=json", "-f", "null", "-"])
+        i = float(json.loads(meas[meas.rindex("{"): meas.rindex("}") + 1])["input_i"])
+        return 0.0 if i < -70 else target - i
+    gn, gg = gain_to(work / "narration.wav", -16), gain_to(work / "game.wav", -22)
+    mix = (f"[1:a]aresample=48000,aformat=channel_layouts=stereo,volume={gn:.2f}dB,apad=whole_dur={total:.3f},asplit=3[n1][n2][n3];"
+           f"[2:a]volume={gg:.2f}dB,volume=0.7,apad=whole_dur={total:.3f}[g0];"
+           "[g0][n2]sidechaincompress=threshold=0.015:ratio=12:attack=10:release=400[gd];"
+           f"[3:a]volume=0.45,apad=whole_dur={total:.3f}[m0];[m0][n3]sidechaincompress=threshold=0.015:ratio=4:attack=40:release=800[md];"
+           f"[4:a]apad=whole_dur={total:.3f}[fx];[n1][gd][md][fx]amix=inputs=4:normalize=0:duration=first[mix]")
     run(["ffmpeg", "-v", "error", "-y", "-i", work / "broll.mp4", "-i", work / "narration.wav", "-i", work / "game.wav",
          "-i", work / "pad.wav", "-i", work / "sfx.wav", "-filter_complex", mix, "-map", "[mix]", "-t", total, work / "mix.wav"])
     meas = run(["ffmpeg", "-hide_banner", "-i", work / "mix.wav", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"])
     m = json.loads(meas[meas.rindex("{"): meas.rindex("}") + 1])
-    loud = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}"
-            f":measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true,aresample=48000")
+    loud = (f"apad=whole_dur={total:.3f},loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}"
+            f":measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true,"
+            "aresample=48000")
     out = Path(job["out"])
     out.parent.mkdir(parents=True, exist_ok=True)
     run(["ffmpeg", "-v", "error", "-y", "-i", work / "broll.mp4", "-i", work / "mix.wav",
