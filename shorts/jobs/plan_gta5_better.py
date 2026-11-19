@@ -15,6 +15,9 @@ from pathlib import Path
 
 import soundfile as sf
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from make_longform import speakable  # noqa: E402  (the TTS cache is keyed by the spoken text)
+
 U, S = sys.argv[1], sys.argv[2]
 HERE = Path(__file__).resolve().parent
 L5, L6, SP = "GTA 5", "GTA 6", "split"
@@ -213,7 +216,7 @@ tdir = Path(job["work"]) / "tts"
 slots, t = [], 0.4
 flat = [(text, shots, k == len(par) - 1) for par in P for k, (text, shots) in enumerate(par)]
 for text, _, last in flat:
-    key = hashlib.sha1(f"{job['voice']}|{job['speed']}|{text}".encode()).hexdigest()[:16]
+    key = hashlib.sha1(f"{job['voice']}|{job['speed']}|{speakable(text)}".encode()).hexdigest()[:16]
     f = tdir / f"{key}.wav"
     if not f.exists():
         sys.exit(f"no narration cached for: {text[:50]} (run make_longform.py once to synthesize)")

@@ -59,9 +59,10 @@ def duration(path):
 # ---------------------------------------------------------------- narration
 
 def speakable(text):
+    """Spellings Kokoro reads right; each one was checked by running the audio back through Whisper."""
     text = re.sub(r"\bGTA 5\b", "GTA Five", text)
     text = re.sub(r"\bGTA 6\b", "GTA Six", text)
-    return text.replace("FiveM", "Five M")
+    return text.replace("FiveM", "Five M").replace("Cayo Perico", "Kai-oh Perico")
 
 
 def narrate(job, work, sents):
@@ -71,7 +72,7 @@ def narrate(job, work, sents):
     kokoro = None
     pieces, t = [], 0.4
     for s in sents:
-        key = hashlib.sha1(f"{job['voice']}|{job['speed']}|{s['text']}".encode()).hexdigest()[:16]
+        key = hashlib.sha1(f"{job['voice']}|{job['speed']}|{speakable(s['text'])}".encode()).hexdigest()[:16]
         f = tdir / f"{key}.wav"
         if not f.exists():
             kokoro = kokoro or Kokoro(job["tts_model"], job["tts_voices"])
@@ -171,9 +172,11 @@ def check_shot(sh, need, sources):
 def render_shot(i, sh, nframes, sources, sdir):
     dur = nframes / FPS
     sig = hashlib.sha1(json.dumps([sh, nframes, VERSION]).encode()).hexdigest()[:14]
-    vout, aout = sdir / f"{sig}.mp4", sdir / f"{sig}.wav"
-    if vout.exists() and aout.exists():
-        return vout, aout
+    final_v, final_a = sdir / f"{sig}.mp4", sdir / f"{sig}.wav"
+    if final_v.exists() and final_a.exists():
+        return final_v, final_a
+    # write under temporary names and rename at the end, so a stopped render never leaves a cut file
+    vout, aout = sdir / f"{sig}.part.mp4", sdir / f"{sig}.part.wav"
     head = ["ffmpeg", "-v", "error", "-y"]
     if "card" in sh:
         src = sources[sh["bg"]]
@@ -229,7 +232,9 @@ def render_shot(i, sh, nframes, sources, sdir):
         run(head + ["-ss", f"{t:.3f}", "-t", f"{need + 1:.3f}", "-i", src["path"], "-vf", ",".join(vf),
                     "-frames:v", nframes, "-an", *ENC, vout])
         clip_audio(src["path"], t, need, dur, sp, aout)
-    return vout, aout
+    vout.replace(final_v)
+    aout.replace(final_a)
+    return final_v, final_a
 
 
 # ---------------------------------------------------------------- captions, music, mix
