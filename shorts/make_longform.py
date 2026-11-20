@@ -60,8 +60,8 @@ def duration(path):
 
 def speakable(text):
     """Spellings Kokoro reads right; each one was checked by running the audio back through Whisper."""
-    text = re.sub(r"\bGTA 5\b", "GTA Five", text)
-    text = re.sub(r"\bGTA 6\b", "GTA Six", text)
+    words = {"1": "One", "2": "Two", "3": "Three", "4": "Four", "5": "Five", "6": "Six"}
+    text = re.sub(r"\bGTA ([1-6])\b", lambda m: "GTA " + words[m.group(1)], text)
     return text.replace("FiveM", "Five M").replace("Cayo Perico", "Kai-oh Perico")
 
 

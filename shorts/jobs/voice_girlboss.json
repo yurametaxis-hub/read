@@ -1,0 +1,781 @@
+{
+ "voice": "am_fenrir",
+ "speed": 1.05,
+ "tts_model": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/kokoro-v1.0.onnx",
+ "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
+ "game_volume": 0,
+ "sources": {
+  "h1": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/8b330bbc-1_.mkv",
+   "scenes": [
+    [
+     0.05,
+     5.05,
+     null
+    ],
+    [
+     5.15,
+     8.55,
+     null
+    ],
+    [
+     8.65,
+     11.35,
+     null
+    ],
+    [
+     11.45,
+     12.85,
+     null
+    ],
+    [
+     12.95,
+     14.9,
+     null
+    ],
+    [
+     17.7,
+     18.85,
+     null
+    ],
+    [
+     18.95,
+     21.75,
+     null
+    ],
+    [
+     21.85,
+     23.95,
+     null
+    ],
+    [
+     24.05,
+     25.95,
+     null
+    ],
+    [
+     26.05,
+     28.65,
+     null
+    ],
+    [
+     28.75,
+     31.35,
+     null
+    ],
+    [
+     31.45,
+     37.95,
+     null
+    ]
+   ]
+  },
+  "h4": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/f7e4270c-4.mkv",
+   "scenes": [
+    [
+     0.05,
+     2.25,
+     null
+    ],
+    [
+     2.35,
+     3.75,
+     null
+    ],
+    [
+     3.85,
+     8.95,
+     null
+    ],
+    [
+     9.05,
+     16.15,
+     null
+    ],
+    [
+     16.25,
+     29.35,
+     null
+    ],
+    [
+     32.65,
+     34.65,
+     null
+    ],
+    [
+     34.75,
+     36.65,
+     null
+    ]
+   ]
+  },
+  "h5": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/d07d104b-5.mkv",
+   "delogo": [
+    [
+     1058,
+     76,
+     184,
+     36
+    ]
+   ],
+   "scenes": [
+    [
+     0.05,
+     6.25,
+     null
+    ],
+    [
+     6.35,
+     7.05,
+     null
+    ],
+    [
+     13.25,
+     19.95,
+     null
+    ],
+    [
+     20.05,
+     23.35,
+     null
+    ],
+    [
+     23.45,
+     29.25,
+     null
+    ],
+    [
+     29.35,
+     35.45,
+     null
+    ]
+   ]
+  },
+  "h9": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/426591e5-9.mkv",
+   "scenes": [
+    [
+     0.05,
+     6.49,
+     null
+    ],
+    [
+     6.59,
+     8.93,
+     null
+    ],
+    [
+     9.03,
+     21.27,
+     null
+    ],
+    [
+     21.37,
+     22.57,
+     null
+    ],
+    [
+     22.67,
+     29.38,
+     null
+    ],
+    [
+     29.48,
+     31.41,
+     null
+    ],
+    [
+     31.51,
+     32.75,
+     null
+    ],
+    [
+     32.85,
+     34.15,
+     null
+    ],
+    [
+     34.25,
+     38.72,
+     null
+    ],
+    [
+     38.82,
+     45.56,
+     null
+    ],
+    [
+     45.66,
+     50.73,
+     null
+    ],
+    [
+     50.83,
+     55.61,
+     null
+    ],
+    [
+     55.71,
+     57.44,
+     null
+    ],
+    [
+     57.54,
+     58.34,
+     null
+    ],
+    [
+     58.44,
+     68.05,
+     null
+    ],
+    [
+     68.15,
+     74.92,
+     null
+    ],
+    [
+     75.02,
+     78.8,
+     null
+    ],
+    [
+     78.9,
+     80.83,
+     null
+    ]
+   ]
+  },
+  "h10": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/92941a1b-10.mkv",
+   "scenes": [
+    [
+     0.05,
+     4.49,
+     null
+    ],
+    [
+     4.59,
+     7.62,
+     null
+    ],
+    [
+     7.72,
+     9.16,
+     null
+    ],
+    [
+     9.26,
+     12.8,
+     null
+    ],
+    [
+     12.9,
+     14.5,
+     null
+    ],
+    [
+     14.6,
+     16.27,
+     null
+    ],
+    [
+     16.37,
+     18.17,
+     null
+    ],
+    [
+     18.27,
+     20.64,
+     null
+    ],
+    [
+     20.74,
+     21.74,
+     null
+    ],
+    [
+     21.84,
+     22.74,
+     null
+    ],
+    [
+     22.84,
+     29.38,
+     null
+    ],
+    [
+     29.48,
+     31.52,
+     null
+    ],
+    [
+     31.62,
+     33.02,
+     null
+    ],
+    [
+     33.12,
+     41.96,
+     null
+    ],
+    [
+     42.06,
+     50.7,
+     null
+    ],
+    [
+     50.8,
+     52.87,
+     null
+    ],
+    [
+     52.97,
+     53.47,
+     null
+    ],
+    [
+     53.57,
+     54.67,
+     null
+    ],
+    [
+     54.77,
+     63.25,
+     null
+    ]
+   ]
+  },
+  "h16": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/861b7c16-16.mkv",
+   "scenes": [
+    [
+     0.05,
+     0.72,
+     null
+    ],
+    [
+     0.82,
+     5.78,
+     null
+    ],
+    [
+     5.88,
+     7.48,
+     null
+    ],
+    [
+     7.58,
+     8.55,
+     null
+    ],
+    [
+     8.65,
+     9.55,
+     null
+    ],
+    [
+     9.65,
+     12.05,
+     null
+    ],
+    [
+     12.15,
+     13.48,
+     null
+    ],
+    [
+     13.58,
+     14.48,
+     null
+    ],
+    [
+     14.58,
+     15.88,
+     null
+    ],
+    [
+     15.98,
+     17.32,
+     null
+    ],
+    [
+     17.42,
+     18.72,
+     null
+    ],
+    [
+     18.82,
+     20.15,
+     null
+    ],
+    [
+     20.25,
+     21.82,
+     null
+    ],
+    [
+     21.92,
+     23.15,
+     null
+    ],
+    [
+     23.25,
+     24.48,
+     null
+    ],
+    [
+     24.58,
+     25.78,
+     null
+    ],
+    [
+     25.88,
+     26.72,
+     null
+    ],
+    [
+     26.82,
+     29.65,
+     null
+    ]
+   ]
+  },
+  "h18": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/73bc492c-18.mkv",
+   "scenes": [
+    [
+     0.05,
+     7.88,
+     null
+    ],
+    [
+     7.98,
+     8.58,
+     null
+    ],
+    [
+     8.68,
+     10.48,
+     null
+    ],
+    [
+     10.58,
+     11.82,
+     null
+    ],
+    [
+     11.92,
+     13.25,
+     null
+    ],
+    [
+     13.35,
+     14.15,
+     null
+    ],
+    [
+     14.25,
+     18.95,
+     null
+    ],
+    [
+     19.05,
+     22.18,
+     null
+    ],
+    [
+     22.28,
+     23.88,
+     null
+    ],
+    [
+     23.98,
+     28.68,
+     null
+    ],
+    [
+     28.78,
+     31.32,
+     null
+    ],
+    [
+     31.42,
+     33.75,
+     null
+    ],
+    [
+     33.85,
+     39.55,
+     null
+    ],
+    [
+     39.65,
+     41.62,
+     null
+    ],
+    [
+     41.72,
+     44.62,
+     null
+    ],
+    [
+     44.72,
+     47.35,
+     null
+    ],
+    [
+     47.45,
+     48.78,
+     null
+    ],
+    [
+     48.88,
+     49.58,
+     null
+    ],
+    [
+     49.68,
+     50.55,
+     null
+    ],
+    [
+     50.65,
+     54.05,
+     null
+    ],
+    [
+     54.15,
+     56.78,
+     null
+    ],
+    [
+     56.88,
+     61.08,
+     null
+    ],
+    [
+     61.18,
+     66.58,
+     null
+    ],
+    [
+     66.68,
+     69.75,
+     null
+    ],
+    [
+     69.85,
+     73.12,
+     null
+    ],
+    [
+     73.22,
+     74.55,
+     null
+    ],
+    [
+     74.65,
+     75.65,
+     null
+    ]
+   ]
+  },
+  "h19": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/902db830-19.mkv",
+   "scenes": [
+    [
+     0.05,
+     3.12,
+     null
+    ],
+    [
+     3.22,
+     4.95,
+     null
+    ],
+    [
+     5.05,
+     5.95,
+     null
+    ],
+    [
+     6.05,
+     7.42,
+     null
+    ],
+    [
+     7.52,
+     10.15,
+     null
+    ],
+    [
+     10.25,
+     12.18,
+     null
+    ],
+    [
+     12.28,
+     13.02,
+     null
+    ],
+    [
+     13.12,
+     16.72,
+     null
+    ],
+    [
+     16.82,
+     20.98,
+     null
+    ],
+    [
+     21.08,
+     23.05,
+     null
+    ],
+    [
+     23.15,
+     24.45,
+     null
+    ],
+    [
+     24.55,
+     26.65,
+     null
+    ]
+   ]
+  },
+  "A": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/a20a5ca3-GTA_6_Open_World_Police_Chase_Gameplay___Chaos_in_the_Leonida_Keys___INSANE_Police_Chase_on_PS5_Pro.mkv",
+   "scenes": [
+    [
+     0.05,
+     19.98,
+     null
+    ],
+    [
+     20.08,
+     23.55,
+     null
+    ],
+    [
+     23.65,
+     29.55,
+     null
+    ],
+    [
+     29.65,
+     30.55,
+     null
+    ],
+    [
+     30.65,
+     41.35,
+     null
+    ]
+   ]
+  }
+ },
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hidden/out/voice_girlboss.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hidden/work_voice_girlboss",
+ "title": "Is Lucia a *girl boss*? 🤔",
+ "paragraphs": [
+  {
+   "sentences": [
+    {
+     "text": "Is Lucia a girl boss?",
+     "shots": [
+      {
+       "src": "h10",
+       "t": 44.6,
+       "x": 0.5,
+       "zoom": 1.1
+      }
+     ]
+    },
+    {
+     "text": "In this robbery she flips a grown man over her shoulder like it's nothing.",
+     "shots": [
+      {
+       "src": "h10",
+       "t": 46.1,
+       "x": 0.5
+      },
+      {
+       "src": "h10",
+       "t": 48.0,
+       "x": 0.5,
+       "speed": 0.5,
+       "boom": 1.5
+      }
+     ]
+    },
+    {
+     "text": "Some reviewers already call it silly.",
+     "shots": [
+      {
+       "src": "h10",
+       "t": 49.15,
+       "x": 0.5,
+       "speed": 0.8
+      }
+     ]
+    },
+    {
+     "text": "But Lara Croft was doing backflips in 1996, and nobody cared.",
+     "shots": [
+      {
+       "src": "h9",
+       "t": 34.3,
+       "x": 0.45,
+       "whoosh": true
+      }
+     ]
+    },
+    {
+     "text": "And come on, it's GTA. Every main character takes out a small army alone.",
+     "shots": [
+      {
+       "src": "h10",
+       "t": 34.0,
+       "x": 0.45
+      },
+      {
+       "src": "h9",
+       "t": 45.7,
+       "x": 0.5
+      }
+     ]
+    },
+    {
+     "text": "Jason does it every five minutes, and nobody asks if he's a boy boss.",
+     "shots": [
+      {
+       "src": "A",
+       "t": 2.7,
+       "x": 0.5
+      }
+     ]
+    },
+    {
+     "text": "So is Lucia too much, or is this just GTA?",
+     "shots": [
+      {
+       "src": "h10",
+       "t": 50.8,
+       "x": 0.5
+      },
+      {
+       "src": "h10",
+       "t": 39.6,
+       "x": 0.45
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
