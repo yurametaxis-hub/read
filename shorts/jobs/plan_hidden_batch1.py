@@ -72,7 +72,8 @@ def job(name, title, lines):
     print(name, sum(len(t.split()) for t, _ in lines), "words")
 
 
-sign = shot("h4", 20.15, x=0.13, y=0.36, zoom=1.6)
+# the FREE THE BEAR sign is fully in frame only from 19.6 to 20.3; slowed down so it stays readable
+sign = shot("h4", 19.7, x=0.12, y=0.32, zoom=1.6, speed=0.6)
 job("voice_bear", "GTA 6 is trolling *activists* 🐻", [
     ("Rockstar is trolling activists in GTA 6.", [sign, shot("h4", 16.3, x=0.35)]),
     ("Protesters block an animal services truck and want the driver to free a bear.",
@@ -85,7 +86,7 @@ job("voice_bear", "GTA 6 is trolling *activists* 🐻", [
     ("And then comes the best line: you can't just let her out, you'll mess up the ecology. You guys care about that, right?",
      [shot("h4", 22.0, x=0.62, zoom=1.35, repeat=True), shot("h4", 26.0, x=0.4, zoom=1.3, repeat=True)]),
     ("Rockstar still makes fun of everyone.", [shot("h1", 0.3, x=0.5, whoosh=True)]),
-    ("Would you free the bear?", [dict(sign, repeat=True)]),
+    ("Would you free the bear?", [dict(sign, t=19.6, speed=0.5, repeat=True)]),
 ])
 
 job("voice_sims", "GTA 6 turned into *The Sims* 😭", [
