@@ -73,7 +73,7 @@ def job(name, title, lines):
 
 
 # the FREE THE BEAR sign is fully in frame only from 19.6 to 20.3; slowed down so it stays readable
-sign = shot("h4", 19.7, x=0.12, y=0.32, zoom=1.6, speed=0.6)
+sign = shot("h4", 19.8, x=0.12, y=0.32, zoom=1.6, speed=0.6)
 job("voice_bear", "GTA 6 is trolling *activists* 🐻", [
     ("Rockstar is trolling activists in GTA 6.", [sign, shot("h4", 16.3, x=0.35)]),
     ("Protesters block an animal services truck and want the driver to free a bear.",
@@ -99,19 +99,23 @@ job("voice_sims", "GTA 6 turned into *The Sims* 😭", [
     ("Would you rather rob a bank, or paint your walls?", [shot("h4", 5.2, x=0.5), shot("h5", 22.4, x=0.55)]),
 ])
 
+# h16: the GTA 1 portraits are on screen from 3.5 to 5.1 only, and a Spanish OPCIONES title covers ~10.9 on;
+# h19 0 to 3.1 and 5 to 10 are the other channel's graphics, 3.2 to 5.0 is plain GTA 4 footage of Bernie
 job("voice_woke1997", "GTA went *woke* in 1997? 😳", [
-    ("Everyone says GTA 6 went woke.", [shot("h16", 12.2, x=0.5, y=0.45), shot("h10", 39.0, x=0.45)]),
-    ("But Rockstar was doing this before most of you were born.", [shot("h16", 5.9, x=0.5, y=0.4), shot("h16", 9.7, x=0.5, y=0.4)]),
+    ("Everyone says GTA 6 went woke.", [shot("h16", 12.2, x=0.5, y=0.45, speed=0.9), shot("h10", 39.0, x=0.45)]),
+    ("But Rockstar was doing this before most of you were born.",
+     [shot("h16", 5.9, x=0.5, y=0.4), shot("h16", 7.6, x=0.5, y=0.4, w=0.6), shot("h16", 8.7, x=0.5, y=0.4, w=0.55)]),
     ("The very first GTA, back in 1997, already let you play as a woman.",
-     [shot("h16", 3.5, x=0.5, y=0.32, zoom=1.25, speed=0.4)]),
+     [shot("h16", 1.0, x=0.5, y=0.4), shot("h16", 3.5, x=0.5, y=0.32, zoom=1.25, speed=0.5, w=1.2)]),
     ("Vice City Stories had a trans film director.", [shot("h18", 19.1, x=0.5, y=0.38, zoom=1.25)]),
     ("GTA 4 had Bernie, Niko's old army buddy, secretly dating the deputy mayor.",
-     [shot("h19", 13.1, x=0.55, y=0.4, zoom=1.2, speed=0.8)]),
+     [shot("h19", 13.1, x=0.55, y=0.4, zoom=1.2, speed=0.75, w=3), shot("h19", 3.2, x=0.55, y=0.4, zoom=1.15, w=1.2)]),
     ("And a whole expansion was named after a nightclub owner called Gay Tony.",
      [shot("h18", 50.65, x=0.5, y=0.38, zoom=1.2), shot("h18", 54.15, x=0.45, y=0.38, zoom=1.2)]),
     ("So GTA didn't suddenly go woke.", [shot("h9", 6.6, x=0.5, whoosh=True)]),
     ("It always had everyone in it, and it always roasted everyone.", [shot("h4", 24.0, x=0.45)]),
-    ("Which old GTA character should come back in GTA 6?", [shot("h10", 50.8, x=0.5), shot("h19", 0.2, x=0.5, y=0.4, zoom=1.2)]),
+    ("Which old GTA character should come back in GTA 6?",
+     [shot("h10", 29.5, x=0.5, speed=0.85), shot("h18", 28.8, x=0.5, y=0.38, zoom=1.2)]),
 ])
 
 job("voice_girlboss", "Is Lucia a *girl boss*? 🤔", [
@@ -119,9 +123,10 @@ job("voice_girlboss", "Is Lucia a *girl boss*? 🤔", [
     ("In this robbery she flips a grown man over her shoulder like it's nothing.",
      [shot("h10", 46.1, x=0.5), shot("h10", 48.0, x=0.5, speed=0.5, boom=1.5)]),
     ("Some reviewers already call it silly.", [shot("h10", 49.15, x=0.5, speed=0.8)]),
-    ("But Lara Croft was doing backflips in 1996, and nobody cared.", [shot("h9", 34.3, x=0.45, whoosh=True)]),
+    ("But Lara Croft was doing backflips in 1996, and nobody cared.",
+     [shot("h9", 34.3, x=0.45, whoosh=True, w=3), shot("h9", 29.5, x=0.45, w=1.4)]),
     ("And come on, it's GTA. Every main character takes out a small army alone.",
      [shot("h10", 34.0, x=0.45), shot("h9", 45.7, x=0.5)]),
     ("Jason does it every five minutes, and nobody asks if he's a boy boss.", [shot("A", 2.7, x=0.5)]),
-    ("So is Lucia too much, or is this just GTA?", [shot("h10", 50.8, x=0.5), shot("h10", 39.6, x=0.45)]),
+    ("So is Lucia too much, or is this just GTA?", [shot("h10", 37.0, x=0.45), shot("h10", 39.6, x=0.45)]),
 ])
