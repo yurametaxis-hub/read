@@ -128,13 +128,14 @@ job("meme_karma", ["w9"], voice="am_puck", speed=1.05, music="pizz", music_volum
     ])
 
 # 3. ---------------------------------------------------------------- BMX vs cops
-BMX = dict(x=0.45, zoom=1.0)
+BMX = dict(x=0.5, zoom=1.0)  # x 0.5 keeps the Reddit handle label out of the crop
 job("meme_bmx", ["w9", "w10"], voice="am_puck", speed=1.05, music="phonk", music_volume=0.32, game_volume=0.8,
     hook="HE TOLD THE COPS ['YOU CAN'T CATCH ME'] 💀", credit="🎥 u/According-Amoeba-936 · via ReplayNext",
     keywords=["cops", "steals", "bmx"],
     beats=[
-        {"say": "This man saw a cop car and chose violence.", "shots": [sh("w9", 21.4, x=0.5, zoom=1.0, zoom_to=1.08)]},
-        {"say": "He rides up on a BMX and yells:", "shots": [sh("w9", 23.1, speed=0.9, **BMX)]},
+        # the BMX clip starts at 23.03 (before that is the end of the plane clip); slowed so it lasts the two lines
+        {"say": "This man saw a cop car and chose violence.", "shots": [sh("w9", 23.08, speed=0.55, **dict(BMX, zoom_to=1.08))]},
+        {"say": "He rides up on a BMX and yells:", "shots": [sh("w9", 24.4, speed=0.55, **BMX)]},
         {"min": 1.15, "shots": [sh("w9", 25.55, dur=1.15, **BMX)],
          "stickers": [bub("YOU CAN'T CATCH ME!", 0.2, dur=0.95, src=[582, 312], anchor="center", size=72, pad="22px 40px")]},
         {"say": "Two seconds later...", "shots": [sh("w9", 26.82, dur=2.2, speed=0.3, **dict(BMX, zoom_to=1.2),
