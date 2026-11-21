@@ -353,8 +353,8 @@ class Looks:
         self.noise = [(rng.standard_normal((H // 2, W // 2)) * 9).astype(np.float32) for _ in range(6)]
         yy, xx = np.mgrid[0:H, 0:W]
         r = np.sqrt(((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2)
-        self.vig = np.clip(1.15 - 0.45 * r ** 2, 0.35, 1).astype(np.float32)[..., None]
-        self.scan = np.where((np.arange(H) % 3) == 0, 0.86, 1.0).astype(np.float32)[:, None, None]
+        self.vig = np.clip(1.12 - 0.35 * r ** 2, 0.45, 1).astype(np.float32)[..., None]
+        self.scan = np.where((np.arange(H) % 3) == 0, 0.9, 1.0).astype(np.float32)[:, None, None]
         self.play, self.rew = vhs_text("PLAY ►"), vhs_text("◄◄ REWIND")
         self.play_pm, self.rew_pm = premul(self.play), premul(self.rew)
         sh = np.zeros((H, W, 1), np.float32)
@@ -368,7 +368,7 @@ class Looks:
         x[..., 0] = np.roll(x[..., 0], 4, axis=1)
         x[..., 2] = np.roll(x[..., 2], -4, axis=1)
         n = cv2.resize(self.noise[k % 6], (W, H), interpolation=cv2.INTER_NEAREST)[..., None]
-        x = (x * 0.92 + 10) * self.scan * self.vig + n
+        x = (x * 0.97 + 8) * self.scan * self.vig + n
         x *= 1 + 0.035 * math.sin(k * 1.7) + 0.02 * ((k * 7919) % 11 - 5) / 5
         out = np.clip(x, 0, 255).astype(np.uint8)
         if rewind:
@@ -378,7 +378,7 @@ class Looks:
                 hgt = int(rng.integers(20, 70))
                 out[y:y + hgt] = np.roll(out[y:y + hgt], int(rng.integers(-70, 70)), axis=1)
                 out[y + hgt:y + hgt + 3] = 230
-        blend(out, self.rew_pm if rewind else self.play_pm, W - 420, BAND_Y + 24)
+        blend(out, self.rew_pm if rewind else self.play_pm, 46, BAND_Y + 64)
         return out
 
     @staticmethod
@@ -408,6 +408,14 @@ class Looks:
 
 
 # ---------------------------------------------------------------- shots
+
+def make_lut(g):
+    """Night footage lift: gamma, then contrast around mid grey, then a flat lift."""
+    x = np.arange(256) / 255
+    y = x ** (1 / g.get("gamma", 1.0))
+    y = (y - 0.5) * g.get("contrast", 1.0) + 0.5
+    return np.clip(y * 255 + g.get("lift", 0), 0, 255).astype(np.uint8)
+
 
 def ease(u, kind):
     u = min(max(u, 0.0), 1.0)
@@ -469,19 +477,23 @@ def src_time(sh, tau):
     return sh["t"] - tau * sp if sh.get("reverse") else sh["t"] + tau * sp
 
 
-def render_shot(sh, n, src, looks, stickers, hooks, t_abs0, pipe, look):
+def render_shot(sh, n, src, looks, stickers, hooks, t_abs0, pipe, look, grade=None):
     wh = src["wh"]
     taus = [k / FPS for k in range(n)]
     times = [src_time(sh, tau) for tau in taus]
     frames, ft0 = load_frames(src["path"], min(times) - 0.02, max(times) + 0.1, wh)
     fx = sh.get("fx", {})
     blendmode = sh.get("speed", 1.0) < 0.8 and not sh.get("freeze")
+    g = sh.get("grade", grade)
+    lut = make_lut(g) if g else None
     for k, (tau, st) in enumerate(zip(taus, times)):
         fi = (st - ft0) * FPS
         i0 = int(min(max(math.floor(fi), 0), len(frames) - 1))
         i1 = min(i0 + 1, len(frames) - 1)
         a = fi - math.floor(fi)
         img = frames[i0] if not blendmode or a < 0.05 or i0 == i1 else cv2.addWeighted(frames[i0], 1 - a, frames[i1], a, 0)
+        if lut is not None:
+            img = cv2.LUT(img, lut)
         cx, cy, rw, rh, ow, oh = geometry(sh, tau, wh)
         s = oh / rh
         dx, dy, rot = shake_offset(fx, tau)
@@ -678,7 +690,7 @@ def build(job_path):
                              "-pix_fmt", "yuv420p", str(vid)], stdin=subprocess.PIPE)
     for s in shots:
         render_shot(s, s["_n"], job["sources"][s["src"]], looks, stickers, hooks, round(s["_start"] * FPS) / FPS,
-                    pipe, job.get("look"))
+                    pipe, job.get("look"), job.get("grade"))
     pipe.stdin.close()
     pipe.wait()
 
