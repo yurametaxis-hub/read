@@ -560,7 +560,7 @@ def shot_audio(sh, n, src):
 
 # ---------------------------------------------------------------- build
 
-def build(job_path):
+def build(job_path, reuse_video=False):
     job = json.loads(Path(job_path).read_text())
     work = Path(job["work"])
     work.mkdir(parents=True, exist_ok=True)
@@ -682,9 +682,17 @@ def build(job_path):
         cimg = imgs["credit_" + sha(job["credit"])]
         hooks.append(Sticker(cimg, 0.0, total + 1, W / 2, 160 + hh - 56 + cimg.shape[0] / 2 - 18, "none", layer=9))
 
-    # 3. video
+    # 3. video (reuse_video keeps a video.mp4 rendered from the same job, for audio-only fixes)
     looks = Looks()
     vid = work / "video.mp4"
+    if reuse_video and vid.exists():
+        print("reusing", vid)
+    else:
+        render_video(shots, job, looks, stickers, hooks, vid)
+    audio_and_final(job, work, voices, shots, lines, memes, sfx_ev, cuts, total, vid)
+
+
+def render_video(shots, job, looks, stickers, hooks, vid):
     pipe = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
                              "-r", str(FPS), "-i", "-", "-c:v", "libx264", "-preset", "veryfast", "-crf", "15",
                              "-pix_fmt", "yuv420p", str(vid)], stdin=subprocess.PIPE)
@@ -694,6 +702,8 @@ def build(job_path):
     pipe.stdin.close()
     pipe.wait()
 
+
+def audio_and_final(job, work, voices, shots, lines, memes, sfx_ev, cuts, total, vid):
     # 4. audio
     n_all = int(round(total * SR)) + SR
     narr = np.zeros((n_all, 2), np.float32)
@@ -718,8 +728,11 @@ def build(job_path):
             env[i1:i1 + ramp] = np.minimum(env[i1:i1 + ramp], np.linspace(0, 1, len(env[i1:i1 + ramp])))
         m = m * env[:, None] * job.get("music_volume", 0.5)
         MK._place(mus, m, 0.0)
+    pk = np.abs(narr).max()
+    if pk > 0.9:  # Kokoro lines can peak above full scale; keep headroom before anything is mixed
+        narr *= 0.9 / pk
     for name, arr in (("narr", narr), ("game", game), ("fx", fx), ("mus", mus)):
-        sf.write(work / f"{name}.wav", arr[: int(total * SR)], SR)
+        sf.write(work / f"{name}.wav", arr[: int(total * SR)], SR, subtype="FLOAT")
 
     def gain_to(path, target):
         meas = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(path), "-af", "loudnorm=print_format=json", "-f", "null", "-"],
@@ -734,7 +747,7 @@ def build(job_path):
            "[3:a]volume=1.0[m0];[m0][n3]sidechaincompress=threshold=0.02:ratio=5:attack=30:release=600[md];"
            f"[2:a]volume={job.get('sfx_volume', 1.0)}[fx];[n1][gd][md][fx]amix=inputs=4:normalize=0:duration=first[mix]")
     run(["ffmpeg", "-v", "error", "-y", "-i", work / "narr.wav", "-i", work / "game.wav", "-i", work / "fx.wav",
-         "-i", work / "mus.wav", "-filter_complex", mix, "-map", "[mix]", work / "mix.wav"])
+         "-i", work / "mus.wav", "-filter_complex", mix, "-map", "[mix]", "-c:a", "pcm_f32le", work / "mix.wav"])
     meas = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(work / "mix.wav"), "-af",
                            "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"], capture_output=True, text=True).stderr
     m = json.loads(meas[meas.rindex("{"): meas.rindex("}") + 1])
@@ -783,7 +796,8 @@ def build(job_path):
     out = Path(job["out"])
     out.parent.mkdir(parents=True, exist_ok=True)
     run(["ffmpeg", "-v", "error", "-y", "-i", vid, "-i", work / "mix.wav", "-filter_complex",
-         f"[0:v]ass={ass}:fontsdir={FONTS}[v];[1:a]{loud}[a]", "-map", "[v]", "-map", "[a]", "-t", f"{total:.3f}",
+         f"[0:v]ass={ass}:fontsdir={FONTS}[v];[1:a]{loud},alimiter=limit=0.79:attack=2:release=60:level=0[a]",
+         "-map", "[v]", "-map", "[a]", "-t", f"{total:.3f}",
          "-c:v", "libx264", "-preset", "medium", "-crf", "19", "-profile:v", "high", "-pix_fmt", "yuv420p",
          "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", out])
     print(out, f"{total:.1f}s")
@@ -792,4 +806,6 @@ def build(job_path):
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("job")
-    build(ap.parse_args().job)
+    ap.add_argument("--reuse-video", action="store_true", help="keep work/video.mp4, redo audio and the final mux")
+    a = ap.parse_args()
+    build(a.job, a.reuse_video)
