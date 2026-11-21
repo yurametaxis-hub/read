@@ -1,0 +1,214 @@
+{
+ "tts_model": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/kokoro-v1.0.onnx",
+ "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
+ "meme_voice": "am_onyx",
+ "meme_speed": 0.92,
+ "layout": "band",
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/wtf/out/meme_bird.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/wtf/work_meme_bird",
+ "sources": {
+  "w4": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/33eda07f-4.mkv"
+  }
+ },
+ "voice": "bm_george",
+ "speed": 0.95,
+ "music": "doc",
+ "music_volume": 0.6,
+ "game_volume": 0.5,
+ "hook": "THIS BIRD [DESTROYED] HIS CAR 💀",
+ "credit": "🎥 u/catchlight22 · via ReplayNext",
+ "keywords": [
+  "bird",
+  "car"
+ ],
+ "beats": [
+  {
+   "say": "Leonida. A paradise of sun, sea, and birds.",
+   "shots": [
+    {
+     "src": "w4",
+     "t": 6.9,
+     "speed": 0.6,
+     "zoom": 1.0,
+     "zoom_to": 1.06
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "PLANET LEONIDA 🌴",
+     "at": 0.2,
+     "font": "Anton",
+     "size": 74,
+     "stroke": 12,
+     "y": 620
+    }
+   ]
+  },
+  {
+   "say": "Here we observe a man, peacefully driving across the bridge.",
+   "shots": [
+    {
+     "src": "w4",
+     "t": 8.6,
+     "speed": 0.37
+    }
+   ]
+  },
+  {
+   "say": "And then... the bird arrives.",
+   "shots": [
+    {
+     "src": "w4",
+     "t": 11.45,
+     "speed": 0.18
+    }
+   ]
+  },
+  {
+   "say": "With one gentle touch...",
+   "music_cut": true,
+   "shots": [
+    {
+     "src": "w4",
+     "t": 11.85,
+     "dur": 1.0,
+     "speed": 0.12
+    },
+    {
+     "src": "w4",
+     "t": 11.95,
+     "freeze": true
+    }
+   ]
+  },
+  {
+   "say": "it flips the entire car.",
+   "delay": 0.3,
+   "music_cut": true,
+   "shots": [
+    {
+     "src": "w4",
+     "t": 12.13,
+     "dur": 1.1,
+     "speed": 0.45,
+     "fx": {
+      "deepfry": [
+       0.0,
+       0.6
+      ],
+      "shake": [
+       [
+        0.0,
+        0.9,
+        40
+       ]
+      ],
+      "flash": [
+       "white",
+       0.0
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "vine_boom",
+     "at": 0.0,
+     "gain": 0.9
+    }
+   ],
+   "stickers": [
+    {
+     "type": "emoji",
+     "emoji": "💀",
+     "at": 0.1,
+     "x": 820,
+     "y": 720,
+     "size": 250
+    }
+   ]
+  },
+  {
+   "min": 2.3,
+   "shots": [
+    {
+     "src": "w4",
+     "t": 11.5,
+     "speed": 0.15,
+     "x": 0.55,
+     "y": 0.42,
+     "zoom": 1.5
+    }
+   ],
+   "meme": [
+    {
+     "say": "What the hell?",
+     "at": 1.1
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "INSTANT REPLAY ⏪",
+     "at": 0.0,
+     "font": "Bangers",
+     "size": 80,
+     "bg": "#111",
+     "y": 560,
+     "rot": -2
+    }
+   ]
+  },
+  {
+   "say": "Nature is truly beautiful.",
+   "shots": [
+    {
+     "src": "w4",
+     "t": 11.8,
+     "freeze": true,
+     "x": 0.55,
+     "y": 0.42,
+     "zoom": 1.4,
+     "zoom_to": 1.55
+    }
+   ]
+  },
+  {
+   "say": "Rockstar, why is the bird stronger than the car?",
+   "pad": 0.6,
+   "shots": [
+    {
+     "src": "w4",
+     "t": 11.8,
+     "freeze": true,
+     "x": 0.55,
+     "y": 0.42,
+     "zoom": 1.55,
+     "zoom_to": 1.65
+    }
+   ],
+   "sfx": [
+    {
+     "name": "vine_boom",
+     "at": 0.1,
+     "gain": 0.6
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "BIRDS ARE THE FINAL BOSS 🐦",
+     "at": 0.1,
+     "font": "Bangers",
+     "size": 84,
+     "bg": "#1565c0",
+     "y": 980,
+     "rot": -3,
+     "maxw": 900
+    }
+   ]
+  }
+ ]
+}

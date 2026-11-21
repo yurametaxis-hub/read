@@ -1,0 +1,263 @@
+{
+ "tts_model": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/kokoro-v1.0.onnx",
+ "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
+ "meme_voice": "am_onyx",
+ "meme_speed": 0.92,
+ "layout": "band",
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/wtf/out/meme_bmx.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/wtf/work_meme_bmx",
+ "sources": {
+  "w9": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/3446ee03-9.mkv"
+  },
+  "w10": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/5d39c651-10.mkv"
+  }
+ },
+ "voice": "am_puck",
+ "speed": 1.05,
+ "music": "phonk",
+ "music_volume": 0.32,
+ "game_volume": 0.8,
+ "hook": "HE TOLD THE COPS ['YOU CAN'T CATCH ME'] 💀",
+ "credit": "🎥 u/According-Amoeba-936 · via ReplayNext",
+ "keywords": [
+  "cops",
+  "steals",
+  "bmx"
+ ],
+ "beats": [
+  {
+   "say": "This man saw a cop car and chose violence.",
+   "shots": [
+    {
+     "src": "w9",
+     "t": 21.4,
+     "x": 0.5,
+     "zoom": 1.0,
+     "zoom_to": 1.08
+    }
+   ]
+  },
+  {
+   "say": "He rides up on a BMX and yells:",
+   "shots": [
+    {
+     "src": "w9",
+     "t": 23.1,
+     "speed": 0.9,
+     "x": 0.45,
+     "zoom": 1.0
+    }
+   ]
+  },
+  {
+   "min": 1.15,
+   "shots": [
+    {
+     "src": "w9",
+     "t": 25.55,
+     "dur": 1.15,
+     "x": 0.45,
+     "zoom": 1.0
+    }
+   ],
+   "stickers": [
+    {
+     "type": "bubble",
+     "text": "YOU CAN'T CATCH ME!",
+     "at": 0.2,
+     "dur": 0.95,
+     "src": [
+      582,
+      312
+     ],
+     "anchor": "center",
+     "size": 72,
+     "pad": "22px 40px"
+    }
+   ]
+  },
+  {
+   "say": "Two seconds later...",
+   "shots": [
+    {
+     "src": "w9",
+     "t": 26.82,
+     "dur": 2.2,
+     "speed": 0.3,
+     "x": 0.45,
+     "zoom": 1.0,
+     "zoom_to": 1.2,
+     "fx": {
+      "shake": [
+       [
+        0.6,
+        1.8,
+        34
+       ]
+      ],
+      "flash": [
+       "white",
+       0.6
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "vine_boom",
+     "at": 0.6,
+     "gain": 0.9
+    }
+   ]
+  },
+  {
+   "min": 2.3,
+   "music_cut": true,
+   "shots": [
+    {
+     "src": "w9",
+     "t": 27.45,
+     "freeze": true,
+     "fx": {
+      "sepia": true
+     },
+     "x": 0.45,
+     "zoom": 1.2,
+     "zoom_to": 1.28
+    }
+   ],
+   "sfx": [
+    {
+     "name": "record_scratch",
+     "at": 0.0,
+     "gain": 0.8
+    },
+    {
+     "name": "sad_trombone",
+     "at": 0.5,
+     "gain": 0.6
+    }
+   ],
+   "meme": [
+    {
+     "say": "Bruh.",
+     "at": 0.9
+    }
+   ],
+   "stickers": [
+    {
+     "type": "tbc",
+     "at": 0.0
+    }
+   ]
+  },
+  {
+   "say": "But wait. It gets better.",
+   "shots": [
+    {
+     "src": "w10",
+     "t": 0.2,
+     "x": 0.5
+    }
+   ]
+  },
+  {
+   "say": "He gets up, walks over to the cop car...",
+   "shots": [
+    {
+     "src": "w10",
+     "t": 1.4,
+     "x": 0.5
+    }
+   ]
+  },
+  {
+   "say": "and just takes it.",
+   "shots": [
+    {
+     "src": "w10",
+     "t": 3.8,
+     "x": 0.5
+    }
+   ],
+   "sfx": [
+    {
+     "name": "vine_boom",
+     "at": 0.5,
+     "gain": 0.7
+    }
+   ],
+   "stickers": [
+    {
+     "type": "emoji",
+     "emoji": "🗿",
+     "at": 0.5,
+     "x": 800,
+     "y": 700,
+     "size": 230
+    }
+   ]
+  },
+  {
+   "min": 1.55,
+   "shots": [
+    {
+     "src": "w10",
+     "t": 6.3,
+     "dur": 1.55,
+     "x": 0.5
+    }
+   ],
+   "stickers": [
+    {
+     "type": "bubble",
+     "text": "SEE YOU LATER! 👋",
+     "at": 0.55,
+     "src": [
+      595,
+      332
+     ],
+     "anchor": "center",
+     "size": 96,
+     "pad": "30px 44px"
+    }
+   ]
+  },
+  {
+   "say": "Technically... they really couldn't catch him.",
+   "pad": 0.6,
+   "shots": [
+    {
+     "src": "w10",
+     "t": 7.85,
+     "freeze": true,
+     "x": 0.5
+    }
+   ],
+   "sfx": [
+    {
+     "name": "airhorn",
+     "at": 0.1,
+     "gain": 0.45
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "GTA 6 COPS 🤡",
+     "at": 0.0,
+     "src": [
+      595,
+      332
+     ],
+     "font": "Bangers",
+     "size": 128,
+     "bg": "#e01b1b",
+     "pad": "18px 34px"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,267 @@
+{
+ "tts_model": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/kokoro-v1.0.onnx",
+ "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
+ "meme_voice": "am_onyx",
+ "meme_speed": 0.92,
+ "layout": "band",
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/wtf/out/meme_windshield.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/wtf/work_meme_windshield",
+ "sources": {
+  "w1": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/821d1f49-1.mkv"
+  },
+  "w2": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/c2762f34-2.mkv"
+  }
+ },
+ "voice": "bm_george",
+ "speed": 0.95,
+ "music": "horror",
+ "music_volume": 0.7,
+ "look": "vhs",
+ "game_volume": 0.55,
+ "hook": "WHAT IS ON HIS [WINDSHIELD]?? 😳",
+ "credit": "🎥 u/Technical-Problem982 · via ReplayNext",
+ "keywords": [
+  "windshield",
+  "gone"
+ ],
+ "beats": [
+  {
+   "shots": [
+    {
+     "src": "w2",
+     "t": 12.2,
+     "dur": 1.0,
+     "layout": "fill",
+     "zoom": 1.3,
+     "zoom_to": 1.7,
+     "ease": "out",
+     "fx": {
+      "flash": [
+       "red",
+       0.0
+      ],
+      "shake": [
+       [
+        0.0,
+        0.7,
+        30
+       ]
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "jumpscare",
+     "at": 0.0,
+     "gain": 0.8
+    }
+   ]
+  },
+  {
+   "shots": [
+    {
+     "src": "w2",
+     "t": 12.2,
+     "dur": 0.9,
+     "reverse": true,
+     "speed": 4,
+     "fx": {
+      "rewind": true
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rewind",
+     "at": 0.0,
+     "gain": 0.5
+    }
+   ]
+  },
+  {
+   "say": "Late at night, somewhere in Leonida.",
+   "shots": [
+    {
+     "src": "w1",
+     "t": 11.1,
+     "zoom": 1.0,
+     "zoom_to": 1.08
+    }
+   ]
+  },
+  {
+   "say": "Thick fog. An empty road. He's just driving.",
+   "shots": [
+    {
+     "src": "w2",
+     "t": 0.4,
+     "zoom": 1.0,
+     "zoom_to": 1.1
+    }
+   ],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "at": 0.6,
+     "gain": 0.55,
+     "kw": {
+      "bpm": 62,
+      "beats": 4
+     }
+    }
+   ]
+  },
+  {
+   "say": "And then...",
+   "min": 2.9,
+   "music_cut": true,
+   "shots": [
+    {
+     "src": "w2",
+     "t": 6.4,
+     "zoom": 1.0,
+     "zoom_to": 1.15
+    }
+   ],
+   "sfx": [
+    {
+     "name": "heartbeat",
+     "at": 0.0,
+     "gain": 0.7,
+     "kw": {
+      "bpm": 110,
+      "beats": 5
+     }
+    }
+   ]
+  },
+  {
+   "min": 1.5,
+   "shots": [
+    {
+     "src": "w2",
+     "t": 10.62,
+     "layout": "fill",
+     "zoom": 1.0,
+     "zoom_to": 1.45,
+     "ease": "punch",
+     "fx": {
+      "flash": [
+       "red",
+       0.0
+      ],
+      "shake": [
+       [
+        0.0,
+        0.8,
+        38
+       ]
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "jumpscare",
+     "at": 0.0,
+     "gain": 0.9
+    }
+   ],
+   "meme": [
+    {
+     "say": "Nope.",
+     "at": 0.85
+    }
+   ],
+   "stickers": [
+    {
+     "type": "emoji",
+     "emoji": "😳",
+     "at": 0.45,
+     "x": 830,
+     "y": 720,
+     "size": 230,
+     "dur": 1.0
+    }
+   ]
+  },
+  {
+   "say": "Someone is lying face down on his windshield.",
+   "shots": [
+    {
+     "src": "w2",
+     "t": 12.05,
+     "zoom": 1.1,
+     "zoom_to": 1.25
+    }
+   ]
+  },
+  {
+   "say": "Long hair. Arms spread wide. And they are not letting go.",
+   "shots": [
+    {
+     "src": "w2",
+     "t": 13.4,
+     "zoom": 1.15,
+     "zoom_to": 1.3
+    }
+   ]
+  },
+  {
+   "say": "Then there's a flash... and they're just gone.",
+   "shots": [
+    {
+     "src": "w2",
+     "t": 15.25,
+     "dur": 1.05
+    },
+    {
+     "src": "w2",
+     "t": 16.4
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "at": 0.35,
+     "gain": 0.7
+    }
+   ]
+  },
+  {
+   "say": "GTA 6, or a horror game? Would you keep driving?",
+   "pad": 0.6,
+   "shots": [
+    {
+     "src": "w2",
+     "t": 16.9,
+     "freeze": true,
+     "zoom": 1.0,
+     "zoom_to": 1.12
+    }
+   ],
+   "sfx": [
+    {
+     "name": "vine_boom",
+     "at": 0.2,
+     "gain": 0.6
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "GTA 6 OR A HORROR GAME? 💀",
+     "at": 0.2,
+     "font": "Bangers",
+     "size": 88,
+     "bg": "#b30000",
+     "y": 960,
+     "rot": -3
+    }
+   ]
+  }
+ ]
+}

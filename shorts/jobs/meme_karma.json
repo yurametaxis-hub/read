@@ -1,0 +1,449 @@
+{
+ "tts_model": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/kokoro-v1.0.onnx",
+ "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
+ "meme_voice": "am_onyx",
+ "meme_speed": 0.92,
+ "layout": "band",
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/wtf/out/meme_karma.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/wtf/work_meme_karma",
+ "sources": {
+  "w9": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/3446ee03-9.mkv"
+  }
+ },
+ "voice": "am_puck",
+ "speed": 1.05,
+ "music": "pizz",
+ "music_volume": 0.45,
+ "game_volume": 0.6,
+ "hook": "HE TRIED TO ROB JASON... [INSTANT KARMA] 💀",
+ "credit": "🎥 u/alpha_hen96 · via ReplayNext",
+ "keywords": [
+  "scooter",
+  "rob",
+  "gun"
+ ],
+ "beats": [
+  {
+   "say": "Yep. That's him. You're probably wondering how he got here.",
+   "delay": 0.9,
+   "music_cut": true,
+   "shots": [
+    {
+     "src": "w9",
+     "t": 12.75,
+     "dur": 0.85,
+     "speed": 0.4,
+     "x": 0.66,
+     "y": 0.45,
+     "zoom": 1.2
+    },
+    {
+     "src": "w9",
+     "t": 13.1,
+     "freeze": true,
+     "x": 0.66,
+     "y": 0.45,
+     "zoom": 1.2,
+     "zoom_to": 1.28
+    }
+   ],
+   "sfx": [
+    {
+     "name": "record_scratch",
+     "at": 0.85,
+     "gain": 0.8
+    }
+   ],
+   "stickers": [
+    {
+     "type": "circle",
+     "src": [
+      960,
+      360
+     ],
+     "src_r": 95,
+     "at": 0.95
+    },
+    {
+     "type": "arrow",
+     "from": [
+      300,
+      760
+     ],
+     "src": [
+      900,
+      330
+     ],
+     "label": "HIM",
+     "at": 1.1
+    }
+   ]
+  },
+  {
+   "shots": [
+    {
+     "src": "w9",
+     "t": 13.1,
+     "dur": 1.1,
+     "reverse": true,
+     "speed": 9,
+     "fx": {
+      "rewind": true
+     },
+     "x": 0.66,
+     "y": 0.45,
+     "zoom": 1.2
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rewind",
+     "at": 0.0,
+     "gain": 0.5
+    }
+   ]
+  },
+  {
+   "say": "So this guy runs up to Jason and asks where the nearest ATM is.",
+   "shots": [
+    {
+     "src": "w9",
+     "t": 1.3,
+     "x": 0.6,
+     "y": 0.45,
+     "zoom": 1.2
+    },
+    {
+     "src": "w9",
+     "t": 6.0,
+     "w": 1.2,
+     "x": 0.6,
+     "y": 0.45,
+     "zoom": 1.2
+    }
+   ]
+  },
+  {
+   "say": "Then he goes for it.",
+   "shots": [
+    {
+     "src": "w9",
+     "t": 7.62,
+     "dur": 0.5,
+     "speed": 0.5,
+     "x": 0.6,
+     "y": 0.45,
+     "zoom": 1.2
+    },
+    {
+     "src": "w9",
+     "t": 7.87,
+     "freeze": true,
+     "x": 0.6,
+     "y": 0.45,
+     "zoom": 1.2
+    }
+   ],
+   "stickers": [
+    {
+     "type": "bubble",
+     "text": "GIVE ME YOUR CASH!",
+     "at": 0.5,
+     "x": 600,
+     "y": 600,
+     "size": 66,
+     "tail": "left"
+    }
+   ],
+   "sfx": [
+    {
+     "name": "dun_dun",
+     "at": 0.5,
+     "gain": 0.5
+    }
+   ]
+  },
+  {
+   "say": "Bro even asks: you don't see my gun? Jason: yeah, no.",
+   "shots": [
+    {
+     "src": "w9",
+     "t": 8.12,
+     "dur": 2.0,
+     "freeze": true,
+     "x": 0.6,
+     "y": 0.45,
+     "zoom": 1.2
+    },
+    {
+     "src": "w9",
+     "t": 8.32,
+     "freeze": true,
+     "x": 0.6,
+     "y": 0.45,
+     "zoom": 1.2
+    }
+   ],
+   "stickers": [
+    {
+     "type": "bubble",
+     "text": "YOU DON'T SEE MY GUN?",
+     "at": 0.0,
+     "dur": 2.0,
+     "x": 600,
+     "y": 600,
+     "size": 62,
+     "tail": "left"
+    },
+    {
+     "type": "bubble",
+     "text": "YEAH, NO.",
+     "at": 2.0,
+     "x": 330,
+     "y": 560,
+     "size": 80,
+     "tail": "left"
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bonk",
+     "at": 2.05,
+     "gain": 0.7
+    }
+   ]
+  },
+  {
+   "say": "Then Jason offers to beat him up, just to speed things up.",
+   "shots": [
+    {
+     "src": "w9",
+     "t": 8.86,
+     "freeze": true,
+     "x": 0.6,
+     "y": 0.45,
+     "zoom": 1.2
+    }
+   ],
+   "stickers": [
+    {
+     "type": "bubble",
+     "text": "IF I KICKED YOUR A**, WOULD THAT HURRY THIS ALONG?",
+     "at": 0.0,
+     "x": 470,
+     "y": 600,
+     "size": 52,
+     "maxw": 760,
+     "tail": "left"
+    }
+   ]
+  },
+  {
+   "say": "And the robber goes: you know what? You got a point. I'm just gonna go.",
+   "shots": [
+    {
+     "src": "w9",
+     "t": 9.45,
+     "speed": 0.62,
+     "x": 0.6,
+     "y": 0.45,
+     "zoom": 1.2
+    }
+   ],
+   "stickers": [
+    {
+     "type": "bubble",
+     "text": "I'M JUST GONNA GO.",
+     "at": 1.6,
+     "x": 600,
+     "y": 600,
+     "size": 66,
+     "tail": "left"
+    }
+   ]
+  },
+  {
+   "say": "He takes one step...",
+   "music_cut": true,
+   "shots": [
+    {
+     "src": "w9",
+     "t": 12.2,
+     "speed": 0.4,
+     "x": 0.66,
+     "y": 0.45,
+     "zoom": 1.2
+    }
+   ],
+   "sfx": [
+    {
+     "name": "riser",
+     "at": 0.0,
+     "gain": 0.5,
+     "kw": {
+      "d": 1.2
+     }
+    }
+   ]
+  },
+  {
+   "say": "and gets absolutely deleted by a guy on a scooter.",
+   "delay": 0.35,
+   "music_cut": true,
+   "shots": [
+    {
+     "src": "w9",
+     "t": 12.72,
+     "dur": 1.4,
+     "speed": 0.3,
+     "x": 0.66,
+     "y": 0.45,
+     "zoom": 1.2,
+     "zoom_to": 1.4,
+     "fx": {
+      "shake": [
+       [
+        0.3,
+        1.2,
+        34
+       ]
+      ],
+      "flash": [
+       "white",
+       0.3
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "vine_boom",
+     "at": 0.3,
+     "gain": 0.9
+    }
+   ],
+   "stickers": [
+    {
+     "type": "emoji",
+     "emoji": "💀",
+     "at": 0.35,
+     "x": 840,
+     "y": 760,
+     "size": 240
+    }
+   ]
+  },
+  {
+   "min": 2.4,
+   "shots": [
+    {
+     "src": "w9",
+     "t": 12.62,
+     "speed": 0.25,
+     "x": 0.62,
+     "y": 0.42,
+     "zoom": 2.0
+    }
+   ],
+   "sfx": [
+    {
+     "name": "shutter",
+     "at": 0.0,
+     "gain": 0.9
+    }
+   ],
+   "meme": [
+    {
+     "say": "Emotional damage.",
+     "at": 0.9
+    }
+   ],
+   "stickers": [
+    {
+     "type": "rec",
+     "at": 0.0
+    },
+    {
+     "type": "text",
+     "text": "CAUGHT IN 4K 📸",
+     "at": 0.1,
+     "font": "Bangers",
+     "size": 84,
+     "bg": "#e01b1b",
+     "y": 560,
+     "rot": -2
+    },
+    {
+     "type": "text",
+     "text": "EMOTIONAL DAMAGE",
+     "at": 0.9,
+     "font": "Anton",
+     "size": 92,
+     "color": "#fff",
+     "bg": "#111",
+     "y": 1180,
+     "rot": 3,
+     "anim": "slam"
+    }
+   ]
+  },
+  {
+   "say": "And Jason had two hundred sixty-four bucks on him the whole time.",
+   "shots": [
+    {
+     "src": "w9",
+     "t": 13.4,
+     "speed": 0.4,
+     "x": 0.66,
+     "y": 0.45,
+     "zoom": 1.2
+    }
+   ],
+   "sfx": [
+    {
+     "name": "kaching",
+     "at": 1.3,
+     "gain": 0.7
+    }
+   ],
+   "stickers": [
+    {
+     "type": "emoji",
+     "emoji": "💸",
+     "at": 1.3,
+     "x": 820,
+     "y": 720,
+     "size": 210
+    }
+   ]
+  },
+  {
+   "say": "Would you have given him the money?",
+   "pad": 0.6,
+   "shots": [
+    {
+     "src": "w9",
+     "t": 14.6,
+     "freeze": true,
+     "x": 0.66,
+     "y": 0.45,
+     "zoom": 1.2,
+     "zoom_to": 1.3
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "WOULD YOU PAY? 👇",
+     "at": 0.2,
+     "font": "Bangers",
+     "size": 86,
+     "bg": "#1565c0",
+     "y": 960,
+     "rot": -3
+    }
+   ]
+  }
+ ]
+}
