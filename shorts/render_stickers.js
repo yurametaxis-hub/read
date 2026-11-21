@@ -14,14 +14,21 @@ const { chromium } = require('playwright');
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1400, height: 2000 } });
   for (const it of items) {
-    await page.setContent(`<!doctype html><meta charset="utf-8"><style>${faces}
+    // the page has to live on file:// so Chromium lets it load the local font files
+    const htmlPath = it.out.replace(/\.png$/, '.html');
+    fs.writeFileSync(htmlPath, `<!doctype html><meta charset="utf-8"><style>${faces}
       html, body { margin: 0; background: transparent; }
       #wrap { display: inline-block; padding: 28px; }
       .o { position: relative; display: inline-block; }
       .o .b { position: absolute; left: 0; top: 0; color: transparent; }
       .o .f { position: relative; }
     </style><div id="wrap">${it.html}</div>`);
-    await page.evaluate(() => document.fonts.ready);
+    await page.goto('file://' + htmlPath);
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      const fams = ['Anton', 'Bangers', 'Luckiest Guy', 'Permanent Marker'];
+      await Promise.all(fams.map((f) => document.fonts.load(`40px '${f}'`)));
+    });
     await (await page.$('#wrap')).screenshot({ path: it.out, omitBackground: true });
   }
   await browser.close();

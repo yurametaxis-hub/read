@@ -75,7 +75,7 @@ job("meme_windshield", ["w1", "w2"], voice="bm_george", speed=0.95, music="horro
     ])
 
 # 2. ---------------------------------------------------------------- the robbery that ends with a scooter
-DLG = dict(x=0.6, y=0.45, zoom=1.2)
+DLG = dict(x=0.6, y=0.43, zoom=1.25)
 HIT = dict(x=0.66, y=0.45, zoom=1.2)
 job("meme_karma", ["w9"], voice="am_puck", speed=1.05, music="pizz", music_volume=0.45, game_volume=0.6,
     hook="HE TRIED TO ROB JASON... [INSTANT KARMA] 💀", credit="🎥 u/alpha_hen96 · via ReplayNext",
@@ -96,7 +96,8 @@ job("meme_karma", ["w9"], voice="am_puck", speed=1.05, music="pizz", music_volum
         {"say": "Bro even asks: you don't see my gun? Jason: yeah, no.",
          "shots": [sh("w9", 8.12, dur=2.0, freeze=True, **DLG), sh("w9", 8.32, freeze=True, **DLG)],
          "stickers": [bub("YOU DON'T SEE MY GUN?", 0.0, dur=2.0, x=600, y=600, size=62, tail="left"),
-                      bub("YEAH, NO.", 2.0, x=330, y=560, size=80, tail="left")],
+                      bub("YEAH, NO.", 2.0, x=330, y=560, size=80, tail="left"),
+                      dict(type="circle", src=[800, 285], src_r=62, at=2.2)],
          "sfx": [{"name": "bonk", "at": 2.05, "gain": 0.7}]},
         {"say": "Then Jason offers to beat him up, just to speed things up.",
          "shots": [sh("w9", 8.86, freeze=True, **DLG)],

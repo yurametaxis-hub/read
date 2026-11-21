@@ -664,10 +664,11 @@ def build(job_path):
         stickers.append(Sticker(rgba, t0, t1, x, y, anim, st.get("rot", 0.0), st.get("wobble", 0.0),
                                 st.get("track"), st.get("blink"), st.get("layer", 1)))
     hooks = [Sticker(imgs[hook_key], 0.0, total + 1, W / 2, 0, "slam", layer=9)]
-    hooks[0].y = 165 + hooks[0].pm.shape[0] / 2 - 28
-    if job.get("credit"):
+    hh = hooks[0].pm.shape[0]
+    hooks[0].y = 160 + hh / 2 - 28
+    if job.get("credit"):  # small line right under the hook
         cimg = imgs["credit_" + sha(job["credit"])]
-        hooks.append(Sticker(cimg, 0.0, total + 1, 30 + cimg.shape[1] / 2 - 28, BAND_Y + 34, "none", layer=9))
+        hooks.append(Sticker(cimg, 0.0, total + 1, W / 2, 160 + hh - 56 + cimg.shape[0] / 2 - 18, "none", layer=9))
 
     # 3. video
     looks = Looks()
