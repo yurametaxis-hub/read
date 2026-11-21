@@ -79,7 +79,7 @@ job("meme_windshield", ["w1", "w2"], voice="bm_george", speed=0.95, music="horro
 
 # 2. ---------------------------------------------------------------- the robbery that ends with a scooter
 DLG = dict(x=0.6, y=0.43, zoom=1.25)
-HIT = dict(x=0.66, y=0.45, zoom=1.2)
+HIT = dict(x=0.72, y=0.45, zoom=1.2)  # the baked "67" caption rides in from the left up to x~640 until 12.78
 job("meme_karma", ["w9"], voice="am_puck", speed=1.05, music="pizz", music_volume=0.45, game_volume=0.6,
     hook="HE TRIED TO ROB JASON... [INSTANT KARMA] 💀", credit="🎥 u/alpha_hen96 · via ReplayNext",
     keywords=["scooter", "rob", "gun"],
