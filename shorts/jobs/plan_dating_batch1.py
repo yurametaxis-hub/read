@@ -121,7 +121,8 @@ job("dating_kiki", "GTA 4 HAD THE MOST [TOXIC] GIRLFRIEND 💀", "🎥 footage: 
     beats=[
         {"say": "She slashed his tires.", "delay": 0.9,
          "shots": [sh("d22", 106.8, dur=0.9, speed=0.5, **TIRE), sh("d22", 107.25, freeze=True, **dict(TIRE, zoom_to=1.45))],
-         "sfx": [{"name": "record_scratch", "at": 0.9, "gain": 0.8}],
+         # the scratch ends before the first word, otherwise it masks the "Sh" of "She"
+         "sfx": [{"name": "record_scratch", "at": 0.3, "gain": 0.6}],
          "stickers": [dict(type="circle", at=1.0, x=650, y=1112, r=150)]},
         {"shots": [sh("d22", 107.25, dur=0.9, reverse=True, speed=9, fx={"rewind": True}, **TIRE)],
          "sfx": [{"name": "rewind", "at": 0.0, "gain": 0.5}]},
