@@ -5,6 +5,7 @@
     python3 shorts/make_meme_short.py shorts/jobs/dating_invented.json   (and the other four)
 
 Sources are 640x360, so the series uses the "wide" layout (1080x760) instead of a hard vertical crop.
+Credits from the watermarks: d1, d11, d12 TheJizzy; d13 Stilefty; d22, d23 GTASeriesVideos; GTA VI clips unmarked.
 SA clips (TheJizzy) carry background music, so their audio is muted; their commentary text sits in the top
 34 px and is cropped away (zoom 1.12, y 0.55). The GTA IV clip has commentary and subtitles at the bottom,
 cropped with zoom 1.2, y 0.415. Every claim in the narration is either shown on screen or stated in the
@@ -66,7 +67,7 @@ def job(name, hook, credit, music, music_volume, beats, keywords=(), **kw):
 
 
 # 1 ---------------------------------------------------------------- overview
-job("dating_invented", "GTA 6 DIDN'T [INVENT] DATING 😤", "🎥 SA & IV footage: TheJizzy", "doc", 0.55,
+job("dating_invented", "GTA 6 DIDN'T [INVENT] DATING 😤", "🎥 SA: TheJizzy, Stilefty · IV: GTASeriesVideos", "doc", 0.55,
     keywords=["wrong", "six", "kiki", "tires"],
     beats=[
         {"say": "Everyone says GTA 6 invented dating.", "delay": 0.2,
@@ -91,7 +92,7 @@ job("dating_invented", "GTA 6 DIDN'T [INVENT] DATING 😤", "🎥 SA & IV footag
     ])
 
 # 2 ---------------------------------------------------------------- Denise
-job("dating_denise", "HE BURNED HER HOUSE DOWN... THEN [DATED] HER 💀", "🎥 footage: TheJizzy", "pizz", 0.45,
+job("dating_denise", "HE BURNED HER HOUSE DOWN... THEN [DATED] HER 💀", "🎥 TheJizzy · Stilefty", "pizz", 0.45,
     keywords=["burning", "fire", "denise"],
     beats=[
         {"say": "CJ met his first girlfriend by setting her house on fire.", "delay": 0.25,
@@ -116,7 +117,7 @@ job("dating_denise", "HE BURNED HER HOUSE DOWN... THEN [DATED] HER 💀", "🎥 
 
 # 3 ---------------------------------------------------------------- Kiki
 TIRE = dict(zoom=1.35, x=0.6, y=0.49)  # window ends at y 310, above the burned-in subtitles
-job("dating_kiki", "GTA 4 HAD THE MOST [TOXIC] GIRLFRIEND 💀", "🎥 footage: TheJizzy", "horror", 0.6,
+job("dating_kiki", "GTA 4 HAD THE MOST [TOXIC] GIRLFRIEND 💀", "🎥 footage: GTASeriesVideos", "horror", 0.6,
     keywords=["kiki", "tires", "slashed"],
     beats=[
         {"say": "She slashed his tires.", "delay": 0.9,
