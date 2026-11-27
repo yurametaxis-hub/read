@@ -1,0 +1,44 @@
+{
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/dating/out/thumb_dating_a.png",
+ "frames": {
+  "bg": {
+   "src": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/25604d3b-6.mkv",
+   "t": 128.0,
+   "crop": [
+    0,
+    0,
+    640,
+    360
+   ],
+   "w": 1280,
+   "h": 720,
+   "grade": "gblur=sigma=16,eq=brightness=-0.18:saturation=1.1"
+  },
+  "sa": {
+   "src": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/87fd1aa7-13.mkv",
+   "t": 13.5,
+   "crop": [
+    14,
+    0,
+    480,
+    352
+   ],
+   "w": 600,
+   "h": 440
+  },
+  "vi": {
+   "src": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/25604d3b-6.mkv",
+   "t": 128.0,
+   "crop": [
+    140,
+    48,
+    422,
+    310
+   ],
+   "w": 600,
+   "h": 440
+  }
+ },
+ "css": ".chip{position:absolute;font:92px/1 'Bangers';letter-spacing:3px;color:#fff;padding:8px 22px 0;\n  border:6px solid #000;border-radius:14px;box-shadow:0 8px 0 rgba(0,0,0,.6)}\n.chip .b{-webkit-text-stroke:14px #000}\n.bg{position:absolute;inset:0;background:url(@bg) center/cover}\n.dim{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 62%,rgba(0,0,0,.1),rgba(0,0,0,.7))}\n.hook{position:absolute;left:0;right:0;top:6px;text-align:center;font:132px/1 'Anton';color:#fff;letter-spacing:1px;\n  transform:rotate(-1.5deg)}\n.hook .b{-webkit-text-stroke:20px #000;text-shadow:0 9px 0 #000} .y{color:#FFE600}\n.card{position:absolute;width:600px;height:440px;border:8px solid #fff;box-shadow:0 16px 34px rgba(0,0,0,.75);\n  background-size:cover}\n.c1{left:22px;top:216px;background-image:url(@vi);transform:rotate(-3deg)}\n.c2{left:650px;top:200px;background-image:url(@sa);transform:rotate(3deg)}\n.k1{left:34px;top:598px;background:#e6197a;transform:rotate(-6deg)}\n.k2{left:676px;top:586px;background:#e8731a;transform:rotate(5deg)}\nsvg{position:absolute;left:0;top:0}\n.eq{position:absolute;left:566px;top:356px;width:148px;height:148px;border-radius:50%;background:#FFE600;\n  border:8px solid #000;box-shadow:0 10px 0 rgba(0,0,0,.6);transform:rotate(-8deg);box-sizing:border-box}\n.eq i{position:absolute;left:30px;width:72px;height:20px;background:#000;border-radius:4px}",
+ "html": "<div class=\"bg\"></div><div class=\"dim\"></div>\n<div class=\"card c1\"></div><div class=\"card c2\"></div>\n<div class=\"chip k1\"><o>2026</o></div><div class=\"chip k2\"><o>2004</o></div>\n<svg width=\"1280\" height=\"720\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\">\n <g stroke=\"#000\" stroke-width=\"22\"><path d=\"M1012,136 C1034,182 1004,228 965,256\"/><path d=\"M1002,252 L965,256 L974,220\"/></g>\n <g stroke=\"#ff2b2b\" stroke-width=\"12\"><path d=\"M1012,136 C1034,182 1004,228 965,256\"/><path d=\"M1002,252 L965,256 L974,220\"/></g>\n</svg>\n<div class=\"eq\"><i style=\"top:42px\"></i><i style=\"top:78px\"></i></div>\n<div class=\"hook\"><o>GTA 6 <span class=\"y\">COPIED</span> THIS?</o></div>"
+}

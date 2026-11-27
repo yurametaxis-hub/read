@@ -62,6 +62,13 @@ def duration(path):
     return float(run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", path]).strip())
 
 
+def frame_size(path):
+    out = run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height",
+               "-of", "csv=p=0", path])
+    w, h = out.strip().splitlines()[0].split(",")[:2]
+    return int(w), int(h)
+
+
 # ---------------------------------------------------------------- narration
 
 def speakable(text):
@@ -344,6 +351,7 @@ def build(job_path):
     sources = job["sources"]
     for s in sources.values():
         s["dur"] = duration(s["path"])
+        s["size"] = frame_size(s["path"])
     sents = []
     for p in job["paragraphs"]:
         for k, s in enumerate(p["sentences"]):
@@ -386,6 +394,17 @@ def build(job_path):
                 sh["_pt"].append(pt)
                 if w:
                     warnings.append(f"{int(x['start'] // 60)}:{x['start'] % 60:04.1f} pair {w}")
+    for x in tl:  # a crop that reaches past the frame makes ffmpeg fail halfway through the render
+        sh = x["shot"]
+        keys = [sh.get("src"), sh.get("bg")] + [k for k, _ in sh.get("pair", [])] + [k for k, _ in sh.get("grid", [])]
+        for k in keys:
+            if k not in sources:
+                continue
+            crop = (sh.get("crop") if k == sh.get("src") and "card" not in sh else None) or sources[k].get("crop")
+            sw, shh = sources[k]["size"]
+            if crop and (min(crop) < 0 or crop[2] < 2 or crop[3] < 2 or crop[0] + crop[2] > sw or crop[1] + crop[3] > shh):
+                warnings.append(f"{int(x['start'] // 60)}:{x['start'] % 60:04.1f} {k} crop {crop} "
+                                f"does not fit its {sw}x{shh} frame")
     used = {}
     for x, n in zip(tl, frames):  # the same moment of footage shown twice is a repeat the viewer notices
         sh = x["shot"]

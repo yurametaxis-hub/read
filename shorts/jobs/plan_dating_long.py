@@ -78,7 +78,7 @@ def listen(src, a, b, label, subs):
 
 EYEFIND, LOVE, AD, PHOTO = [70, 30, 480, 270], [300, 60, 320, 180], [80, 50, 400, 225], [120, 40, 320, 180]
 TIRE, HANDS = [287, 120, 320, 180], [320, 180, 320, 180]
-CARMEN = [0, 110, 880, 495]
+CARMEN = [12, 0, 456, 256]  # her likes card: full name, darts, bars, Burger Shot 50%
 
 P = [
     # hook
@@ -123,7 +123,7 @@ P = [
       [sh("d22", 153.0, IV, crop=EYEFIND), sh("d22", 177.4, IV, crop=AD, w=1.4)]),
      ("And yes, she really did keep a blog.", [sh("d22", 188.4, IV, crop=PHOTO)]),
      ("Their first date: a diner.", [sh("d22", 12.0, IV)]),
-     listen("d22", 1.3, 6.3, IV, [[1.38, 2.9, "ALEX: Okay, let's eat here."],
+     listen("d22", 1.3, 6.3, IV, [[1.38, 2.9, "ALEX: Let's eat here."],
                                   [2.96, 6.1, "ALEX: It's not exactly going to be a gastronomic rollercoaster, though, is it?"]]),
      ("On the drive home, they talk about her blog.", [sh("d22", 24.0, IV)]),
      listen("d22", 35.4, 47.45, IV, [[35.62, 39.2, "NIKO: So, this blog you write, is that all you want to do?"],

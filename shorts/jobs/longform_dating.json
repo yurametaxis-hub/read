@@ -945,7 +945,7 @@
       [
        1.38,
        2.9,
-       "ALEX: Okay, let's eat here."
+       "ALEX: Let's eat here."
       ],
       [
        2.96,
@@ -1041,10 +1041,10 @@
        "src": "d23",
        "t": 3.3,
        "crop": [
+        12,
         0,
-        110,
-        880,
-        495
+        456,
+        256
        ],
        "repeat": true,
        "label": "GTA IV · 2008"
