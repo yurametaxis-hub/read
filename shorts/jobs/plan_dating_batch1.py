@@ -169,7 +169,7 @@ job("dating_gta6_date", "DATE NIGHT IN [GTA 6] BE LIKE 💀", "", "phonk", 0.32,
          "stickers": [txt("📻 POLICE RADIO", 0.1, y=TOP, font="Anton", size=64, bg="#111", rot=-2)]},
         {"say": "Step five: steal a lowrider and drive into the sunset.", "shots": [sh("d61", 155.0, mute=True)],
          "stickers": [txt("STEP 5 🚗", 0.0, y=TOP, font="Bangers", size=92, bg="#e6197a", rot=-3)]},
-        {"say": "Couple goals, or red flags?", "pad": 0.7, "shots": [sh("d6", 112.0, freeze=True, zoom=1.05, zoom_to=1.12)],
+        {"say": "Is this couple goals, or a red flag?", "pad": 0.7, "shots": [sh("d6", 112.0, freeze=True, zoom=1.05, zoom_to=1.12)],
          "stickers": [txt("COUPLE GOALS OR 🚩? 👇", 0.2, y=TOP, font="Bangers", size=90, bg="#111", rot=-3, maxw=980)]},
     ])
 
@@ -185,7 +185,7 @@ job("dating_standards", "GTA GIRLFRIENDS HAD [STANDARDS] 😭", "🎥 SA: TheJiz
         {"say": "Katie, a nurse in San Fierro, only liked muscular guys.", "shots": [sh("d12", 36.0, speed=0.9)],
          "stickers": [txt("💪 MUSCLES REQUIRED", 1.6, y=TOP, font="Bangers", size=86, bg="#e8731a", rot=-3)]},
         {"say": "So you hit the gym before asking her out.", "shots": [sh("d12", 47.5, speed=0.9)],
-         "meme": [{"say": "Yeah buddy!", "at": 2.4}]},
+         "meme": [{"say": "Light weight, baby!", "at": 2.4}]},
         {"say": "In GTA 4, every girlfriend rated every bar, restaurant, and activity.", "shots": [sh("d23", 0.4, **CARD)]},
         {"say": "Carmen liked darts eighty percent, but Burger Shot only fifty.",
          "shots": [sh("d23", 3.4, freeze=True, **CARD)],
