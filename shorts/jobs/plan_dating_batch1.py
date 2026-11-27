@@ -81,7 +81,7 @@ job("dating_invented", "GTA 6 DIDN'T [INVENT] DATING 😤", "🎥 SA & IV footag
          "stickers": [emo("💪", 1.6, x=860, y=780, size=200)]},
         {"say": "In 2008, Niko was dating girls he met online.", "shots": [sh("d22", 1.6)]},
         {"say": "And if he cheated, his girlfriend Kiki slashed his tires.",
-         "shots": [sh("d22", 82.0, w=1.3), sh("d22", 106.6, speed=0.7, zoom=1.35, zoom_to=1.5, x=0.6, y=0.514)],
+         "shots": [sh("d22", 82.0, w=1.3), sh("d22", 106.6, speed=0.7, zoom=1.35, zoom_to=1.5, x=0.6, y=0.49)],
          "sfx": [{"name": "vine_boom", "at": 2.1, "gain": 0.8}],
          "stickers": [emo("💀", 2.2, x=860, y=760, size=210)]},
         {"say": "GTA 6 just made your girlfriend a main character.", "shots": [sh("d61", 67.5)]},
@@ -115,14 +115,14 @@ job("dating_denise", "HE BURNED HER HOUSE DOWN... THEN [DATED] HER 💀", "🎥 
     ])
 
 # 3 ---------------------------------------------------------------- Kiki
-TIRE = dict(zoom=1.35, x=0.6, y=0.514)  # window ends at y 318, above the burned-in subtitles
+TIRE = dict(zoom=1.35, x=0.6, y=0.49)  # window ends at y 310, above the burned-in subtitles
 job("dating_kiki", "GTA 4 HAD THE MOST [TOXIC] GIRLFRIEND 💀", "🎥 footage: TheJizzy", "horror", 0.6,
     keywords=["kiki", "tires", "slashed"],
     beats=[
         {"say": "She slashed his tires.", "delay": 0.9,
          "shots": [sh("d22", 106.8, dur=0.9, speed=0.5, **TIRE), sh("d22", 107.25, freeze=True, **dict(TIRE, zoom_to=1.45))],
          "sfx": [{"name": "record_scratch", "at": 0.9, "gain": 0.8}],
-         "stickers": [dict(type="circle", at=1.0, x=650, y=1085, r=150)]},
+         "stickers": [dict(type="circle", at=1.0, x=650, y=1112, r=150)]},
         {"shots": [sh("d22", 107.25, dur=0.9, reverse=True, speed=9, fx={"rewind": True}, **TIRE)],
          "sfx": [{"name": "rewind", "at": 0.0, "gain": 0.5}]},
         {"say": "Niko takes Alex out to dinner.", "shots": [sh("d22", 1.5)]},
