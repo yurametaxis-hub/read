@@ -149,7 +149,8 @@
    "say": "And now GTA 6 counts your calories.",
    "shots": [
     {
-     "zoom": 1.0,
+     "zoom": 1.16,
+     "y": 0.43,
      "src": "f1",
      "t": 25.5,
      "chip": "VI"
@@ -161,16 +162,65 @@
      "at": 1.4,
      "gain": 0.5
     }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "FAT 🍔",
+     "at": 0.0,
+     "x": 270,
+     "y": 1150,
+     "font": "Bangers",
+     "size": 72,
+     "bg": "#d81b1b",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "FIT 💪",
+     "at": 0.0,
+     "x": 810,
+     "y": 1150,
+     "font": "Bangers",
+     "size": 72,
+     "bg": "#18a84a",
+     "anim": "none"
+    }
    ]
   },
   {
    "say": "Rockstar has been judging your body since 2004.",
    "shots": [
     {
-     "zoom": 1.0,
+     "zoom": 1.16,
+     "y": 0.43,
      "src": "f1",
      "t": 3.4,
      "chip": "VI"
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "FAT 🍔",
+     "at": 0.0,
+     "x": 270,
+     "y": 1150,
+     "font": "Bangers",
+     "size": 72,
+     "bg": "#d81b1b",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "FIT 💪",
+     "at": 0.0,
+     "x": 810,
+     "y": 1150,
+     "font": "Bangers",
+     "size": 72,
+     "bg": "#18a84a",
+     "anim": "none"
     }
    ]
   },

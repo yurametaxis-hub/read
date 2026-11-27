@@ -24,7 +24,8 @@ GAME = {"d1": "SA", "d11": "SA", "d12": "SA", "d13": "SA", "d22": "IV", "d23": "
 MUTED = {"d1", "d11", "d12", "d23"}  # background music from the source channel, not game audio
 FRAME = {"d1": dict(zoom=1.12, y=0.55), "d11": dict(zoom=1.12, y=0.55), "d12": dict(zoom=1.12, y=0.55),
          "d13": dict(zoom=1.08, y=0.53), "d22": dict(zoom=1.2, y=0.415), "d23": dict(zoom=1.0, x=0.45),
-         "d6": dict(zoom=1.05), "d61": dict(zoom=1.05), "f1": dict(zoom=1.0)}
+         "d6": dict(zoom=1.05), "d61": dict(zoom=1.05),
+         "f1": dict(zoom=1.16, y=0.43)}  # f1: crop above the baked FAT/FIT labels, our own labels go on top
 CHIPS = {"SA": {"text": "GTA San Andreas · 2004", "color": "#e8731a"},
          "IV": {"text": "GTA IV · 2008", "color": "#3d6fb5"},
          "VI": {"text": "GTA VI · 2026", "color": "#e6197a"}}
@@ -174,6 +175,8 @@ job("dating_gta6_date", "DATE NIGHT IN [GTA 6] BE LIKE 💀", "", "phonk", 0.32,
 
 # 5 ---------------------------------------------------------------- standards
 CARD = dict(zoom=1.0, x=0.42)
+FATFIT = [txt("FAT 🍔", 0.0, x=270, y=1150, font="Bangers", size=72, bg="#d81b1b", anim="none"),
+          txt("FIT 💪", 0.0, x=810, y=1150, font="Bangers", size=72, bg="#18a84a", anim="none")]
 job("dating_standards", "GTA GIRLFRIENDS HAD [STANDARDS] 😭", "🎥 SA: TheJizzy · IV: GTASeriesVideos", "doc", 0.55,
     keywords=["muscular", "gym", "calories"],
     beats=[
@@ -187,8 +190,9 @@ job("dating_standards", "GTA GIRLFRIENDS HAD [STANDARDS] 😭", "🎥 SA: TheJiz
         {"say": "Carmen liked darts eighty percent, but Burger Shot only fifty.",
          "shots": [sh("d23", 3.4, freeze=True, **CARD)],
          "stickers": [dict(type="circle", at=0.4, src=[110, 121], src_r=48), dict(type="circle", at=2.3, src=[112, 242], src_r=58)]},
-        {"say": "And now GTA 6 counts your calories.", "shots": [sh("f1", 25.5)], "sfx": [{"name": "ding", "at": 1.4, "gain": 0.5}]},
-        {"say": "Rockstar has been judging your body since 2004.", "shots": [sh("f1", 3.4)]},
+        {"say": "And now GTA 6 counts your calories.", "shots": [sh("f1", 25.5)], "sfx": [{"name": "ding", "at": 1.4, "gain": 0.5}],
+         "stickers": FATFIT},
+        {"say": "Rockstar has been judging your body since 2004.", "shots": [sh("f1", 3.4)], "stickers": FATFIT},
         {"say": "Gym, or Cluckin' Bell?", "pad": 0.7, "shots": [sh("d12", 40.0, freeze=True, zoom=1.12, zoom_to=1.2)],
          "stickers": [txt("GYM 💪 OR CLUCKIN' BELL 🍗? 👇", 0.2, y=TOP, font="Bangers", size=80, bg="#e8731a", rot=-3, maxw=990)]},
     ])
