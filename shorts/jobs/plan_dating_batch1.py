@@ -80,7 +80,7 @@ job("dating_invented", "GTA 6 DIDN'T [INVENT] DATING 😤", "🎥 SA & IV footag
          "stickers": [emo("💪", 1.6, x=860, y=780, size=200)]},
         {"say": "In 2008, Niko was dating girls he met online.", "shots": [sh("d22", 1.6)]},
         {"say": "And if he cheated, his girlfriend Kiki slashed his tires.",
-         "shots": [sh("d22", 82.0, w=1.3), sh("d22", 106.6, speed=0.7, zoom=1.35, zoom_to=1.5, x=0.6, y=0.6)],
+         "shots": [sh("d22", 82.0, w=1.3), sh("d22", 106.6, speed=0.7, zoom=1.35, zoom_to=1.5, x=0.6, y=0.514)],
          "sfx": [{"name": "vine_boom", "at": 2.1, "gain": 0.8}],
          "stickers": [emo("💀", 2.2, x=860, y=760, size=210)]},
         {"say": "GTA 6 just made your girlfriend a main character.", "shots": [sh("d61", 67.5)]},
