@@ -9,7 +9,8 @@ A job is a list of beats. A beat holds shots, an optional narration line ("say")
 effects and stickers; its length is the longest of: the narration plus a pad, the fixed shot lengths, "min".
 Shots without "dur" share what is left. Times inside a beat are seconds from the beat start.
 
-Shot keys: src, t, dur, speed, reverse, freeze, layout ("band" 1080x1260 over a blurred fill, or "fill"),
+Shot keys: src, t, dur, speed, reverse, freeze, layout ("band" 1080x1260 over a blurred fill, "fill", or "split":
+  the source's left and right halves side by side, 537x960 each, xl and xr centre each half separately),
   x, y (crop centre as a share of the source), zoom, x_to, y_to, zoom_to, ease ("smooth", "out", "punch"),
   ease_time, fx: {flash: [colour, at], shake: [[a, b, px], ...], deepfry: [a, b], sepia, bw, vhs, rewind}
 Sticker keys: type (emoji, text, bubble, circle, arrow, rec, tbc), at, dur, x, y or src: [sx, sy] (source pixels
@@ -42,6 +43,7 @@ from make_longform import speakable  # noqa: E402
 
 W, H, FPS, SR = 1080, 1920, 30, 48000
 BAND_Y, BAND_H = 340, 1260
+SPLIT_Y, SPLIT_H, SPLIT_W = 380, 960, 537  # "split": left and right halves of the source side by side
 FONTS = HERE / "fonts"
 MARKER = str(FONTS / "PermanentMarker-Regular.ttf")
 BANGERS = str(FONTS / "Bangers-Regular.ttf")
@@ -433,7 +435,9 @@ def geometry(sh, tau, src_wh):
     z = sh.get("zoom", 1.0) + (sh.get("zoom_to", sh.get("zoom", 1.0)) - sh.get("zoom", 1.0)) * e
     x = sh.get("x", 0.5) + (sh.get("x_to", sh.get("x", 0.5)) - sh.get("x", 0.5)) * e
     y = sh.get("y", 0.5) + (sh.get("y_to", sh.get("y", 0.5)) - sh.get("y", 0.5)) * e
-    ow, oh = (W, BAND_H) if sh["_layout"] == "band" else (W, H)
+    ow, oh = {"band": (W, BAND_H), "split": (SPLIT_W, SPLIT_H)}.get(sh["_layout"], (W, H))
+    if sh["_layout"] == "split":
+        sw = sw // 2
     rh = shh / z
     rw = rh * ow / oh
     if rw > sw:
@@ -497,12 +501,25 @@ def render_shot(sh, n, src, looks, stickers, hooks, t_abs0, pipe, look, grade=No
         cx, cy, rw, rh, ow, oh = geometry(sh, tau, wh)
         s = oh / rh
         dx, dy, rot = shake_offset(fx, tau)
-        M = np.array([[s, 0, -(cx - rw / 2) * s + dx], [0, s, -(cy - rh / 2) * s + dy]], np.float32)
-        if rot:
-            R = cv2.getRotationMatrix2D((ow / 2, oh / 2), rot, 1.0)
-            M = (np.vstack([R, [0, 0, 1]]) @ np.vstack([M, [0, 0, 1]]))[:2].astype(np.float32)
-        fg = cv2.warpAffine(img, M, (ow, oh), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
-        if sh["_layout"] == "band":
+        if sh["_layout"] == "split":
+            hw = wh[0] // 2
+            panels = []
+            for side, key in ((0, "xl"), (1, "xr")):
+                pcx = cx if key not in sh else min(max(sh[key] * hw, rw / 2), hw - rw / 2)
+                M = np.array([[s, 0, -(side * hw + pcx - rw / 2) * s + dx], [0, s, -(cy - rh / 2) * s + dy]], np.float32)
+                panels.append(cv2.warpAffine(img, M, (ow, oh), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT))
+            small = cv2.GaussianBlur(cv2.resize(img, (160, 90), interpolation=cv2.INTER_AREA), (0, 0), 3.5)
+            bg = cv2.resize(small[:, 55:105], (W, H), interpolation=cv2.INTER_LINEAR)
+            out = (bg.astype(np.float32) * 0.45).astype(np.uint8)
+            out[SPLIT_Y - 8:SPLIT_Y + SPLIT_H + 8] = 12
+            out[SPLIT_Y:SPLIT_Y + SPLIT_H, :SPLIT_W] = panels[0]
+            out[SPLIT_Y:SPLIT_Y + SPLIT_H, W - SPLIT_W:] = panels[1]
+        elif sh["_layout"] == "band":
+            M = np.array([[s, 0, -(cx - rw / 2) * s + dx], [0, s, -(cy - rh / 2) * s + dy]], np.float32)
+            if rot:
+                R = cv2.getRotationMatrix2D((ow / 2, oh / 2), rot, 1.0)
+                M = (np.vstack([R, [0, 0, 1]]) @ np.vstack([M, [0, 0, 1]]))[:2].astype(np.float32)
+            fg = cv2.warpAffine(img, M, (ow, oh), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
             small = cv2.GaussianBlur(cv2.resize(img, (160, 90), interpolation=cv2.INTER_AREA), (0, 0), 3.5)
             cw = 90 * W / H
             x0 = int(80 - cw / 2)
@@ -512,7 +529,11 @@ def render_shot(sh, n, src, looks, stickers, hooks, t_abs0, pipe, look, grade=No
             for y0, y1 in ((BAND_Y - 26, BAND_Y), (BAND_Y + BAND_H, BAND_Y + BAND_H + 26)):
                 out[y0:y1] = (out[y0:y1] * looks.band_shadow[y0:y1]).astype(np.uint8)
         else:
-            out = fg
+            M = np.array([[s, 0, -(cx - rw / 2) * s + dx], [0, s, -(cy - rh / 2) * s + dy]], np.float32)
+            if rot:
+                R = cv2.getRotationMatrix2D((ow / 2, oh / 2), rot, 1.0)
+                M = (np.vstack([R, [0, 0, 1]]) @ np.vstack([M, [0, 0, 1]]))[:2].astype(np.float32)
+            out = cv2.warpAffine(img, M, (ow, oh), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REFLECT)
         if fx.get("deepfry") and fx["deepfry"][0] <= tau < fx["deepfry"][1]:
             out = looks.deepfry(out)
         if fx.get("sepia"):

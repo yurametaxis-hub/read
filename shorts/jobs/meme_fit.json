@@ -1,0 +1,614 @@
+{
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/fit/out/meme_fit.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/fit/work_meme_fit",
+ "tts_model": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/kokoro-v1.0.onnx",
+ "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
+ "voice": "af_heart",
+ "speed": 1.05,
+ "meme_voice": "am_onyx",
+ "meme_speed": 0.92,
+ "music": "phonk",
+ "music_volume": 0.38,
+ "game_volume": 0.0,
+ "layout": "split",
+ "hook": "GTA 6 COUNTS YOUR [CALORIES]?! 😳",
+ "keywords": [
+  "calories",
+  "fat",
+  "fit",
+  "shredded"
+ ],
+ "sources": {
+  "f1": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/c3376b15-1.mkv"
+  }
+ },
+ "beats": [
+  {
+   "say": "Wait. GTA 6 is counting your calories?",
+   "delay": 0.25,
+   "shots": [
+    {
+     "layout": "split",
+     "zoom": 1.3,
+     "y": 0.45,
+     "src": "f1",
+     "t": 25.0,
+     "speed": 0.85,
+     "zoom_to": 1.12,
+     "ease": "punch",
+     "fx": {
+      "flash": [
+       "white",
+       0.0
+      ],
+      "shake": [
+       [
+        0.0,
+        0.5,
+        22
+       ]
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "vine_boom",
+     "at": 0.0,
+     "gain": 0.8
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "FAT 🍔",
+     "at": 0.05,
+     "x": 268,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#d81b1b",
+     "anim": "pop"
+    },
+    {
+     "type": "text",
+     "text": "FIT 💪",
+     "at": 0.05,
+     "x": 812,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#18a84a",
+     "anim": "pop"
+    }
+   ]
+  },
+  {
+   "say": "Weight, sleep, nutrition, calories, muscle, body fat.",
+   "pad": 0.35,
+   "shots": [
+    {
+     "layout": "split",
+     "zoom": 1.12,
+     "y": 0.45,
+     "src": "f1",
+     "t": 0.1,
+     "speed": 0.8,
+     "xl": 0.32,
+     "xr": 0.68
+    }
+   ],
+   "sfx": [
+    {
+     "name": "pop",
+     "at": 0.05,
+     "gain": 0.7
+    },
+    {
+     "name": "pop",
+     "at": 0.5,
+     "gain": 0.7
+    },
+    {
+     "name": "pop",
+     "at": 1.0,
+     "gain": 0.7
+    },
+    {
+     "name": "pop",
+     "at": 1.7,
+     "gain": 0.7
+    },
+    {
+     "name": "pop",
+     "at": 2.3,
+     "gain": 0.7
+    },
+    {
+     "name": "pop",
+     "at": 2.75,
+     "gain": 0.7
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "LUCIA",
+     "at": 0.0,
+     "x": 268,
+     "y": 440,
+     "font": "Bangers",
+     "size": 70,
+     "bg": "#111",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "JASON",
+     "at": 0.0,
+     "x": 812,
+     "y": 440,
+     "font": "Bangers",
+     "size": 70,
+     "bg": "#111",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "⚖️ WEIGHT",
+     "at": 0.05,
+     "x": 540,
+     "y": 560,
+     "font": "Anton",
+     "size": 58,
+     "bg": "rgba(88,40,120,.92)",
+     "pad": "6px 30px",
+     "radius": 8,
+     "upper": true,
+     "anim": "pop",
+     "spacing": 2
+    },
+    {
+     "type": "text",
+     "text": "😴 SLEEP",
+     "at": 0.5,
+     "x": 540,
+     "y": 652,
+     "font": "Anton",
+     "size": 58,
+     "bg": "rgba(88,40,120,.92)",
+     "pad": "6px 30px",
+     "radius": 8,
+     "upper": true,
+     "anim": "pop",
+     "spacing": 2
+    },
+    {
+     "type": "text",
+     "text": "🥗 NUTRITION",
+     "at": 1.0,
+     "x": 540,
+     "y": 744,
+     "font": "Anton",
+     "size": 58,
+     "bg": "rgba(88,40,120,.92)",
+     "pad": "6px 30px",
+     "radius": 8,
+     "upper": true,
+     "anim": "pop",
+     "spacing": 2
+    },
+    {
+     "type": "text",
+     "text": "🍔 CALORIES",
+     "at": 1.7,
+     "x": 540,
+     "y": 836,
+     "font": "Anton",
+     "size": 58,
+     "bg": "rgba(88,40,120,.92)",
+     "pad": "6px 30px",
+     "radius": 8,
+     "upper": true,
+     "anim": "pop",
+     "spacing": 2
+    },
+    {
+     "type": "text",
+     "text": "💪 MUSCLE",
+     "at": 2.3,
+     "x": 540,
+     "y": 928,
+     "font": "Anton",
+     "size": 58,
+     "bg": "rgba(88,40,120,.92)",
+     "pad": "6px 30px",
+     "radius": 8,
+     "upper": true,
+     "anim": "pop",
+     "spacing": 2
+    },
+    {
+     "type": "text",
+     "text": "🍩 BODY FAT",
+     "at": 2.75,
+     "x": 540,
+     "y": 1020,
+     "font": "Anton",
+     "size": 58,
+     "bg": "rgba(88,40,120,.92)",
+     "pad": "6px 30px",
+     "radius": 8,
+     "upper": true,
+     "anim": "pop",
+     "spacing": 2
+    }
+   ]
+  },
+  {
+   "say": "And it actually changes how they look.",
+   "shots": [
+    {
+     "layout": "split",
+     "zoom": 1.12,
+     "y": 0.45,
+     "src": "f1",
+     "t": 3.15
+    }
+   ],
+   "sfx": [
+    {
+     "name": "whoosh",
+     "at": 0.0,
+     "gain": 0.6
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "FAT 🍔",
+     "at": 0.0,
+     "x": 268,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#d81b1b",
+     "anim": "pop"
+    },
+    {
+     "type": "text",
+     "text": "FIT 💪",
+     "at": 0.0,
+     "x": 812,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#18a84a",
+     "anim": "pop"
+    }
+   ]
+  },
+  {
+   "say": "Same walk, same bikini. Fat on the left, fit on the right.",
+   "shots": [
+    {
+     "layout": "split",
+     "zoom": 1.12,
+     "y": 0.45,
+     "src": "f1",
+     "t": 5.6,
+     "speed": 0.95
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "FAT 🍔",
+     "at": 0.0,
+     "x": 268,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#d81b1b",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "FIT 💪",
+     "at": 0.0,
+     "x": 812,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#18a84a",
+     "anim": "none"
+    }
+   ]
+  },
+  {
+   "say": "One side gets abs. The other side gets snacks.",
+   "shots": [
+    {
+     "layout": "split",
+     "zoom": 1.12,
+     "y": 0.45,
+     "src": "f1",
+     "t": 12.2,
+     "speed": 0.85,
+     "x": 0.42
+    }
+   ],
+   "sfx": [
+    {
+     "name": "ding",
+     "at": 0.75,
+     "gain": 0.5
+    },
+    {
+     "name": "bonk",
+     "at": 2.1,
+     "gain": 0.7
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "FAT 🍔",
+     "at": 0.0,
+     "x": 268,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#d81b1b",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "FIT 💪",
+     "at": 0.0,
+     "x": 812,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#18a84a",
+     "anim": "none"
+    },
+    {
+     "type": "emoji",
+     "emoji": "💪",
+     "at": 0.75,
+     "x": 812,
+     "y": 900,
+     "size": 200
+    },
+    {
+     "type": "emoji",
+     "emoji": "🍔",
+     "at": 2.1,
+     "x": 268,
+     "y": 900,
+     "size": 200
+    }
+   ]
+  },
+  {
+   "say": "Even the face changes.",
+   "shots": [
+    {
+     "layout": "split",
+     "zoom": 1.12,
+     "y": 0.42,
+     "src": "f1",
+     "t": 15.1,
+     "speed": 0.9,
+     "zoom_to": 1.3
+    }
+   ],
+   "meme": [
+    {
+     "say": "Bro let himself go.",
+     "at": 1.75
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "FAT 🍔",
+     "at": 0.0,
+     "x": 268,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#d81b1b",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "FIT 💪",
+     "at": 0.0,
+     "x": 812,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#18a84a",
+     "anim": "none"
+    },
+    {
+     "type": "emoji",
+     "emoji": "💀",
+     "at": 1.85,
+     "x": 268,
+     "y": 880,
+     "size": 210
+    }
+   ]
+  },
+  {
+   "say": "And Jason goes from dad bod to fully shredded.",
+   "shots": [
+    {
+     "layout": "split",
+     "zoom": 1.12,
+     "y": 0.45,
+     "src": "f1",
+     "t": 26.9,
+     "speed": 0.9,
+     "zoom_to": 1.24
+    }
+   ],
+   "meme": [
+    {
+     "say": "Light weight, baby!",
+     "at": 2.85
+    }
+   ],
+   "sfx": [
+    {
+     "name": "airhorn",
+     "at": 2.2,
+     "gain": 0.35
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "FAT 🍔",
+     "at": 0.0,
+     "x": 268,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#d81b1b",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "FIT 💪",
+     "at": 0.0,
+     "x": 812,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#18a84a",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "SHREDDED",
+     "at": 2.15,
+     "x": 812,
+     "y": 1180,
+     "font": "Anton",
+     "size": 72,
+     "bg": "#18a84a",
+     "rot": -4,
+     "anim": "slam"
+    },
+    {
+     "type": "emoji",
+     "emoji": "🗿",
+     "at": 2.9,
+     "x": 812,
+     "y": 860,
+     "size": 190
+    }
+   ]
+  },
+  {
+   "say": "Even Lucia's face changes.",
+   "shots": [
+    {
+     "layout": "split",
+     "zoom": 1.12,
+     "y": 0.42,
+     "src": "f1",
+     "t": 30.1,
+     "speed": 0.9
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "FAT 🍔",
+     "at": 0.0,
+     "x": 268,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#d81b1b",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "FIT 💪",
+     "at": 0.0,
+     "x": 812,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#18a84a",
+     "anim": "none"
+    }
+   ]
+  },
+  {
+   "say": "So, are you hitting the gym in Leonida, or Burger Shot?",
+   "pad": 0.7,
+   "shots": [
+    {
+     "layout": "split",
+     "zoom": 1.12,
+     "y": 0.42,
+     "src": "f1",
+     "t": 32.3,
+     "speed": 0.62,
+     "zoom_to": 1.2
+    }
+   ],
+   "sfx": [
+    {
+     "name": "vine_boom",
+     "at": 0.1,
+     "gain": 0.45
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "FAT 🍔",
+     "at": 0.0,
+     "x": 268,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#d81b1b",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "FIT 💪",
+     "at": 0.0,
+     "x": 812,
+     "y": 440,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#18a84a",
+     "anim": "none"
+    },
+    {
+     "type": "text",
+     "text": "GYM 💪 OR BURGER SHOT 🍔?",
+     "at": 0.15,
+     "x": 540,
+     "y": 1000,
+     "font": "Bangers",
+     "size": 78,
+     "bg": "#d81b1b",
+     "rot": -3,
+     "maxw": 980
+    }
+   ]
+  }
+ ]
+}
