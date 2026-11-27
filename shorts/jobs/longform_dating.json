@@ -1,0 +1,1592 @@
+{
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/dating/out/gta_dating_long.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/dating/work_long",
+ "voice": "am_michael",
+ "speed": 1.0,
+ "tts_model": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/kokoro-v1.0.onnx",
+ "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
+ "music": "doc",
+ "music_volume": 1.0,
+ "sources": {
+  "d1": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/99b662a3-1.mkv",
+   "crop": [
+    32,
+    36,
+    576,
+    324
+   ],
+   "mute": true,
+   "scenes": [
+    [
+     0.05,
+     40.55,
+     null
+    ],
+    [
+     40.65,
+     46.15,
+     null
+    ]
+   ]
+  },
+  "d11": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/a49ab43c-11.mkv",
+   "crop": [
+    32,
+    36,
+    576,
+    324
+   ],
+   "mute": true,
+   "scenes": [
+    [
+     0.05,
+     12.75,
+     null
+    ],
+    [
+     12.85,
+     15.45,
+     null
+    ],
+    [
+     15.55,
+     16.15,
+     null
+    ],
+    [
+     16.25,
+     18.75,
+     null
+    ],
+    [
+     18.85,
+     21.55,
+     null
+    ],
+    [
+     21.65,
+     25.15,
+     null
+    ],
+    [
+     25.25,
+     30.05,
+     null
+    ],
+    [
+     30.15,
+     32.75,
+     null
+    ],
+    [
+     32.85,
+     33.75,
+     null
+    ],
+    [
+     33.85,
+     44.05,
+     null
+    ],
+    [
+     44.15,
+     51.05,
+     null
+    ]
+   ]
+  },
+  "d12": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/f6d8b481-12.mkv",
+   "crop": [
+    32,
+    36,
+    576,
+    324
+   ],
+   "mute": true,
+   "scenes": [
+    [
+     0.05,
+     7.05,
+     null
+    ],
+    [
+     11.95,
+     46.65,
+     null
+    ],
+    [
+     46.75,
+     62.05,
+     null
+    ]
+   ]
+  },
+  "d13": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/87fd1aa7-13.mkv",
+   "scenes": [
+    [
+     0.05,
+     7.25,
+     null
+    ],
+    [
+     8.15,
+     9.75,
+     null
+    ],
+    [
+     9.85,
+     13.35,
+     null
+    ],
+    [
+     13.45,
+     17.25,
+     null
+    ],
+    [
+     22.05,
+     30.35,
+     null
+    ]
+   ]
+  },
+  "d22": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/b66cafd5-22.mkv",
+   "crop": [
+    53,
+    0,
+    533,
+    300
+   ],
+   "scenes": [
+    [
+     0.05,
+     0.85,
+     null
+    ],
+    [
+     0.95,
+     17.75,
+     null
+    ],
+    [
+     17.85,
+     18.65,
+     null
+    ],
+    [
+     18.75,
+     54.05,
+     null
+    ],
+    [
+     54.15,
+     68.95,
+     null
+    ],
+    [
+     80.45,
+     139.0,
+     null
+    ],
+    [
+     144.35,
+     152.65,
+     null
+    ],
+    [
+     152.75,
+     157.05,
+     null
+    ],
+    [
+     177.05,
+     182.25,
+     null
+    ],
+    [
+     182.35,
+     185.75,
+     null
+    ],
+    [
+     185.85,
+     187.35,
+     null
+    ],
+    [
+     187.45,
+     188.25,
+     null
+    ],
+    [
+     188.35,
+     191.95,
+     null
+    ]
+   ]
+  },
+  "d23": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/bdc5bad1-23.mkv",
+   "mute": true,
+   "scenes": [
+    [
+     0.05,
+     6.95,
+     null
+    ],
+    [
+     7.05,
+     7.55,
+     null
+    ],
+    [
+     7.65,
+     15.45,
+     null
+    ],
+    [
+     15.55,
+     19.15,
+     null
+    ],
+    [
+     19.25,
+     23.85,
+     null
+    ],
+    [
+     23.95,
+     29.35,
+     null
+    ],
+    [
+     29.45,
+     32.45,
+     null
+    ],
+    [
+     32.55,
+     39.05,
+     null
+    ],
+    [
+     39.15,
+     41.55,
+     null
+    ],
+    [
+     41.65,
+     43.85,
+     null
+    ],
+    [
+     43.95,
+     51.55,
+     null
+    ],
+    [
+     51.65,
+     53.3,
+     null
+    ],
+    [
+     60.6,
+     64.35,
+     null
+    ],
+    [
+     64.45,
+     69.35,
+     null
+    ]
+   ]
+  },
+  "d6": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/25604d3b-6.mkv",
+   "scenes": [
+    [
+     0.05,
+     5.05,
+     null
+    ],
+    [
+     5.15,
+     20.25,
+     null
+    ],
+    [
+     20.35,
+     30.35,
+     null
+    ],
+    [
+     30.45,
+     40.45,
+     null
+    ],
+    [
+     40.55,
+     50.65,
+     null
+    ],
+    [
+     50.75,
+     55.65,
+     null
+    ],
+    [
+     55.75,
+     86.0,
+     null
+    ],
+    [
+     98.5,
+     160.2,
+     null
+    ]
+   ]
+  },
+  "d61": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/0ae9728f-61.mkv",
+   "scenes": [
+    [
+     0.05,
+     5.05,
+     null
+    ],
+    [
+     5.15,
+     26.15,
+     null
+    ],
+    [
+     26.25,
+     34.05,
+     null
+    ],
+    [
+     34.15,
+     36.75,
+     null
+    ],
+    [
+     36.85,
+     41.85,
+     null
+    ],
+    [
+     41.95,
+     65.85,
+     null
+    ],
+    [
+     65.95,
+     86.05,
+     null
+    ],
+    [
+     86.15,
+     111.45,
+     null
+    ],
+    [
+     111.55,
+     122.35,
+     null
+    ],
+    [
+     122.45,
+     123.45,
+     null
+    ],
+    [
+     123.55,
+     182.35,
+     null
+    ]
+   ]
+  },
+  "f1": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/c3376b15-1.mkv",
+   "mute": true,
+   "scenes": [
+    [
+     0.05,
+     2.98,
+     null
+    ],
+    [
+     3.08,
+     9.35,
+     null
+    ],
+    [
+     9.45,
+     14.82,
+     null
+    ],
+    [
+     14.92,
+     19.82,
+     null
+    ],
+    [
+     19.92,
+     24.82,
+     null
+    ],
+    [
+     24.92,
+     29.82,
+     null
+    ],
+    [
+     29.92,
+     34.82,
+     null
+    ],
+    [
+     34.92,
+     35.95,
+     null
+    ]
+   ]
+  },
+  "h10": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/92941a1b-10.mkv",
+   "mute": true,
+   "scenes": [
+    [
+     42.06,
+     50.7,
+     null
+    ]
+   ]
+  },
+  "c7": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/d1349b1f-7.mkv",
+   "scenes": [
+    [
+     5.7,
+     16.25,
+     null
+    ],
+    [
+     31.3,
+     44.55,
+     null
+    ]
+   ]
+  },
+  "c9": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/bb1f6490-9.mkv",
+   "scenes": [
+    [
+     0.0,
+     14.85,
+     null
+    ],
+    [
+     35.5,
+     65.1,
+     null
+    ]
+   ]
+  },
+  "c10": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/f6ce6b2c-10.mkv",
+   "scenes": [
+    [
+     23.0,
+     39.75,
+     null
+    ],
+    [
+     50.4,
+     61.55,
+     null
+    ]
+   ]
+  },
+  "c11": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/9e6094d9-11.mkv",
+   "scenes": [
+    [
+     12.3,
+     41.85,
+     null
+    ]
+   ]
+  }
+ },
+ "paragraphs": [
+  {
+   "sentences": [
+    {
+     "text": "Ever since GTA 6 came out, I keep seeing the same comment.",
+     "shots": [
+      {
+       "src": "d6",
+       "t": 45.0,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "Rockstar finally added dating. A girlfriend, romance, a couple at the center of the story.",
+     "shots": [
+      {
+       "src": "d6",
+       "t": 1.0,
+       "label": "GTA VI · 2026"
+      },
+      {
+       "src": "d61",
+       "t": 67.5,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "Something GTA has never done before.",
+     "shots": [
+      {
+       "src": "d61",
+       "t": 6.0,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "Except it has.",
+     "shots": [
+      {
+       "src": "d1",
+       "t": 32.0,
+       "boom": 0.15,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "Dating in GTA is twenty two years old.",
+     "shots": [
+      {
+       "card": "THE PROOF",
+       "title": "DATING IN GTA|IS 22 YEARS OLD",
+       "bg": "d11",
+       "t": 26
+      }
+     ]
+    },
+    {
+     "text": "In this video, I'll show you all of it: San Andreas, GTA 4, and why so many people think it's brand new.",
+     "shots": [
+      {
+       "src": "d13",
+       "t": 1.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      },
+      {
+       "src": "d22",
+       "t": 9.0,
+       "label": "GTA IV · 2008"
+      },
+      {
+       "src": "d6",
+       "t": 24.0,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "Let's go back to 2004.",
+     "shots": [
+      {
+       "card": "2004",
+       "title": "GTA SAN ANDREAS",
+       "bg": "d1",
+       "t": 24
+      }
+     ]
+    },
+    {
+     "text": "Grand Theft Auto San Andreas gave CJ six girlfriends.",
+     "shots": [
+      {
+       "src": "d11",
+       "t": 16.3,
+       "label": "GTA SAN ANDREAS · 2004"
+      },
+      {
+       "src": "d11",
+       "t": 18.9,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "Two of them are part of the story. The other four, you meet out in the world.",
+     "shots": [
+      {
+       "src": "d12",
+       "t": 28.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      },
+      {
+       "src": "d12",
+       "t": 21.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "And he meets the first one, Denise, in the worst way possible.",
+     "shots": [
+      {
+       "src": "d1",
+       "t": 2.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "A corrupt cop, Frank Tenpenny, orders CJ to burn down a house.",
+     "shots": [
+      {
+       "src": "d1",
+       "t": 12.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "When the house is already on fire, he hears a woman screaming inside.",
+     "shots": [
+      {
+       "src": "d1",
+       "t": 23.5,
+       "speed": 0.85,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "So he runs back into the fire and gets her out.",
+     "shots": [
+      {
+       "src": "d1",
+       "t": 34.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "That's Denise. And she becomes his girlfriend.",
+     "shots": [
+      {
+       "src": "d13",
+       "t": 10.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "And this wasn't just a cutscene. Dating was a whole system.",
+     "shots": [
+      {
+       "src": "d13",
+       "t": 13.5,
+       "speed": 0.9,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "You picked her up, took her out to eat or for a drink, and drove her home.",
+     "shots": [
+      {
+       "src": "d11",
+       "t": 22.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      },
+      {
+       "src": "d11",
+       "t": 30.3,
+       "label": "GTA SAN ANDREAS · 2004"
+      },
+      {
+       "src": "d13",
+       "t": 23.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "Every good date filled up her progress bar. Ignore her for too long, and it started to drop.",
+     "shots": [
+      {
+       "src": "d11",
+       "t": 25.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      },
+      {
+       "src": "d11",
+       "t": 34.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "Some girlfriends were picky.",
+     "shots": [
+      {
+       "src": "d12",
+       "t": 31.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "Katie, a nurse in San Fierro, only liked muscular guys, so you'd hit the gym before you even asked her out.",
+     "shots": [
+      {
+       "src": "d12",
+       "t": 35.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      },
+      {
+       "src": "d12",
+       "t": 41.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "And dating her paid off. If CJ got wasted, he kept all his weapons.",
+     "shots": [
+      {
+       "src": "d12",
+       "t": 48.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      },
+      {
+       "src": "d12",
+       "t": 55.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "Barbara, in El Quebrados, did the same for when he got busted.",
+     "shots": [
+      {
+       "src": "d11",
+       "t": 38.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      },
+      {
+       "src": "d11",
+       "t": 46.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "Dating in San Andreas even caused the biggest scandal in GTA history.",
+     "shots": [
+      {
+       "card": "2005",
+       "title": "THE HOT COFFEE|SCANDAL",
+       "bg": "d13",
+       "t": 12,
+       "boom": 0.1
+      }
+     ]
+    },
+    {
+     "text": "In 2005, a mod unlocked a hidden minigame left in the game's code, and San Andreas got re-rated Adults Only and pulled from store shelves.",
+     "shots": [
+      {
+       "src": "d11",
+       "t": 4.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      },
+      {
+       "src": "d12",
+       "t": 1.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "That was twenty one years before GTA 6.",
+     "shots": [
+      {
+       "src": "d1",
+       "t": 41.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "Four years later, GTA 4 took dating online.",
+     "shots": [
+      {
+       "card": "2008",
+       "title": "GTA IV|ONLINE DATING",
+       "bg": "d22",
+       "t": 147
+      }
+     ]
+    },
+    {
+     "text": "Niko Bellic found three of his girlfriends on dating sites inside the game.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 145.0,
+       "crop": [
+        70,
+        30,
+        480,
+        270
+       ],
+       "label": "GTA IV · 2008"
+      },
+      {
+       "src": "d22",
+       "t": 148.5,
+       "crop": [
+        300,
+        60,
+        320,
+        180
+       ],
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "Alex posted an ad on the in-game craplist: party girl seeks man for fun and blog material.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 153.0,
+       "crop": [
+        70,
+        30,
+        480,
+        270
+       ],
+       "label": "GTA IV · 2008"
+      },
+      {
+       "src": "d22",
+       "t": 177.4,
+       "crop": [
+        80,
+        50,
+        400,
+        225
+       ],
+       "w": 1.4,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "And yes, she really did keep a blog.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 188.4,
+       "crop": [
+        120,
+        40,
+        320,
+        180
+       ],
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "Their first date: a diner.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 12.0,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "listen": [
+      "d22",
+      1.3,
+      6.3
+     ],
+     "label": "GTA IV · 2008",
+     "subs": [
+      [
+       1.38,
+       2.9,
+       "ALEX: Okay, let's eat here."
+      ],
+      [
+       2.96,
+       6.1,
+       "ALEX: It's not exactly going to be a gastronomic rollercoaster, though, is it?"
+      ]
+     ]
+    },
+    {
+     "text": "On the drive home, they talk about her blog.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 24.0,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "listen": [
+      "d22",
+      35.4,
+      47.45
+     ],
+     "label": "GTA IV · 2008",
+     "subs": [
+      [
+       35.62,
+       39.2,
+       "NIKO: So, this blog you write, is that all you want to do?"
+      ],
+      [
+       39.5,
+       41.8,
+       "ALEX: God, I've never thought of it that way."
+      ],
+      [
+       42.2,
+       44.45,
+       "ALEX: I've never thought that writing my blog was doing something."
+      ],
+      [
+       44.74,
+       47.35,
+       "ALEX: It's just an extension of my personality. I'm creative."
+      ]
+     ]
+    },
+    {
+     "text": "And if the date went well, Niko could ask to come in.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 19.2,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "listen": [
+      "d22",
+      56.7,
+      59.85
+     ],
+     "label": "GTA IV · 2008",
+     "subs": [
+      [
+       56.82,
+       58.65,
+       "NIKO: You want me to come in?"
+      ],
+      [
+       58.84,
+       59.75,
+       "ALEX: I'd like that, Niko."
+      ]
+     ]
+    },
+    {
+     "text": "Every girlfriend had her own taste.",
+     "shots": [
+      {
+       "src": "d23",
+       "t": 0.4,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "Carmen, a nurse, loved bars and darts, but gave Burger Shot only fifty percent.",
+     "shots": [
+      {
+       "src": "d23",
+       "t": 3.3,
+       "crop": [
+        0,
+        110,
+        880,
+        495
+       ],
+       "repeat": true,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "She even cared about what Niko was wearing.",
+     "shots": [
+      {
+       "src": "d23",
+       "t": 9.0,
+       "label": "GTA IV · 2008"
+      },
+      {
+       "src": "d23",
+       "t": 25.0,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "And girlfriends came with perks.",
+     "shots": [
+      {
+       "src": "d23",
+       "t": 33.0,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "Carmen could heal Niko over the phone. Kiki could make his wanted level disappear. And Alex got him half price on clothes.",
+     "shots": [
+      {
+       "src": "d23",
+       "t": 44.5,
+       "label": "GTA IV · 2008"
+      },
+      {
+       "src": "d23",
+       "t": 16.0,
+       "label": "GTA IV · 2008"
+      },
+      {
+       "src": "d23",
+       "t": 20.0,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "But dating in GTA 4 had a dark side, and her name was Kiki.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 80.5,
+       "mute": true,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "Kiki is a lawyer, and she's the jealous type.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 85.3,
+       "mute": true,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "Date another girl, and she shows up, calls, or texts Niko that she saw him with someone else.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 88.6,
+       "mute": true,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "listen": [
+      "d22",
+      96.95,
+      108.7
+     ],
+     "label": "GTA IV · 2008",
+     "subs": [
+      [
+       97.16,
+       102.2,
+       "NIKO: You're seeing things, Kiki. Take some pills, have a hot bath and chill out."
+      ],
+      [
+       102.5,
+       108.6,
+       "KIKI: What we have is sacred, Niko. Do you know what happens to those who piss on something sacred?"
+      ]
+     ]
+    },
+    {
+     "text": "Then he finds his tire slashed.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 108.8,
+       "crop": [
+        287,
+        120,
+        320,
+        180
+       ],
+       "boom": 0.4,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "Jealousy, stalking, revenge. In 2008.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 116.0,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "And Niko's very first girlfriend, Michelle, turned out to be an undercover government agent.",
+     "shots": [
+      {
+       "card": "PLOT TWIST",
+       "title": "HIS FIRST GIRLFRIEND|WAS AN AGENT",
+       "bg": "d22",
+       "t": 60
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "So where did dating go?",
+     "shots": [
+      {
+       "card": "2013",
+       "title": "GTA V|NO DATING",
+       "bg": "c9",
+       "t": 50
+      }
+     ]
+    },
+    {
+     "text": "GTA 5 dropped it. Three main characters, and no dating system for any of them.",
+     "shots": [
+      {
+       "src": "c9",
+       "t": 40.0,
+       "label": "GTA V · 2013"
+      },
+      {
+       "src": "c10",
+       "t": 26.0,
+       "label": "GTA V · 2013"
+      }
+     ]
+    },
+    {
+     "text": "And for millions of players, GTA 5 was their first GTA.",
+     "shots": [
+      {
+       "src": "c11",
+       "t": 20.0,
+       "label": "GTA V · 2013"
+      }
+     ]
+    },
+    {
+     "text": "They played it for thirteen years.",
+     "shots": [
+      {
+       "src": "c7",
+       "t": 8.0,
+       "label": "GTA V · 2013"
+      }
+     ]
+    },
+    {
+     "text": "So when GTA 6 put a couple at the center of the story, it looked like something brand new.",
+     "shots": [
+      {
+       "src": "d6",
+       "t": 10.0,
+       "label": "GTA VI · 2026"
+      },
+      {
+       "src": "d6",
+       "t": 34.0,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "And to be fair, GTA 6 really does change something.",
+     "shots": [
+      {
+       "card": "2026",
+       "title": "GTA VI|THE COUPLE IS THE STORY",
+       "bg": "d6",
+       "t": 120
+      }
+     ]
+    },
+    {
+     "text": "Your girlfriend isn't a side activity anymore. Lucia is one of the two main characters.",
+     "shots": [
+      {
+       "src": "h10",
+       "t": 45.4,
+       "label": "GTA VI · 2026"
+      },
+      {
+       "src": "d61",
+       "t": 45.5,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "There's literally a button to hold her hand.",
+     "shots": [
+      {
+       "src": "d6",
+       "t": 29.0,
+       "crop": [
+        320,
+        180,
+        320,
+        180
+       ],
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "You walk around Vice City as a couple,",
+     "shots": [
+      {
+       "src": "d6",
+       "t": 46.0,
+       "repeat": true,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "and people notice.",
+     "shots": [
+      {
+       "src": "d6",
+       "t": 57.6,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "listen": [
+      "d6",
+      59.9,
+      62.4
+     ],
+     "label": "GTA VI · 2026",
+     "subs": [
+      [
+       60.24,
+       62.25,
+       "STRANGER: Hey, you two. Looking good."
+      ]
+     ]
+    },
+    {
+     "text": "They even talk about their future.",
+     "shots": [
+      {
+       "src": "d6",
+       "t": 126.5,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "listen": [
+      "d6",
+      133.3,
+      146.7
+     ],
+     "label": "GTA VI · 2026",
+     "subs": [
+      [
+       133.6,
+       138.3,
+       "LUCIA: Yo, wherever we end up, there's gotta be a beach."
+      ],
+      [
+       138.8,
+       139.3,
+       "JASON: Oh, yeah?"
+      ],
+      [
+       139.9,
+       144.3,
+       "LUCIA: Mm-hmm. No moving me to some cattle ranch in the middle of the country."
+      ],
+      [
+       144.8,
+       146.6,
+       "LUCIA: I need sun and sand."
+      ]
+     ]
+    },
+    {
+     "text": "They go shopping together.",
+     "shots": [
+      {
+       "src": "d61",
+       "t": 27.0,
+       "label": "GTA VI · 2026"
+      },
+      {
+       "src": "d61",
+       "t": 38.0,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "They get into fights together.",
+     "shots": [
+      {
+       "src": "d61",
+       "t": 99.5,
+       "mute": true,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "listen": [
+      "d61",
+      117.45,
+      119.3
+     ],
+     "label": "GTA VI · 2026",
+     "subs": [
+      [
+       117.66,
+       118.5,
+       "That was fun."
+      ],
+      [
+       118.7,
+       119.25,
+       "Again!"
+      ]
+     ]
+    },
+    {
+     "text": "And the cops look for them together.",
+     "shots": [
+      {
+       "src": "d61",
+       "t": 123.6,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "listen": [
+      "d61",
+      126.2,
+      132.5
+     ],
+     "label": "GTA VI · 2026",
+     "subs": [
+      [
+       126.3,
+       128.95,
+       "POLICE RADIO: Getting reports of an assault in Ocean Beach."
+      ],
+      [
+       130.5,
+       132.45,
+       "POLICE RADIO: Be advised, we have two suspects."
+      ]
+     ]
+    },
+    {
+     "listen": [
+      "d61",
+      141.6,
+      146.45
+     ],
+     "label": "GTA VI · 2026",
+     "subs": [
+      [
+       141.74,
+       144.6,
+       "POLICE RADIO: Our second suspect is in their 20s, a Latina female."
+      ],
+      [
+       145.3,
+       146.35,
+       "POLICE RADIO: They have long brown hair."
+      ]
+     ]
+    },
+    {
+     "text": "That's the real change. In GTA 6, your girlfriend is your partner in crime.",
+     "shots": [
+      {
+       "src": "d61",
+       "t": 160.0,
+       "mute": true,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "And the body system? That's old news too.",
+     "shots": [
+      {
+       "src": "f1",
+       "t": 25.5,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "GTA 6 tracks weight, calories and muscle, but CJ was getting fat on Cluckin' Bell and buff at the gym back in 2004.",
+     "shots": [
+      {
+       "src": "f1",
+       "t": 3.4,
+       "label": "GTA VI · 2026"
+      },
+      {
+       "src": "d11",
+       "t": 8.0,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "sentences": [
+    {
+     "text": "So, did GTA 6 invent dating?",
+     "shots": [
+      {
+       "src": "d6",
+       "t": 100.0,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "No. San Andreas did it in 2004, with six girlfriends, real perks, and a real scandal.",
+     "shots": [
+      {
+       "src": "d13",
+       "t": 26.5,
+       "label": "GTA SAN ANDREAS · 2004"
+      }
+     ]
+    },
+    {
+     "text": "GTA 4 put dating online, gave every girlfriend her own taste, and gave us a girlfriend who slashes your tires.",
+     "shots": [
+      {
+       "src": "d22",
+       "t": 128.0,
+       "label": "GTA IV · 2008"
+      },
+      {
+       "src": "d22",
+       "t": 63.0,
+       "label": "GTA IV · 2008"
+      }
+     ]
+    },
+    {
+     "text": "What GTA 6 actually changed is who your girlfriend is. Not a side quest, but the other half of the story.",
+     "shots": [
+      {
+       "src": "d6",
+       "t": 151.0,
+       "label": "GTA VI · 2026"
+      },
+      {
+       "src": "d6",
+       "t": 156.5,
+       "label": "GTA VI · 2026"
+      }
+     ]
+    },
+    {
+     "text": "Which GTA had the best relationships? San Andreas, 4, or 6? Tell me in the comments.",
+     "shots": [
+      {
+       "card": "YOUR TURN",
+       "title": "SA, IV OR VI?",
+       "bg": "d6",
+       "t": 145
+      }
+     ]
+    },
+    {
+     "text": "And subscribe for more GTA history like this.",
+     "shots": [
+      {
+       "card": "SUBSCRIBE",
+       "title": "MORE GTA HISTORY",
+       "bg": "d61",
+       "t": 165
+      }
+     ]
+    },
+    {
+     "text": "See you in Leonida.",
+     "shots": []
+    }
+   ]
+  }
+ ]
+}

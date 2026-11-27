@@ -19,7 +19,11 @@ Shots share their sentence's time by weight "w"; a sentence with "shots": [] ext
   {"pair": [["c8", 5.0], ["c8", 27.6]]}                    own split screen, GTA 5 left and GTA 6 right
 Sources may list "scenes": [[start, end, "GTA 5" | "GTA 6" | "split"], ...]; shots are kept inside one
 scene (no running into a transition or into the other game) and a mismatched label is reported.
-Labels: "GTA 5", "GTA 6", or "split" for side by side footage with GTA 5 on the left.
+Labels: "GTA 5", "GTA 6", "GTA SAN ANDREAS · 2004", "GTA IV · 2008", "GTA V · 2013", "GTA VI · 2026", or "split".
+Sources and shots take "mute": true for someone else's music or a line that cannot air.
+A sentence can be {"listen": [src, t0, t1], "subs": [[t0, t1, "NAME: line"], ...], "label": ...}: the narrator
+pauses and the clip's own dialogue plays, levelled like the narration, with yellow subtitles (source times).
+Job keys: music ("synthpad" or a meme_kit bed such as "doc"), music_volume, dialogue_lufs (default -17).
 """
 import argparse
 import hashlib
@@ -41,7 +45,9 @@ from make_edit import make_sfx  # noqa: E402
 W, H, FPS, SR = 1920, 1080, 30, 48000
 VERSION = 2  # bump to re-render every cached shot
 FONT_XB = "/usr/share/fonts/opentype/montserrat/Montserrat-ExtraBold.otf"
-TAG = {"GTA 5": "0x27AE60", "GTA 6": "0xFF2E88"}
+TAG = {"GTA 5": "0x27AE60", "GTA 6": "0xFF2E88",
+       "GTA SAN ANDREAS · 2004": "0xE8731A", "GTA IV · 2008": "0x3D6FB5",
+       "GTA V · 2013": "0x27AE60", "GTA VI · 2026": "0xE6197A"}
 ENC = ["-c:v", "libx264", "-preset", "veryfast", "-crf", "16", "-pix_fmt", "yuv420p", "-r", str(FPS)]
 
 
@@ -73,8 +79,13 @@ def narrate(job, work, sents):
     tdir = work / "tts"
     tdir.mkdir(parents=True, exist_ok=True)
     kokoro = None
-    pieces, t = [], 0.4
+    pieces, t, sr = [], 0.4, 24000
     for s in sents:
+        if "listen" in s:  # real game dialogue: the narrator stays quiet for the length of the clip
+            _, a, b = s["listen"]
+            s["t0"], s["t1"] = t, t + (b - a)
+            t = s["t1"] + (0.45 if s["last_in_par"] else 0.2)
+            continue
         key = hashlib.sha1(f"{job['voice']}|{job['speed']}|{speakable(s['text'])}".encode()).hexdigest()[:16]
         f = tdir / f"{key}.wav"
         if not f.exists():
@@ -174,7 +185,9 @@ def check_shot(sh, need, sources):
 
 def render_shot(i, sh, nframes, sources, sdir):
     dur = nframes / FPS
-    sig = hashlib.sha1(json.dumps([sh, nframes, VERSION]).encode()).hexdigest()[:14]
+    keys = [sh.get("src"), sh.get("bg")] + [k for k, _ in sh.get("pair", [])] + [k for k, _ in sh.get("grid", [])]
+    srcinfo = [[sources[k]["path"], sources[k].get("crop"), sources[k].get("mute")] for k in keys if k in sources]
+    sig = hashlib.sha1(json.dumps([sh, nframes, VERSION, srcinfo]).encode()).hexdigest()[:14]
     final_v, final_a = sdir / f"{sig}.mp4", sdir / f"{sig}.wav"
     if final_v.exists() and final_a.exists():
         return final_v, final_a
@@ -234,7 +247,10 @@ def render_shot(i, sh, nframes, sources, sdir):
                "eq=contrast=1.04:saturation=1.1", "unsharp=5:5:0.4:5:5:0"] + labels(sh.get("label"))
         run(head + ["-ss", f"{t:.3f}", "-t", f"{need + 1:.3f}", "-i", src["path"], "-vf", ",".join(vf),
                     "-frames:v", nframes, "-an", *ENC, vout])
-        clip_audio(src["path"], t, need, dur, sp, aout)
+        if sh.get("mute") or src.get("mute"):  # someone else's music or a line that cannot air
+            silence(dur, aout)
+        else:
+            clip_audio(src["path"], t, need, dur, sp, aout)
     vout.replace(final_v)
     aout.replace(final_a)
     return final_v, final_a
@@ -250,7 +266,19 @@ def captions(sents, path, max_chars=44):
         fontname="Montserrat ExtraBold", fontsize=54, primarycolor=pysubs2.Color(255, 255, 255),
         outlinecolor=pysubs2.Color(0, 0, 0), backcolor=pysubs2.Color(0, 0, 0, 120), outline=4, shadow=2,
         alignment=pysubs2.Alignment.BOTTOM_CENTER, marginv=60, marginl=160, marginr=160)
+    subs.styles["Dlg"] = pysubs2.SSAStyle(
+        fontname="Montserrat ExtraBold", fontsize=52, italic=True, primarycolor=pysubs2.Color(255, 236, 170),
+        outlinecolor=pysubs2.Color(0, 0, 0), backcolor=pysubs2.Color(0, 0, 0, 120), outline=4, shadow=2,
+        alignment=pysubs2.Alignment.BOTTOM_CENTER, marginv=60, marginl=140, marginr=140)
     for s in sents:
+        if "listen" in s:
+            a = s["listen"][1]
+            for st, en, line in s.get("subs", []):
+                name, _, said = line.partition(": ") if ": " in line else ("", "", line)
+                tag = f"{{\\c&H3BC8FF&\\i0}}{name}:{{\\r}} " if name else ""
+                subs.append(pysubs2.SSAEvent(start=int((s["t0"] + st - a) * 1000), end=int((s["t0"] + en - a) * 1000),
+                                             style="Dlg", text=tag + said))
+            continue
         words, chunks, cur = s["text"].split(), [], []
         for w in words:
             if cur and (len(" ".join(cur + [w])) > max_chars or re.search(r"[.!?:;,]$", cur[-1]) and len(" ".join(cur)) > 18):
@@ -322,7 +350,12 @@ def build(job_path):
             s["last_in_par"] = k == len(p["sentences"]) - 1
             sents.append(s)
     total = narrate(job, work, sents)
-    print(f"narration {total:.1f}s, {sum(len(s['text'].split()) for s in sents)} words")
+    print(f"narration {total:.1f}s, {sum(len(s.get('text', '').split()) for s in sents)} words, "
+          f"{sum(s['t1'] - s['t0'] for s in sents if 'listen' in s):.1f}s of game dialogue")
+    for s in sents:
+        if "listen" in s and not s.get("shots"):
+            src, a, _ = s["listen"]
+            s["shots"] = [dict(s.get("shot", {}), src=src, t=a, label=s.get("label"), _listen=True)]
 
     tl = []
     for i, s in enumerate(sents):
@@ -389,8 +422,29 @@ def build(job_path):
         if "boom" in sh:
             events.append(("boom", x["start"] + sh["boom"]))
     sfx_track(total, events, work, work / "sfx.wav")
-    synth_pad(total, work / "pad.wav")
+    style = job.get("music", "synthpad")
+    if style == "synthpad":
+        synth_pad(total, work / "pad.wav")
+    else:  # one of the meme_kit beds, levelled like the synth pad
+        import meme_kit as MK
+        bed = MK.music(style, total + 0.5)[: int(total * SR)]
+        sf.write(work / "pad.wav", (bed * 0.25 / max(np.abs(bed).max(), 1e-6)).astype(np.float32), SR)
     captions(sents, work / "captions.ass")
+
+    # 5. game dialogue moves from the ducked game track to its own track, mixed like the narration
+    listens = [(s["t0"], s["t1"]) for s in sents if "listen" in s]
+    dial = np.zeros_like(game)
+    fade = int(0.03 * SR)
+    for t0, t1 in listens:
+        i0, i1 = int(t0 * SR), min(int((t1 + 0.12) * SR), len(game))
+        seg = game[i0:i1].copy()
+        ramp = np.ones(len(seg), np.float32)
+        ramp[:fade] = np.linspace(0, 1, min(fade, len(seg)))[: len(ramp[:fade])]
+        ramp[-fade:] = np.linspace(1, 0, fade)
+        dial[i0:i1] = seg * ramp[:, None]
+        game[i0:i1] = game[i0:i1] * (1 - ramp[:, None])
+    sf.write(work / "game.wav", game, SR)
+    sf.write(work / "dial.wav", dial, SR)
 
     # Static gains measured up front: dynamic loudnorm keeps a 3 s lookahead and dropped the last
     # word of the narration, and a sidechain ends as soon as its key input ends, so everything is padded.
@@ -399,13 +453,18 @@ def build(job_path):
         i = float(json.loads(meas[meas.rindex("{"): meas.rindex("}") + 1])["input_i"])
         return 0.0 if i < -70 else target - i
     gn, gg = gain_to(work / "narration.wav", -16), gain_to(work / "game.wav", -22)
-    mix = (f"[1:a]aresample=48000,aformat=channel_layouts=stereo,volume={gn:.2f}dB,apad=whole_dur={total:.3f},asplit=3[n1][n2][n3];"
+    gd = gain_to(work / "dial.wav", job.get("dialogue_lufs", -17))
+    mv = 0.45 * float(job.get("music_volume", 1.0))
+    mix = (f"[1:a]aresample=48000,aformat=channel_layouts=stereo,volume={gn:.2f}dB,apad=whole_dur={total:.3f}[nv];"
+           f"[5:a]volume={gd:.2f}dB,apad=whole_dur={total:.3f}[dv];"
+           "[nv][dv]amix=inputs=2:normalize=0:duration=first,asplit=3[n1][n2][n3];"
            f"[2:a]volume={gg:.2f}dB,volume=0.7,apad=whole_dur={total:.3f}[g0];"
            "[g0][n2]sidechaincompress=threshold=0.015:ratio=12:attack=10:release=400[gd];"
-           f"[3:a]volume=0.45,apad=whole_dur={total:.3f}[m0];[m0][n3]sidechaincompress=threshold=0.015:ratio=4:attack=40:release=800[md];"
+           f"[3:a]volume={mv:.3f},apad=whole_dur={total:.3f}[m0];[m0][n3]sidechaincompress=threshold=0.015:ratio=4:attack=40:release=800[md];"
            f"[4:a]apad=whole_dur={total:.3f}[fx];[n1][gd][md][fx]amix=inputs=4:normalize=0:duration=first[mix]")
     run(["ffmpeg", "-v", "error", "-y", "-i", work / "broll.mp4", "-i", work / "narration.wav", "-i", work / "game.wav",
-         "-i", work / "pad.wav", "-i", work / "sfx.wav", "-filter_complex", mix, "-map", "[mix]", "-t", total, work / "mix.wav"])
+         "-i", work / "pad.wav", "-i", work / "sfx.wav", "-i", work / "dial.wav", "-filter_complex", mix, "-map", "[mix]",
+         "-t", total, work / "mix.wav"])
     meas = run(["ffmpeg", "-hide_banner", "-i", work / "mix.wav", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"])
     m = json.loads(meas[meas.rindex("{"): meas.rindex("}") + 1])
     loud = (f"apad=whole_dur={total:.3f},loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}"
@@ -414,7 +473,8 @@ def build(job_path):
     out = Path(job["out"])
     out.parent.mkdir(parents=True, exist_ok=True)
     run(["ffmpeg", "-v", "error", "-y", "-i", work / "broll.mp4", "-i", work / "mix.wav",
-         "-filter_complex", f"[0:v]ass={work / 'captions.ass'}:fontsdir=/usr/share/fonts[v];[1:a]{loud}[a]",
+         "-filter_complex", f"[0:v]ass={work / 'captions.ass'}:fontsdir=/usr/share/fonts[v];"
+                            f"[1:a]{loud},alimiter=limit=0.79:attack=2:release=60:level=0[a]",
          "-map", "[v]", "-map", "[a]", "-t", total, "-c:v", "libx264", "-preset", "fast", "-crf", "21",
          "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", out])
     chapters = [(x["start"], x["shot"]) for x in tl if "card" in x["shot"]]
