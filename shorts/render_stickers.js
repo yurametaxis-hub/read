@@ -10,6 +10,7 @@ const { chromium } = require('playwright');
   const faces = [
     ['Anton', 'Anton-Regular.ttf'], ['Bangers', 'Bangers-Regular.ttf'],
     ['Luckiest Guy', 'LuckiestGuy-Regular.ttf'], ['Permanent Marker', 'PermanentMarker-Regular.ttf'],
+    ['Titan One', 'TitanOne-Regular.ttf'],
   ].map(([n, f]) => `@font-face { font-family: '${n}'; src: url(file://${fontsDir}/${f}); }`).join('\n');
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: { width: 1400, height: 2000 } });
@@ -26,7 +27,7 @@ const { chromium } = require('playwright');
     await page.goto('file://' + htmlPath);
     await page.evaluate(async () => {
       await document.fonts.ready;
-      const fams = ['Anton', 'Bangers', 'Luckiest Guy', 'Permanent Marker'];
+      const fams = ['Anton', 'Bangers', 'Luckiest Guy', 'Permanent Marker', 'Titan One'];
       await Promise.all(fams.map((f) => document.fonts.load(`40px '${f}'`)));
     });
     await (await page.$('#wrap')).screenshot({ path: it.out, omitBackground: true });

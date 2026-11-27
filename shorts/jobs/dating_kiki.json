@@ -1,0 +1,324 @@
+{
+ "tts_model": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/kokoro-v1.0.onnx",
+ "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
+ "voice": "am_michael",
+ "speed": 1.05,
+ "meme_voice": "am_onyx",
+ "meme_speed": 0.92,
+ "layout": "wide",
+ "chips": {
+  "SA": {
+   "text": "GTA San Andreas · 2004",
+   "color": "#e8731a"
+  },
+  "IV": {
+   "text": "GTA IV · 2008",
+   "color": "#3d6fb5"
+  },
+  "VI": {
+   "text": "GTA VI · 2026",
+   "color": "#e6197a"
+  }
+ },
+ "caption_font": "Titan One",
+ "caption_size": 88,
+ "caption_y": 1395,
+ "game_volume": 1.0,
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/dating/out/dating_kiki.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/dating/work_dating_kiki",
+ "hook": "GTA 4 HAD THE MOST [TOXIC] GIRLFRIEND 💀",
+ "credit": "🎥 footage: TheJizzy",
+ "music": "horror",
+ "music_volume": 0.6,
+ "keywords": [
+  "kiki",
+  "tires",
+  "slashed"
+ ],
+ "beats": [
+  {
+   "say": "She slashed his tires.",
+   "delay": 0.9,
+   "shots": [
+    {
+     "zoom": 1.35,
+     "y": 0.514,
+     "src": "d22",
+     "t": 106.8,
+     "chip": "IV",
+     "dur": 0.9,
+     "speed": 0.5,
+     "x": 0.6
+    },
+    {
+     "zoom": 1.35,
+     "y": 0.514,
+     "src": "d22",
+     "t": 107.25,
+     "chip": "IV",
+     "freeze": true,
+     "x": 0.6,
+     "zoom_to": 1.45
+    }
+   ],
+   "sfx": [
+    {
+     "name": "record_scratch",
+     "at": 0.9,
+     "gain": 0.8
+    }
+   ],
+   "stickers": [
+    {
+     "type": "circle",
+     "at": 1.0,
+     "x": 650,
+     "y": 1085,
+     "r": 150
+    }
+   ]
+  },
+  {
+   "shots": [
+    {
+     "zoom": 1.35,
+     "y": 0.514,
+     "src": "d22",
+     "t": 107.25,
+     "chip": "IV",
+     "dur": 0.9,
+     "reverse": true,
+     "speed": 9,
+     "fx": {
+      "rewind": true
+     },
+     "x": 0.6
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rewind",
+     "at": 0.0,
+     "gain": 0.5
+    }
+   ]
+  },
+  {
+   "say": "Niko takes Alex out to dinner.",
+   "shots": [
+    {
+     "zoom": 1.2,
+     "y": 0.415,
+     "src": "d22",
+     "t": 1.5,
+     "chip": "IV"
+    }
+   ]
+  },
+  {
+   "say": "Then he drives her home.",
+   "shots": [
+    {
+     "zoom": 1.2,
+     "y": 0.415,
+     "src": "d22",
+     "t": 56.0,
+     "chip": "IV"
+    }
+   ]
+  },
+  {
+   "say": "But Niko already has a girlfriend. Kiki.",
+   "shots": [
+    {
+     "zoom": 1.2,
+     "y": 0.415,
+     "src": "d22",
+     "t": 82.0,
+     "chip": "IV"
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "KIKI 😡",
+     "at": 1.8,
+     "y": 600,
+     "font": "Bangers",
+     "size": 96,
+     "bg": "#b71c1c",
+     "rot": -3
+    }
+   ]
+  },
+  {
+   "min": 3.4,
+   "shots": [
+    {
+     "zoom": 1.2,
+     "y": 0.415,
+     "src": "d22",
+     "t": 92.6,
+     "chip": "IV",
+     "mute": true
+    }
+   ],
+   "sfx": [
+    {
+     "name": "dun_dun",
+     "at": 0.1,
+     "gain": 0.55
+    }
+   ],
+   "stickers": [
+    {
+     "type": "bubble",
+     "text": "📱 KIKI: I'M WATCHING YOU, NIKO 👀",
+     "at": 0.2,
+     "x": 540,
+     "y": 650,
+     "size": 58,
+     "maxw": 900
+    }
+   ]
+  },
+  {
+   "min": 3.9,
+   "shots": [
+    {
+     "zoom": 1.2,
+     "y": 0.415,
+     "src": "d22",
+     "t": 97.0,
+     "chip": "IV"
+    }
+   ],
+   "stickers": [
+    {
+     "type": "bubble",
+     "text": "NIKO: TAKE SOME PILLS, HAVE A HOT BATH AND CHILL OUT",
+     "at": 0.2,
+     "x": 540,
+     "y": 660,
+     "size": 50,
+     "maxw": 900
+    }
+   ]
+  },
+  {
+   "min": 5.1,
+   "shots": [
+    {
+     "zoom": 1.2,
+     "y": 0.415,
+     "src": "d22",
+     "t": 101.4,
+     "chip": "IV"
+    }
+   ],
+   "stickers": [
+    {
+     "type": "bubble",
+     "text": "📱 KIKI: WHAT WE HAVE IS SACRED, NIKO.",
+     "at": 0.3,
+     "x": 540,
+     "y": 650,
+     "size": 56,
+     "maxw": 900
+    }
+   ]
+  },
+  {
+   "say": "Then he finds his tire slashed.",
+   "music_cut": true,
+   "shots": [
+    {
+     "zoom": 1.35,
+     "y": 0.514,
+     "src": "d22",
+     "t": 106.6,
+     "chip": "IV",
+     "speed": 0.6,
+     "x": 0.6,
+     "zoom_to": 1.5,
+     "fx": {
+      "shake": [
+       [
+        0.9,
+        1.6,
+        22
+       ]
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "vine_boom",
+     "at": 0.9,
+     "gain": 0.85
+    }
+   ],
+   "meme": [
+    {
+     "say": "Red flag.",
+     "at": 2.0
+    }
+   ],
+   "stickers": [
+    {
+     "type": "emoji",
+     "emoji": "🚩",
+     "at": 1.0,
+     "x": 880,
+     "y": 760,
+     "size": 200
+    }
+   ]
+  },
+  {
+   "say": "Jealous girlfriends were already in GTA 4. Back in 2008.",
+   "shots": [
+    {
+     "zoom": 1.2,
+     "y": 0.415,
+     "src": "d22",
+     "t": 113.6,
+     "chip": "IV"
+    }
+   ]
+  },
+  {
+   "say": "Would you date Kiki?",
+   "pad": 0.7,
+   "shots": [
+    {
+     "zoom": 1.2,
+     "y": 0.415,
+     "src": "d22",
+     "t": 118.0,
+     "chip": "IV",
+     "freeze": true
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "WOULD YOU DATE KIKI? 👇",
+     "at": 0.2,
+     "y": 600,
+     "font": "Bangers",
+     "size": 90,
+     "bg": "#3d6fb5",
+     "rot": -3,
+     "maxw": 980
+    }
+   ]
+  }
+ ],
+ "sources": {
+  "d22": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/b66cafd5-22.mkv"
+  }
+ }
+}

@@ -1,0 +1,338 @@
+{
+ "tts_model": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/kokoro-v1.0.onnx",
+ "tts_voices": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/tts/voices-v1.0.bin",
+ "voice": "am_michael",
+ "speed": 1.05,
+ "meme_voice": "am_onyx",
+ "meme_speed": 0.92,
+ "layout": "wide",
+ "chips": {
+  "SA": {
+   "text": "GTA San Andreas · 2004",
+   "color": "#e8731a"
+  },
+  "IV": {
+   "text": "GTA IV · 2008",
+   "color": "#3d6fb5"
+  },
+  "VI": {
+   "text": "GTA VI · 2026",
+   "color": "#e6197a"
+  }
+ },
+ "caption_font": "Titan One",
+ "caption_size": 88,
+ "caption_y": 1395,
+ "game_volume": 1.0,
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/dating/out/dating_gta6_date.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/dating/work_dating_gta6_date",
+ "hook": "DATE NIGHT IN [GTA 6] BE LIKE 💀",
+ "credit": "",
+ "music": "phonk",
+ "music_volume": 0.32,
+ "keywords": [
+  "step",
+  "wanted"
+ ],
+ "beats": [
+  {
+   "min": 1.3,
+   "shots": [
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 105.4,
+     "chip": "VI",
+     "mute": true,
+     "fx": {
+      "shake": [
+       [
+        0.0,
+        1.0,
+        30
+       ]
+      ],
+      "flash": [
+       "white",
+       0.0
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "vine_boom",
+     "at": 0.0,
+     "gain": 0.8
+    }
+   ],
+   "stickers": [
+    {
+     "type": "emoji",
+     "emoji": "💀",
+     "at": 0.1,
+     "x": 860,
+     "y": 760,
+     "size": 210
+    }
+   ]
+  },
+  {
+   "shots": [
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 105.4,
+     "chip": "VI",
+     "dur": 0.8,
+     "reverse": true,
+     "speed": 10,
+     "mute": true,
+     "fx": {
+      "rewind": true
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "rewind",
+     "at": 0.0,
+     "gain": 0.5
+    }
+   ]
+  },
+  {
+   "say": "Step one: go shoe shopping together.",
+   "shots": [
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 27.0,
+     "chip": "VI"
+    },
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 37.6,
+     "chip": "VI"
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "STEP 1 👟",
+     "at": 0.0,
+     "y": 600,
+     "font": "Bangers",
+     "size": 92,
+     "bg": "#e6197a",
+     "rot": -3
+    }
+   ]
+  },
+  {
+   "say": "Step two: hold hands.",
+   "shots": [
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 67.8,
+     "chip": "VI"
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "STEP 2 🤝",
+     "at": 0.0,
+     "y": 600,
+     "font": "Bangers",
+     "size": 92,
+     "bg": "#e6197a",
+     "rot": 3
+    }
+   ]
+  },
+  {
+   "say": "Step three: fight a random guy.",
+   "shots": [
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 99.6,
+     "chip": "VI",
+     "mute": true,
+     "fx": {
+      "shake": [
+       [
+        1.0,
+        1.8,
+        24
+       ]
+      ]
+     }
+    }
+   ],
+   "sfx": [
+    {
+     "name": "bonk",
+     "at": 1.1,
+     "gain": 0.8
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "STEP 3 👊",
+     "at": 0.0,
+     "y": 600,
+     "font": "Bangers",
+     "size": 92,
+     "bg": "#e6197a",
+     "rot": -3
+    }
+   ]
+  },
+  {
+   "min": 2.6,
+   "shots": [
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 116.9,
+     "chip": "VI"
+    }
+   ],
+   "stickers": [
+    {
+     "type": "bubble",
+     "text": "WELL, THAT WAS FUN.",
+     "at": 0.35,
+     "x": 540,
+     "y": 650,
+     "size": 66
+    },
+    {
+     "type": "bubble",
+     "text": "AGAIN!",
+     "at": 1.75,
+     "x": 700,
+     "y": 820,
+     "size": 80
+    }
+   ]
+  },
+  {
+   "say": "Step four: become wanted together.",
+   "shots": [
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 124.0,
+     "chip": "VI"
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "STEP 4 🚨",
+     "at": 0.0,
+     "y": 600,
+     "font": "Bangers",
+     "size": 92,
+     "bg": "#e6197a",
+     "rot": 3
+    }
+   ]
+  },
+  {
+   "min": 6.3,
+   "shots": [
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 126.4,
+     "chip": "VI",
+     "dur": 4.2
+    },
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 140.6,
+     "chip": "VI"
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "📻 POLICE RADIO",
+     "at": 0.1,
+     "y": 600,
+     "font": "Anton",
+     "size": 64,
+     "bg": "#111",
+     "rot": -2
+    }
+   ]
+  },
+  {
+   "say": "Step five: steal a lowrider and drive into the sunset.",
+   "shots": [
+    {
+     "zoom": 1.05,
+     "src": "d61",
+     "t": 155.0,
+     "chip": "VI",
+     "mute": true
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "STEP 5 🚗",
+     "at": 0.0,
+     "y": 600,
+     "font": "Bangers",
+     "size": 92,
+     "bg": "#e6197a",
+     "rot": -3
+    }
+   ]
+  },
+  {
+   "say": "Couple goals, or red flags?",
+   "pad": 0.7,
+   "shots": [
+    {
+     "zoom": 1.05,
+     "src": "d6",
+     "t": 112.0,
+     "chip": "VI",
+     "freeze": true,
+     "zoom_to": 1.12
+    }
+   ],
+   "stickers": [
+    {
+     "type": "text",
+     "text": "COUPLE GOALS OR 🚩? 👇",
+     "at": 0.2,
+     "y": 600,
+     "font": "Bangers",
+     "size": 90,
+     "bg": "#111",
+     "rot": -3,
+     "maxw": 980
+    }
+   ]
+  }
+ ],
+ "sources": {
+  "d6": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/25604d3b-6.mkv"
+  },
+  "d61": {
+   "path": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/0ae9728f-61.mkv"
+  }
+ }
+}

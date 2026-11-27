@@ -62,7 +62,10 @@ def speakable(text):
     """Spellings Kokoro reads right; each one was checked by running the audio back through Whisper."""
     words = {"1": "One", "2": "Two", "3": "Three", "4": "Four", "5": "Five", "6": "Six"}
     text = re.sub(r"\bGTA ([1-6])\b", lambda m: "GTA " + words[m.group(1)], text)
-    return text.replace("FiveM", "Five M").replace("Cayo Perico", "Kai-oh Perico")
+    for k, v in (("FiveM", "Five M"), ("Cayo Perico", "Kai-oh Perico"), ("San Fierro", "San Fee-airo"),
+                 ("El Quebrados", "El Keh-brah-dos")):
+        text = text.replace(k, v)
+    return text
 
 
 def narrate(job, work, sents):

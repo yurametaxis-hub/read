@@ -9,7 +9,9 @@ A job is a list of beats. A beat holds shots, an optional narration line ("say")
 effects and stickers; its length is the longest of: the narration plus a pad, the fixed shot lengths, "min".
 Shots without "dur" share what is left. Times inside a beat are seconds from the beat start.
 
-Shot keys: src, t, dur, speed, reverse, freeze, layout ("band" 1080x1260 over a blurred fill, "fill", or "split":
+Job keys: chips {"SA": {"text": "SAN ANDREAS 2004", "color": "#e8731a"}} labels plus frame colour for shots with
+  "chip": "SA"; caption_font (default Luckiest Guy).
+Shot keys: src, t, dur, speed, reverse, freeze, layout ("band" 1080x1260 over a blurred fill, "wide" 1080x760, "fill", or "split":
   the source's left and right halves side by side, 537x960 each, xl and xr centre each half separately),
   x, y (crop centre as a share of the source), zoom, x_to, y_to, zoom_to, ease ("smooth", "out", "punch"),
   ease_time, fx: {flash: [colour, at], shake: [[a, b, px], ...], deepfry: [a, b], sepia, bw, vhs, rewind}
@@ -43,6 +45,8 @@ from make_longform import speakable  # noqa: E402
 
 W, H, FPS, SR = 1080, 1920, 30, 48000
 BAND_Y, BAND_H = 340, 1260
+WIDE_Y, WIDE_H = 470, 760  # "wide": a 1.42:1 crop, for low resolution sources that should not be cropped hard
+FRAMES = {"band": (BAND_Y, BAND_H), "wide": (WIDE_Y, WIDE_H)}
 SPLIT_Y, SPLIT_H, SPLIT_W = 380, 960, 537  # "split": left and right halves of the source side by side
 FONTS = HERE / "fonts"
 MARKER = str(FONTS / "PermanentMarker-Regular.ttf")
@@ -435,7 +439,7 @@ def geometry(sh, tau, src_wh):
     z = sh.get("zoom", 1.0) + (sh.get("zoom_to", sh.get("zoom", 1.0)) - sh.get("zoom", 1.0)) * e
     x = sh.get("x", 0.5) + (sh.get("x_to", sh.get("x", 0.5)) - sh.get("x", 0.5)) * e
     y = sh.get("y", 0.5) + (sh.get("y_to", sh.get("y", 0.5)) - sh.get("y", 0.5)) * e
-    ow, oh = {"band": (W, BAND_H), "split": (SPLIT_W, SPLIT_H)}.get(sh["_layout"], (W, H))
+    ow, oh = {"band": (W, BAND_H), "wide": (W, WIDE_H), "split": (SPLIT_W, SPLIT_H)}.get(sh["_layout"], (W, H))
     if sh["_layout"] == "split":
         sw = sw // 2
     rh = shh / z
@@ -451,7 +455,7 @@ def geometry(sh, tau, src_wh):
 def src_to_screen(sh, tau, src_wh, sx, sy):
     cx, cy, rw, rh, ow, oh = geometry(sh, tau, src_wh)
     s = oh / rh
-    oy = BAND_Y if sh["_layout"] == "band" else 0
+    oy = FRAMES[sh["_layout"]][0] if sh["_layout"] in FRAMES else 0
     return (sx - (cx - rw / 2)) * s, oy + (sy - (cy - rh / 2)) * s, s
 
 
@@ -514,7 +518,8 @@ def render_shot(sh, n, src, looks, stickers, hooks, t_abs0, pipe, look, grade=No
             out[SPLIT_Y - 8:SPLIT_Y + SPLIT_H + 8] = 12
             out[SPLIT_Y:SPLIT_Y + SPLIT_H, :SPLIT_W] = panels[0]
             out[SPLIT_Y:SPLIT_Y + SPLIT_H, W - SPLIT_W:] = panels[1]
-        elif sh["_layout"] == "band":
+        elif sh["_layout"] in FRAMES:
+            fy, fh = FRAMES[sh["_layout"]]
             M = np.array([[s, 0, -(cx - rw / 2) * s + dx], [0, s, -(cy - rh / 2) * s + dy]], np.float32)
             if rot:
                 R = cv2.getRotationMatrix2D((ow / 2, oh / 2), rot, 1.0)
@@ -524,10 +529,14 @@ def render_shot(sh, n, src, looks, stickers, hooks, t_abs0, pipe, look, grade=No
             cw = 90 * W / H
             x0 = int(80 - cw / 2)
             bg = cv2.resize(small[:, x0:x0 + int(cw)], (W, H), interpolation=cv2.INTER_LINEAR)
-            out = (bg.astype(np.float32) * 0.5).astype(np.uint8)
-            out[BAND_Y:BAND_Y + BAND_H] = fg
-            for y0, y1 in ((BAND_Y - 26, BAND_Y), (BAND_Y + BAND_H, BAND_Y + BAND_H + 26)):
-                out[y0:y1] = (out[y0:y1] * looks.band_shadow[y0:y1]).astype(np.uint8)
+            out = (bg.astype(np.float32) * (0.5 if fh > 1000 else 0.38)).astype(np.uint8)
+            out[fy:fy + fh] = fg
+            for y0, y1, a, b in ((fy - 26, fy, 1.0, 0.45), (fy + fh, fy + fh + 26, 0.45, 1.0)):
+                out[y0:y1] = (out[y0:y1] * np.linspace(a, b, y1 - y0)[:, None, None]).astype(np.uint8)
+            if sh.get("_border"):  # thin colour frame that tells which game is on screen
+                c = np.array(sh["_border"], np.uint8)
+                out[fy - 7:fy] = c
+                out[fy + fh:fy + fh + 7] = c
         else:
             M = np.array([[s, 0, -(cx - rw / 2) * s + dx], [0, s, -(cy - rh / 2) * s + dy]], np.float32)
             if rot:
@@ -696,6 +705,23 @@ def build(job_path, reuse_video=False):
             x, y = st.get("x", 380), st.get("y", BAND_Y + BAND_H - 140)
         stickers.append(Sticker(rgba, t0, t1, x, y, anim, st.get("rot", 0.0), st.get("wobble", 0.0),
                                 st.get("track"), st.get("blink"), st.get("layer", 1)))
+    chips = job.get("chips", {})
+    if chips:
+        cimgs = chrome_stickers({f"chip_{k}": text_html(dict(text=c["text"], font="Anton", size=c.get("size", 46),
+                                                             bg=c["color"], pad="4px 20px", radius=8, upper=True, spacing=2))
+                                 for k, c in chips.items()}, work)
+        run_start, run_chip = None, None
+        for i, s in enumerate(shots + [None]):
+            ch = s.get("chip") if s else None
+            if s is not None and ch:
+                col = chips[ch]["color"].lstrip("#")
+                s["_border"] = [int(col[j:j + 2], 16) for j in (0, 2, 4)]
+            if ch != run_chip:
+                if run_chip:
+                    img = cimgs[f"chip_{run_chip}"]
+                    fy = FRAMES.get(shots[i - 1]["_layout"], (BAND_Y,))[0]
+                    stickers.append(Sticker(img, run_start, shots[i - 1]["_end"], 22 + img.shape[1] / 2, fy + 46, "pop", layer=4))
+                run_chip, run_start = ch, (s["_start"] if s else None)
     hooks = [Sticker(imgs[hook_key], 0.0, total + 1, W / 2, 0, "slam", layer=9)]
     hh = hooks[0].pm.shape[0]
     hooks[0].y = 160 + hh / 2 - 28
@@ -779,7 +805,7 @@ def audio_and_final(job, work, voices, shots, lines, memes, sfx_ev, cuts, total,
     import pysubs2
     subs = pysubs2.SSAFile()
     subs.info.update({"PlayResX": str(W), "PlayResY": str(H), "WrapStyle": "2", "ScaledBorderAndShadow": "yes"})
-    subs.styles["C"] = pysubs2.SSAStyle(fontname="Luckiest Guy", fontsize=job.get("caption_size", 98),
+    subs.styles["C"] = pysubs2.SSAStyle(fontname=job.get("caption_font", "Luckiest Guy"), fontsize=job.get("caption_size", 98),
                                         primarycolor=pysubs2.Color(255, 255, 255), outlinecolor=pysubs2.Color(0, 0, 0),
                                         backcolor=pysubs2.Color(0, 0, 0, 110), outline=8, shadow=5,
                                         alignment=pysubs2.Alignment.MIDDLE_CENTER)
