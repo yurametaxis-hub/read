@@ -1,0 +1,42 @@
+{
+ "src": "/root/.claude/uploads/7b73558d-f0ae-55b2-821f-adbe74710189/c3376b15-1.mkv",
+ "t": 6.2,
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/fit/cover/cover_fit.png",
+ "crop_l": [
+  162,
+  40,
+  260,
+  680
+ ],
+ "crop_r": [
+  776,
+  40,
+  260,
+  680
+ ],
+ "labels": [
+  "FAT 🍔",
+  "FIT 💪"
+ ],
+ "colors": [
+  "#e0262f",
+  "#19b14c"
+ ],
+ "hook": "GTA 6 COUNTS YOUR [CALORIES]?! 😳",
+ "vs": "VS",
+ "vs_y": 590,
+ "delogo": [
+  [
+   16,
+   644,
+   300,
+   62
+  ],
+  [
+   961,
+   644,
+   300,
+   62
+  ]
+ ]
+}
