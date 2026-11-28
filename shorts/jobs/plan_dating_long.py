@@ -76,9 +76,11 @@ def listen(src, a, b, label, subs):
     return {"listen": [src, a, b], "label": label, "subs": subs}
 
 
-EYEFIND, LOVE, AD, PHOTO = [70, 30, 480, 270], [300, 60, 320, 180], [80, 50, 400, 225], [120, 40, 320, 180]
+# captions cover the bottom eighth of the frame, so the text a sentence talks about has to sit above it
+EYEFIND, LOVE, AD, PHOTO = [70, 30, 480, 270], [300, 80, 320, 180], [80, 50, 400, 225], [120, 40, 320, 180]
 TIRE, HANDS = [287, 120, 320, 180], [320, 180, 320, 180]
-CARMEN = [12, 0, 456, 256]  # her likes card: full name, darts, bars, Burger Shot 50%
+NOSUB = [32, 0, 1088, 612]  # h10 is 1280x720: keeps its burned-in subtitles (y 636..670) out of frame
+CARMEN = [0, 0, 533, 300]  # her likes card: full name, darts, bars, Burger Shot 50% above the caption
 
 P = [
     # hook
@@ -160,7 +162,7 @@ P = [
     # GTA VI
     [("And to be fair, GTA 6 really does change something.", [card("2026", "GTA VI|THE COUPLE IS THE STORY", "d6", 120)]),
      ("Your girlfriend isn't a side activity anymore. Lucia is one of the two main characters.",
-      [sh("h10", 45.4, VI), sh("d61", 45.5, VI)]),
+      [sh("h10", 45.4, VI, crop=NOSUB), sh("d61", 45.5, VI)]),
      ("There's literally a button to hold her hand.", [sh("d6", 29.0, VI, crop=HANDS)]),
      ("You walk around Vice City as a couple,", [sh("d6", 46.0, VI, repeat=True)]),
      ("and people notice.", [sh("d6", 57.6, VI)]),

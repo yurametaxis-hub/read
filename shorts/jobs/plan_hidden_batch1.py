@@ -81,10 +81,12 @@ job("voice_bear", "GTA 6 is trolling *activists* 🐻", [
     ("One of them is just filming it all for content.",
      [shot("h4", 18.05, x=0.664, x_end=0.60, y=0.45, zoom=1.3, speed=0.6, circle=[855, 300, 55], circle_t=[0.2, 2.0])]),
     ("Another one yells: stop being a tool of the bear abusers!", [shot("h4", 24.6, x=0.42, speed=0.7)]),
+    # h4 (1280x720) burns the game's subtitles into rows 560..680 and here they swear: y=0 with zoom 1.3
+    # or more keeps only rows 0..554
     ("Someone tries to break the truck open and says the tutorial made it look way easier.",
-     [shot("h4", 27.0, x=0.7, zoom=1.1, speed=0.55)]),
+     [shot("h4", 27.0, x=0.7, y=0, zoom=1.3, speed=0.55)]),
     ("And then comes the best line: you can't just let her out, you'll mess up the ecology. You guys care about that, right?",
-     [shot("h4", 22.0, x=0.62, zoom=1.35, repeat=True), shot("h4", 26.0, x=0.4, zoom=1.3, repeat=True)]),
+     [shot("h4", 22.0, x=0.62, y=0, zoom=1.35, repeat=True), shot("h4", 26.0, x=0.4, y=0, zoom=1.3, repeat=True)]),
     ("Rockstar still makes fun of everyone.", [shot("h1", 0.3, x=0.5, whoosh=True)]),
     ("Would you free the bear?", [dict(sign, t=19.6, speed=0.5, repeat=True)]),
 ])
@@ -119,9 +121,11 @@ job("voice_woke1997", "GTA went *woke* in 1997? 😳", [
 ])
 
 job("voice_girlboss", "Is Lucia a *girl boss*? 🤔", [
-    ("Is Lucia a girl boss?", [shot("h10", 44.6, x=0.5, zoom=1.1)]),
+    # h10 has the game's subtitles burned in at y 318..335 and they swear here: zoom 1.18 from the top keeps
+    # only rows 0..305
+    ("Is Lucia a girl boss?", [shot("h10", 44.6, x=0.5, y=0, zoom=1.18)]),
     ("In this robbery she flips a grown man over her shoulder like it's nothing.",
-     [shot("h10", 46.1, x=0.5), shot("h10", 48.0, x=0.5, speed=0.5, boom=1.5)]),
+     [shot("h10", 46.1, x=0.5, y=0, zoom=1.18), shot("h10", 48.0, x=0.5, y=0, zoom=1.18, speed=0.5, boom=1.5)]),
     ("Some reviewers already call it silly.", [shot("h10", 49.15, x=0.5, speed=0.8)]),
     ("But Lara Croft was doing backflips in 1996, and nobody cared.",
      [shot("h9", 34.3, x=0.45, whoosh=True, w=3), shot("h9", 29.5, x=0.45, w=1.4)]),
