@@ -1,0 +1,307 @@
+{
+ "out": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hull/out/hull_upgrade.mp4",
+ "work": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hull/work",
+ "fps": 30,
+ "header": [
+  "HULL CITY",
+  "FAN UPGRADES"
+ ],
+ "hook_sub": "wait for the last one 👀",
+ "outro": "WHO DESERVES MORE? 👇",
+ "music": "phonk",
+ "players": [
+  {
+   "name": "BUTLAND",
+   "photo": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hull/cut/butland.png",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "pos": "GK",
+   "gk": true,
+   "old": {
+    "ovr": 75,
+    "stats": [
+     76,
+     74,
+     72,
+     76,
+     49,
+     75
+    ]
+   },
+   "new": {
+    "ovr": 77,
+    "stats": [
+     78,
+     76,
+     73,
+     78,
+     49,
+     77
+    ]
+   },
+   "size": "small",
+   "reasons": [
+    {
+     "text": "[0] Premier League minutes this season"
+    },
+    {
+     "text": "+2 just for patience 😅",
+     "after": true
+    }
+   ]
+  },
+  {
+   "name": "MORITA",
+   "photo": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hull/cut/morita.png",
+   "flag": "🇯🇵",
+   "pos": "CM",
+   "gk": false,
+   "old": {
+    "ovr": 78,
+    "stats": [
+     68,
+     71,
+     75,
+     78,
+     72,
+     78
+    ]
+   },
+   "new": {
+    "ovr": 80,
+    "stats": [
+     69,
+     72,
+     78,
+     80,
+     74,
+     79
+    ]
+   },
+   "size": "small",
+   "reasons": [
+    {
+     "text": "Back from a [groin injury]"
+    }
+   ]
+  },
+  {
+   "name": "NORTON-CUFFY",
+   "photo": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hull/cut/nortoncuffy.png",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "pos": "RB",
+   "gk": false,
+   "old": {
+    "ovr": 75,
+    "stats": [
+     82,
+     49,
+     66,
+     75,
+     70,
+     68
+    ]
+   },
+   "new": {
+    "ovr": 78,
+    "stats": [
+     85,
+     50,
+     69,
+     77,
+     74,
+     70
+    ]
+   },
+   "size": "small",
+   "reasons": [
+    {
+     "text": "[22] years old with [82] pace already"
+    }
+   ]
+  },
+  {
+   "name": "IROEGBUNAM",
+   "photo": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hull/cut/iroegbunam.png",
+   "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+   "pos": "CDM",
+   "gk": false,
+   "old": {
+    "ovr": 76,
+    "stats": [
+     65,
+     58,
+     68,
+     74,
+     75,
+     72
+    ]
+   },
+   "new": {
+    "ovr": 79,
+    "stats": [
+     66,
+     60,
+     71,
+     76,
+     79,
+     75
+    ]
+   },
+   "size": "small",
+   "reasons": [
+    {
+     "text": "Signed from [Everton], fit again"
+    }
+   ]
+  },
+  {
+   "name": "THOMAS",
+   "photo": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hull/cut/thomas.png",
+   "flag": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+   "pos": "LM",
+   "gk": false,
+   "old": {
+    "ovr": 75,
+    "stats": [
+     87,
+     71,
+     74,
+     73,
+     48,
+     70
+    ]
+   },
+   "new": {
+    "ovr": 78,
+    "stats": [
+     88,
+     72,
+     78,
+     76,
+     49,
+     71
+    ]
+   },
+   "size": "small",
+   "reasons": [
+    {
+     "text": "[1] assist in his first [5] PL games"
+    }
+   ]
+  },
+  {
+   "name": "MENDY",
+   "photo": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hull/cut/mendy.png",
+   "flag": "🇸🇳",
+   "pos": "CB",
+   "gk": false,
+   "old": {
+    "ovr": 75,
+    "stats": [
+     80,
+     46,
+     58,
+     62,
+     73,
+     82
+    ]
+   },
+   "new": {
+    "ovr": 81,
+    "stats": [
+     82,
+     55,
+     62,
+     65,
+     80,
+     85
+    ]
+   },
+   "size": "big",
+   "reasons": [
+    {
+     "text": "A centre-back who [scored]"
+    },
+    {
+     "text": "in the [2-0] win over [Man United]"
+    }
+   ]
+  },
+  {
+   "name": "TZOLAKIS",
+   "photo": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hull/cut/tzolakis.png",
+   "flag": "🇬🇷",
+   "pos": "GK",
+   "gk": true,
+   "old": {
+    "ovr": 79,
+    "stats": [
+     78,
+     76,
+     76,
+     83,
+     54,
+     78
+    ]
+   },
+   "new": {
+    "ovr": 86,
+    "stats": [
+     85,
+     83,
+     79,
+     89,
+     56,
+     85
+    ]
+   },
+   "size": "big",
+   "reasons": [
+    {
+     "text": "[Man of the Match] vs Man United"
+    },
+    {
+     "text": "[9 saves] at Arsenal"
+    }
+   ]
+  },
+  {
+   "name": "McBURNIE",
+   "photo": "/tmp/claude-0/-home-user-read/7b73558d-f0ae-55b2-821f-adbe74710189/scratchpad/hull/cut/mcburnie.png",
+   "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+   "pos": "ST",
+   "gk": false,
+   "old": {
+    "ovr": 75,
+    "stats": [
+     59,
+     76,
+     66,
+     71,
+     36,
+     84
+    ]
+   },
+   "new": {
+    "ovr": 85,
+    "stats": [
+     65,
+     86,
+     72,
+     78,
+     40,
+     89
+    ]
+   },
+   "size": "hero",
+   "reasons": [
+    {
+     "text": "[17 goals] + [7 assists]"
+    },
+    {
+     "text": "to get Hull promoted 🔥"
+    }
+   ]
+  }
+ ]
+}
